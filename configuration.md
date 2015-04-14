@@ -10,7 +10,7 @@
 
 Unlike Laravel, Lumen only uses a single `.env` configuration file which can be used to configure the various aspects of the framework. The `.env.example` that ships with the framework can be used as a starting-point for your Lumen configuration.
 
-If you would like to use the `vlucas/phpdotenv` library to load your environment variables into the `$_ENV` PHP super-global, you should uncomment the call to `Dotenv::load` in your `bootstrap/app.php` file.
+> **Note:** If you would like to use the `vlucas/phpdotenv` library to load your environment variables into the `$_ENV` PHP super-global, you should uncomment the call to `Dotenv::load` in your `bootstrap/app.php` file.
 
 <a name="after-installation"></a>
 ## After Installation
