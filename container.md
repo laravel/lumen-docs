@@ -53,7 +53,7 @@ Secondly, but importantly, you may simply "type-hint" the dependency in the cons
 
 	<?php namespace App\Http\Controllers;
 
-	use Laravel\Lumen\Routing\Controller;
+	use App\Http\Controllers\Controller;
 	use App\Users\Repository as UserRepository;
 
 	class UserController extends Controller {
