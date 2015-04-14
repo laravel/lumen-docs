@@ -6,7 +6,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-Laravel provides facilities for strong AES encryption via the Mcrypt PHP extension.
+Lumen provides facilities for strong AES encryption via the Mcrypt PHP extension.
 
 <a name="basic-usage"></a>
 ## Basic Usage
