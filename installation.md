@@ -50,7 +50,7 @@ You may also want to configure a few additional components of Lumen, such as:
 
 - [Cache](/docs/cache#configuration)
 - [Database](/docs/database#configuration)
-- [Database](/docs/queues#configuration)
+- [Queues](/docs/queues#configuration)
 - [Session](/docs/session#configuration)
 
 <a name="permissions"></a>
