@@ -11,7 +11,7 @@
 <a name="basic-routing"></a>
 ## Basic Routing
 
-You will define most of the routes for your application in the `app/Http/routes.php` file, which is loaded by the `bootstrap/app.php` file. The most basic Lumen routes simply accept a URI and a `Closure`:
+You will define most of the routes for your application in the `app/Http/routes.php` file, which is loaded by the `bootstrap/app.php` file. Like Laravel, the most basic Lumen routes simply accept a URI and a `Closure`:
 
 #### Basic GET Route
 
