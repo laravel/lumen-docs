@@ -90,7 +90,7 @@ Now, you may use the route's name when generating URLs or redirects:
 
 Sometimes you may need to apply middleware to a group of routes. Instead of specifying the middleware on each route, you may use a route group.
 
-Shared attributes are specified in an array format as the first parameter to the `$app->group` method.
+Shared attributes are specified in an array format as the first parameter to the `$app->group()` method.
 
 <a name="route-group-middleware"></a>
 ### Middleware
