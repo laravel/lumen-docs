@@ -82,4 +82,4 @@ On Nginx, the following directive in your site configuration will allow "pretty"
 		try_files $uri $uri/ /index.php?$query_string;
 	}
 
-Of course, when using [Homestead](/docs/master/homestead), pretty URLs will be configured automatically.
+Of course, when using [Homestead](http://laravel.com/docs/homestead), pretty URLs will be configured automatically.
