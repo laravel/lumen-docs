@@ -48,7 +48,7 @@ You may also use the `event` helper to fire an event:
 
 #### Closure Listeners
 
-You can even listen to events without creating a separate handler class at all. For example, in the `boot` method of your `EventServiceProvider`, you could do the following:
+You can even listen to events without creating a separate handler class at all. For example, in the `register` method of a [service provider](/docs/providers), you could do the following:
 
 	Event::listen('App\Events\PodcastWasPurchased', function($event) {
 		// Handle the event...

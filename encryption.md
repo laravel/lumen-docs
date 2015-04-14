@@ -15,7 +15,7 @@ Laravel provides facilities for strong AES encryption via the Mcrypt PHP extensi
 
 	$encrypted = Crypt::encrypt('secret');
 
-> **Note:** Be sure to set a 16, 24, or 32 character random string in the `APP_KEY` option of the `.env` file. Otherwise, encrypted values will not be secure.
+> **Note:** Be sure to set a 32 character random string in the `APP_KEY` option of the `.env` file. Otherwise, encrypted values will not be secure.
 
 #### Decrypting A Value
 

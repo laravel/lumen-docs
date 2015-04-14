@@ -512,20 +512,6 @@ The field under validation must be a valid timezone identifier according to the 
 
 The field under validation must be unique on a given database table. If the `column` option is not specified, the field name will be used.
 
-Occasionally, you may need to set a custom connection for database queries made by the Validator. As seen above, setting `unique:users` as a validation rule will use the default database connection to query the database. To override this, do the following:
-
-	$verifier = App::make('validation.presence');
-
-	$verifier->setConnection('connectionName');
-
-	$validator = Validator::make($input, [
-		'name' => 'required',
-		'password' => 'required|min:8',
-		'email' => 'required|email|unique:users',
-	]);
-
-	$validator->setPresenceVerifier($verifier);
-
 #### Basic Usage Of Unique Rule
 
 	'email' => 'unique:users'
@@ -642,6 +628,8 @@ Lumen provides a variety of helpful validation rules; however, you may wish to s
 	Validator::extend('foo', function($attribute, $value, $parameters) {
 		return $value == 'foo';
 	});
+
+> **Note:** Validator extensions should be placed in [service providers](/docs/providers).
 
 The custom validator Closure receives three arguments: the name of the `$attribute` being validated, the `$value` of the attribute, and an array of `$parameters` passed to the rule.
 

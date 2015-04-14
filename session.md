@@ -13,6 +13,8 @@ Since HTTP driven applications are stateless, sessions provide a way to store in
 
 The session driver is controlled by the `SESSION_DRIVER` configuration option in your `.env` file. By default, Lumen is configured to use the `memcached` session driver, which will work well for the majority of applications.
 
+> **Note:** If you are using the `.env` file to configure your application, don't forget to uncomment the `Dotenv::load()` method in your `bootstrap/app.php` file.
+
 Before using Redis sessions with Lumen, you will need to install the `predis/predis` package (~1.0) via Composer.
 
 #### Reserved Keys
