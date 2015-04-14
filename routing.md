@@ -97,14 +97,14 @@ Shared attributes are specified in an array format as the first parameter to the
 
 Middleware is applied to all routes within the group by defining the list of middleware with the `middleware` parameter on the group attribute array. Middleware will be executed in the order you define this array:
 
-	$app->group(['middleware' => 'auth'], function($app)
+	$app->group(['middleware' => 'foo|bar'], function($app)
 	{
 		$app->get('/', function() {
-			// Uses Auth Middleware
+			// Uses Foo & Bar Middleware
 		});
 
 		$app->get('user/profile', function() {
-			// Uses Auth Middleware
+			// Uses Foo & Bar Middleware
 		});
 	});
 
@@ -113,15 +113,14 @@ Middleware is applied to all routes within the group by defining the list of mid
 
 You may use the `namespace` parameter in your group attribute array to specify the namespace for all controllers within the group:
 
-	$app->group(['namespace' => 'Admin'], function()
-	{
+	$app->group(['namespace' => 'Admin'], function() {
 		// Controllers Within The "App\Http\Controllers\Admin" Namespace
 	});
 
 <a name="csrf-protection"></a>
 ## CSRF Protection
 
-> **Note:** You must [enable session](/docs/session#session-usage) to utilize this feature of Lumen.
+> **Note:** You must [enable sessions](/docs/session#session-usage) to utilize this feature of Lumen.
 
 Lumen, like Laravel, makes it easy to protect your application from [cross-site request forgeries](http://en.wikipedia.org/wiki/Cross-site_request_forgery). Cross-site request forgeries are a type of malicious exploit whereby unauthorized commands are performed on behalf of the authenticated user.
 
@@ -131,11 +130,11 @@ Lumen automatically generates a CSRF "token" for each active user session manage
 
 	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
-Of course, using the Blade [templating engine](/docs/templating):
+Of course, using the Blade [templating engine](/docs/templates):
 
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-You do not need to manually verify the CSRF token on POST, PUT, or DELETE requests. The `Laravel\Lumen\Http\Middleware\VerifyCsrfToken` [HTTP middleware](/docs/middleware) will verify token in the request input matches the token stored in the session.
+You do not need to manually verify the CSRF token on POST, PUT, or DELETE requests. If it is enabled in the `bootstrap/app.php` file, the `Laravel\Lumen\Http\Middleware\VerifyCsrfToken` [HTTP middleware](/docs/middleware) will verify token in the request input matches the token stored in the session.
 
 #### X-CSRF-TOKEN
 
@@ -159,7 +158,7 @@ Now all AJAX requests will automatically include the CSRF token:
 
 Lumen also stores the CSRF token in a `XSRF-TOKEN` cookie. You can use the cookie value to set the `X-XSRF-TOKEN` request header. Some Javascript frameworks, like Angular, do this automatically for you.
 
-> Note: The difference between the `X-CSRF-TOKEN` and `X-XSRF-TOKEN` is that the first uses a plain text value and the latter uses an encrypted value, because cookies in Lumen are always encrypted when the global middleware in the `bootstrap/app` file are enabled.
+> Note: The difference between the `X-CSRF-TOKEN` and `X-XSRF-TOKEN` is that the first uses a plain text value and the latter uses an encrypted value, because cookies in Lumen are always encrypted when the global middleware in the `bootstrap/app.php` file are enabled.
 
 <a name="method-spoofing"></a>
 ## Method Spoofing
