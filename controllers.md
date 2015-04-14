@@ -39,7 +39,7 @@ We can route to the controller action like so:
 
 	$app->get('user/{id}', 'UserController@showProfile');
 
-> **Note:** All controllers should extend the base controller class.
+> **Note:** All controllers should extend the base `App\Http\Controllers\Controller` class.
 
 #### Naming Controller Routes
 
@@ -50,6 +50,10 @@ Like Closure routes, you may specify names on controller routes:
 These names can be used to generate URLs to the controller actions:
 
 	$url = route('name');
+
+If the route has parameters, you may specify them like so:
+
+	$url = route('name', ['id' => 1]);
 
 <a name="controller-middleware"></a>
 ## Controller Middleware
