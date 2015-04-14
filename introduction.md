@@ -1,7 +1,7 @@
 # Introduction
 
 - [What Is Lumen?](#what-is-lumen)
-- [When Should I Use Lumen?](#when-should-you-use-lumen)
+- [When Should I Use Lumen?](#when-should-i-use-lumen)
 - [Which Laravel Features Does Lumen Include?](#lumen-features)
 
 <a name="what-is-lumen"></a>
