@@ -44,9 +44,9 @@ There are several ways to generate a `RedirectResponse` instance. The simplest m
 
 #### Returning A Redirect With Flash Data
 
-> **Note:** Before using flash data, you will need to [enable sessions](/docs/session#session-usage).
+> **Note:** Before using flash data, you must [enable sessions](/docs/session#session-usage).
 
-Redirecting to a new URL and [flashing data to the session](/docs/master/session) are typically done at the same time. So, for convenience, you may create a `RedirectResponse` instance **and** flash data to the session in a single method chain:
+Redirecting to a new URL and [flashing data to the session](/docs/session) are typically done at the same time. So, for convenience, you may create a `RedirectResponse` instance **and** flash data to the session in a single method chain:
 
 	return redirect('user/login')->with('message', 'Login Failed');
 

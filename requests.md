@@ -103,7 +103,7 @@ When working on forms with "array" inputs, you may use dot notation to access th
 <a name="old-input"></a>
 ## Old Input
 
-> **Note:** Before utilizing this feature of Lumen, you will need to [enable sessions](/docs/session#session-usage).
+> **Note:** Before utilizing this feature of Lumen, you must [enable sessions](/docs/session#session-usage).
 
 Lumen, like Laravel, also allows you to keep input from one request during the next request. For example, you may need to re-populate a form after checking it for validation errors.
 
