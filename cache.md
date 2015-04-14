@@ -14,6 +14,8 @@ The `CACHE_DRIVER` option in your `.env` file determines the cache "driver" to b
 - `redis`
 - `database`
 
+> **Note:** If you are using the `.env` file to configure your application, don't forget to uncomment the `Dotenv::load()` method in your `bootstrap/app.php` file.
+
 ### Memcached
 
 If you are using the Memcached driver, you may also set the `MEMCACHED_HOST` and `MEMCACHED_PORT` options in your `.env` configuration file.
