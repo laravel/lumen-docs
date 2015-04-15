@@ -37,7 +37,7 @@ Here is an example of a basic controller class:
 
 We can route to the controller action like so:
 
-	$app->get('user/{id}', 'UserController@showProfile');
+	$app->get('user/{id}', 'App\Http\Controllers\UserController@showProfile');
 
 > **Note:** All controllers should extend the base `App\Http\Controllers\Controller` class.
 
@@ -45,7 +45,7 @@ We can route to the controller action like so:
 
 Like Closure routes, you may specify names on controller routes:
 
-	$app->get('foo', ['uses' => 'FooController@method', 'as' => 'name']);
+	$app->get('foo', ['uses' => 'App\Http\Controllers\FooController@method', 'as' => 'name']);
 
 These names can be used to generate URLs to the controller actions:
 
@@ -62,7 +62,7 @@ If the route has parameters, you may specify them like so:
 
 	$app->get('profile', [
 		'middleware' => 'auth',
-		'uses' => 'UserController@showProfile'
+		'uses' => 'App\Http\Controllers\UserController@showProfile'
 	]);
 
 Additionally, you may specify middleware within your controller's constructor:
