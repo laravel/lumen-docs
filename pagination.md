@@ -29,7 +29,7 @@ Sometimes you may wish to create a pagination instance manually, passing it an a
 
 #### Paginating An Eloquent Model
 
-You may also paginate [Eloquent](/docs/master/eloquent) models:
+You may also paginate [Eloquent](http://laravel.com/docs/master/eloquent) models:
 
 	$allUsers = User::paginate(15);
 
