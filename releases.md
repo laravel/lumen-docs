@@ -5,4 +5,4 @@
 <a name="1.0"></a>
 ## Lumen 1.0
 
-Lumen 1.0 is the initial release of the Lumen framework, as is based on the Laravel 5.x series of PHP components.
+Lumen 1.0 is the initial release of the Lumen framework, and is based on the Laravel 5.x series of PHP components.
