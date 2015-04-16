@@ -15,6 +15,7 @@
     - [Service Providers](/docs/providers)
     - [Service Container](/docs/container)
 - Services
+    - [Authentication](/docs/authentication)
     - [Cache](/docs/cache)
     - [Database](/docs/database)
     - [Encryption](/docs/encryption)
