@@ -35,6 +35,4 @@ Of course, you may easily use the full Eloquent ORM with Lumen. To learn how to 
 <a name="migrations"></a>
 ## Migrations
 
-If you would like to use database migrations with Lumen, you should run the `php artisan make database` Artisan command. This command will create a `database` directory in your project root which contains `migrations` and `seeds` directories.
-
 For further information on how to create database tables and run migrations, check out the Laravel documentation on the [schema builder](http://laravel.com/docs/schema) and [migrator](http://laravel.com/docs/migrations).

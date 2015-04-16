@@ -7,8 +7,6 @@
 
 Views contain the HTML served by your application, and serve as a convenient method of separating your controller and domain logic from your presentation logic. Views are stored in the `resources/views` directory.
 
-> **Note:** By default, the `resources` directory is not included in a fresh Lumen application. To create this directory, execute the `php artisan make resources` Artisan command.
-
 A simple view looks like this:
 
 	<!-- View stored in resources/views/greeting.php -->

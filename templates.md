@@ -8,8 +8,6 @@
 
 Blade is a simple, yet powerful templating engine provided with Laravel, and it's even available in Lumen. Blade is driven by _template inheritance_ and _sections_. All Blade templates should use the `.blade.php` extension.
 
-> **Note:** By default, the `resources` directory is not included in a fresh Lumen application. To create this directory, execute the `php artisan make resources` Artisan command.
-
 #### Defining A Blade Layout
 
 	<!-- Stored in resources/views/layouts/master.blade.php -->

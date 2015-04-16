@@ -616,8 +616,6 @@ In some cases, you may wish to specify your custom messages in a language file i
 		],
 	],
 
-> **Note:** By default, language files are not included in the Lumen application. To create them, use the `php artisan make resources` Artisan command.
-
 <a name="custom-validation-rules"></a>
 ## Custom Validation Rules
 
