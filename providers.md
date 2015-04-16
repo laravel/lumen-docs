@@ -11,7 +11,7 @@ Service providers are the central place of all Lumen application bootstrapping. 
 
 But, what do we mean by "bootstrapped"? In general, we mean **registering** things, including registering service container bindings and event listeners. Service providers are the central place to configure your application.
 
-If you open the `bootstrap/app.php` file included with Laravel, you will see a call to `$app->register()`. You may add additional calls to this method to register additional service providers.
+If you open the `bootstrap/app.php` file included with Lumen, you will see a call to `$app->register()`. You may add additional calls to this method to register additional service providers.
 
 In this overview you will learn how to write your own service providers and register them with your Lumen application.
 
