@@ -113,7 +113,7 @@ Middleware is applied to all routes within the group by defining the list of mid
 
 You may use the `namespace` parameter in your group attribute array to specify the namespace for all controllers within the group:
 
-	$app->group(['namespace' => 'Admin'], function() {
+	$app->group(['namespace' => 'Admin'], function($app) {
 		// Controllers Within The "App\Http\Controllers\Admin" Namespace
 	});
 
