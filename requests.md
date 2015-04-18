@@ -109,7 +109,7 @@ Lumen, like Laravel, also allows you to keep input from one request during the n
 
 #### Flashing Input To The Session
 
-The `flash` method will flash the current input to the [session](/docs/master/session) so that it is available during the user's next request to the application:
+The `flash` method will flash the current input to the [session](/docs/session) so that it is available during the user's next request to the application:
 
 	Request::flash();
 
