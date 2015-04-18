@@ -10,7 +10,7 @@
 
 > **Note:** By default, the `illuminate/mail` package is not included with Lumen, so you will need to add the `illuminate/mail` dependency in your `composer.json` file.
 
-Lumen utilizes Laravel's mail libraries provides a clean, simple API over the popular [SwiftMailer](http://swiftmailer.org) library.
+Lumen utilizes Laravel's mail libraries and provides a clean, simple API over the popular [SwiftMailer](http://swiftmailer.org) library.
 
 The `MAIL_*` options in your `.env` file are used to configure your mail settings. By default, a sample SMTP configuration is provided. However, you may use any SMTP server you wish.
 
