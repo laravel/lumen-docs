@@ -134,7 +134,7 @@ Of course, using the Blade [templating engine](/docs/templates):
 
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-You do not need to manually verify the CSRF token on POST, PUT, or DELETE requests. If it is enabled in the `bootstrap/app.php` file, the `Laravel\Lumen\Http\Middleware\VerifyCsrfToken` [HTTP middleware](/docs/middleware) will verify token in the request input matches the token stored in the session.
+You do not need to manually verify the CSRF token on POST, PUT, or DELETE requests. If it is enabled in the `bootstrap/app.php` file, the `Laravel\Lumen\Http\Middleware\VerifyCsrfToken` [HTTP middleware](/docs/middleware) will verify that the token in the request input matches the token stored in the session.
 
 #### X-CSRF-TOKEN
 
