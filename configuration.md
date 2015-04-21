@@ -34,7 +34,7 @@ Laravel may require some permissions to be configured: folders within `storage` 
 <a name="configuration-files"></a>
 ## Configuration Files
 
-By default, Lumen uses a single `.env` file to configure your application. However, you may use full, "Laravel style" configuration files if you wish. The default configuration files are stored in `vendor/laravel/lumen/config` directory. Lumen will use your copy of the configuration file if you copy and paste one of the files into a `config` directory within your project root.
+By default, Lumen uses a single `.env` file to configure your application. However, you may use full, "Laravel style" configuration files if you wish. The default configuration files are stored in `vendor/laravel/lumen-framework/config` directory. Lumen will use your copy of the configuration file if you copy and paste one of the files into a `config` directory within your project root.
 
 Using full configuration files will give you more control over some aspects of Lumen's configuration, such as configuring multiple storage "disks" or read / write database connections.
 
