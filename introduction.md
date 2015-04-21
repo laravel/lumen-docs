@@ -11,7 +11,7 @@ Lumen is a "micro-framework" built on top of Laravel's components, and is the of
 
 However, unlike many other micro-frameworks, Lumen lets you tap into the full power of Laravel's features, such as routing, dependency injection, the Eloquent ORM, migrations, queued jobs, and even scheduled commands.
 
-Laravel is already fast and powerful, but Lumen strips away many of the configuration and customization options that Laravel provides in order to shave every millisecond possible off of your service's load time.
+Laravel is already fast and powerful, but Lumen strips away many of the configuration and customization options that Laravel provides in order to save every millisecond possible off of your service's load time.
 
 The stunningly fast speed of Lumen, combined with the convenience of Laravel's features gives you a "best of both worlds" micro-framework that is truly a joy to work with.
 
