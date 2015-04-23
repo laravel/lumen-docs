@@ -41,6 +41,8 @@ The Lumen framework has a few system requirements:
 - Mbstring PHP Extension
 - Tokenizer PHP Extension
 
+> **Note:** Lumen doesn't support running in a subdirectory, it only works under domain root. For an easy to set up development environment, take a look at [Homestead](http://laravel.com/docs/homestead).
+
 <a name="configuration"></a>
 ## Configuration
 
