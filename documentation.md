@@ -14,7 +14,7 @@
 - Architecture Foundations
     - [Service Providers](/docs/providers)
     - [Service Container](/docs/container)
-- Basic Features
+- Core Features
     - [Cache](/docs/cache)
     - [Database](/docs/database)
     - [Encryption](/docs/encryption)
