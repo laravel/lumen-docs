@@ -68,7 +68,7 @@ The `getContent` method will return the evaluated string contents of the respons
 
 To call a HTTPS route, you may use the `callSecure` method:
 
-	$response = $this->callSecure('GET', 'foo/bar');
+	$response = $this->callSecure('GET', '/foo/bar');
 
 <a name="mocking-facades"></a>
 ## Mocking Facades
