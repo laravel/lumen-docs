@@ -50,7 +50,7 @@ The `testing` environment variables may be configured in the `phpunit.xml` file.
 
 You may easily call one of your routes for a test using the `call` method:
 
-	$response = $this->call('GET', 'user/profile');
+	$response = $this->call('GET', '/user/profile');
 
 	$response = $this->call(
 		$method, $uri, $parameters, $cookies, $files, $server, $content
