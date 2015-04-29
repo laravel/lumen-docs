@@ -117,6 +117,31 @@ You may use the `namespace` parameter in your group attribute array to specify t
 		// Controllers Within The "App\Http\Controllers\Admin" Namespace
 	});
 
+<a name="route-prefixing"></a>
+### Route Prefixing
+
+A group of routes may be prefixed by using the `prefix` option in the attributes array of a group:
+
+	$app->group(['prefix' => 'admin'], function()
+	{
+		$app->get('users', function()
+		{
+			// Matches The "/admin/users" URL
+		});
+	});
+
+You can also utilize the `prefix` parameter to pass common parameters to your routes:
+
+#### Registering a URL parameter in a route prefix
+
+	$app->group(['prefix' => 'accounts/{account_id}'], function()
+	{
+		$app->get('detail', function($account_id)
+		{
+			//
+		});
+	});
+
 <a name="csrf-protection"></a>
 ## CSRF Protection
 
