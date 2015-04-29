@@ -15,7 +15,7 @@ The session driver is controlled by the `SESSION_DRIVER` configuration option in
 
 > **Note:** If you are using the `.env` file to configure your application, don't forget to uncomment the `Dotenv::load()` method in your `bootstrap/app.php` file.
 
-Before using Redis sessions with Lumen, you will need to install the `predis/predis` package (~1.0) and `illuminate/redis` package(~5.0) via Composer.
+Before using Redis sessions with Lumen, you will need to install the `predis/predis` package (~1.0) and `illuminate/redis` package (~5.0) via Composer.
 
 #### Reserved Keys
 
