@@ -76,7 +76,7 @@ Named routes allow you to conveniently generate URLs or redirects for a specific
 You may also specify route names for controller actions:
 
 	$app->get('user/profile', [
-		'as' => 'profile', 'uses' => 'UserController@showProfile'
+		'as' => 'profile', 'uses' => 'App\Http\Controllers\UserController@showProfile'
 	]);
 
 Now, you may use the route's name when generating URLs or redirects:
@@ -113,7 +113,7 @@ Middleware is applied to all routes within the group by defining the list of mid
 
 You may use the `namespace` parameter in your group attribute array to specify the namespace for all controllers within the group:
 
-	$app->group(['namespace' => 'Admin'], function($app) {
+	$app->group(['namespace' => 'App\Http\Controllers\Admin'], function($app) {
 		// Controllers Within The "App\Http\Controllers\Admin" Namespace
 	});
 
