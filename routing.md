@@ -133,7 +133,7 @@ A group of routes may be prefixed by using the `prefix` option in the attributes
 
 You can also utilize the `prefix` parameter to pass common parameters to your routes:
 
-#### Registering a URL parameter in a route prefix
+#### URL Parameter In Prefix
 
 	$app->group(['prefix' => 'accounts/{account_id}'], function()
 	{
