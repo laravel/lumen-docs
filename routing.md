@@ -4,6 +4,7 @@
 - [Route Parameters](#route-parameters)
 - [Named Routes](#named-routes)
 - [Route Groups](#route-groups)
+- [Route Prefixing](#route-prefixing)
 - [CSRF Protection](#csrf-protection)
 - [Method Spoofing](#method-spoofing)
 - [Throwing 404 Errors](#throwing-404-errors)
