@@ -123,7 +123,7 @@ You may use the `namespace` parameter in your group attribute array to specify t
 
 A group of routes may be prefixed by using the `prefix` option in the attributes array of a group:
 
-	$app->group(['prefix' => 'admin'], function()
+	$app->group(['prefix' => 'admin'], function($app)
 	{
 		$app->get('users', function()
 		{
@@ -135,7 +135,7 @@ You can also utilize the `prefix` parameter to pass common parameters to your ro
 
 #### URL Parameter In Prefix
 
-	$app->group(['prefix' => 'accounts/{account_id}'], function()
+	$app->group(['prefix' => 'accounts/{account_id}'], function($app)
 	{
 		$app->get('detail', function($account_id)
 		{
