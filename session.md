@@ -21,6 +21,12 @@ Before using Redis sessions with Lumen, you will need to install the `predis/pre
 
 The Lumen framework uses the `flash` session key internally, so you should not add an item to the session by that name.
 
+#### Session Persistance
+
+Uncoment following middleware for session persistance from `app.php`
+
+Illuminate\Session\Middleware\StartSession
+
 <a name="session-usage"></a>
 ## Session Usage
 
