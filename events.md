@@ -73,7 +73,7 @@ If you would like your event listener to be [queued](/docs/queues), you may mark
 
 	class SendPurchaseConfirmation implements ShouldBeQueued {
 
-		public function (PurchasePodcast $event)
+		public function handle(PurchasePodcast $event)
 		{
 			//
 		}
