@@ -27,6 +27,8 @@ To create a new middleware, simply create a class with a `handle` method like th
 For example, let's create a middleware that will only allow access to the route if the supplied `age` is greater than 200. Otherwise, we will redirect the users back to the "home" URI.
 
 	<?php namespace App\Http\Middleware;
+	
+	use Closure;
 
 	class OldMiddleware {
 
@@ -57,6 +59,8 @@ It's best to envision middleware as a series of "layers" HTTP requests must pass
 Whether a middleware runs before or after a request depends on the middleware itself. This middleware would perform some task **before** the request is handled by the application:
 
 	<?php namespace App\Http\Middleware;
+	
+	use Closure;
 
 	class BeforeMiddleware implements Middleware {
 
@@ -71,6 +75,8 @@ Whether a middleware runs before or after a request depends on the middleware it
 However, this middleware would perform its task **after** the request is handled by the application:
 
 	<?php namespace App\Http\Middleware;
+	
+	use Closure;
 
 	class AfterMiddleware implements Middleware {
 
