@@ -22,7 +22,7 @@ If you are using the Memcached driver, you may also set the `MEMCACHED_HOST` and
 
 ### Redis
 
-Before using a Redis cache with Laravel, you will need to install the `predis/predis` package (~1.0) via Composer.
+Before using a Redis cache with Lumen, you will need to install the `predis/predis` (~1.0) and the `illuminate/redis` (~5.0) packages via Composer.
 
 ### Database
 
