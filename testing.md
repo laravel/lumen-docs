@@ -84,6 +84,8 @@ When testing, you may often want to mock a call to a static facade. For example,
 
 We can mock the call to the `Event` class by using the `shouldReceive` method on the facade, which will return an instance of a [Mockery](https://github.com/padraic/mockery) mock.
 
+> **Note:** Lumen does not install Mockery by default. It can be installed with `composer require mockery/mockery --dev`
+
 #### Mocking A Facade
 
 	public function testGetIndex()
