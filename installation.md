@@ -35,7 +35,7 @@ You may also install Lumen by issuing the Composer `create-project` command in y
 
 The Lumen framework has a few system requirements:
 
-- PHP >= 5.4
+- PHP >= 5.5.9
 - Mcrypt PHP Extension
 - OpenSSL PHP Extension
 - Mbstring PHP Extension
