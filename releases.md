@@ -1,7 +1,7 @@
 # Release Notes
 
 - [5.0.4](#5.0.4)
-- [5.0 (Based On Laravel 5.x)](#5.0)
+- [5.0 (Based On Laravel 5.0.x)](#5.0)
 
 <a name="5.0.4"></a>
 ## Lumen 5.0.4
