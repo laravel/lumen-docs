@@ -24,7 +24,7 @@ The `AUTH_DRIVER` value specifies the authentication driver used by the framewor
 
 The `AUTH_MODEL` option specifies the name of the Eloquent model to be used for authentication. This model must implement the `Illuminate\Contracts\Auth\Authenticatable` contract. For an example model, check out the `App\User` model included in the full-stack Laravel framework.
 
-The `AUTH_TABLE` option specifies which databse table contains the "users" of your application. Of course, this option only applies when using the `database` authentication driver.
+The `AUTH_TABLE` option specifies which database table contains the "users" of your application. Of course, this option only applies when using the `database` authentication driver.
 
 <a name="basic-usage"></a>
 ## Basic Usage
