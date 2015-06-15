@@ -168,7 +168,7 @@ You may also use the `prefix` parameter to specify common parameters for your gr
 <a name="csrf-protection"></a>
 ## CSRF Protection
 
-> **Note:** You must [enable sessions](/docs/session) before utilizing this Lumen feature.
+> **Note:** You must [enable sessions](/docs/session) before using this Lumen feature.
 
 <a name="csrf-introduction"></a>
 ### Introduction
