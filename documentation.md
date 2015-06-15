@@ -1,9 +1,6 @@
-- Prologue
-    - [Introduction](/docs/introduction)
-    - [Release Notes](/docs/releases)
 - Getting Started
     - [Installation](/docs/installation)
-    - [Configuration](/docs/configuration)
+    - [Release Notes](/docs/releases)
 - The Basics
     - [Routing](/docs/routing)
     - [Middleware](/docs/middleware)
