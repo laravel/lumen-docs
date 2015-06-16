@@ -12,7 +12,6 @@
 	- [Route Prefixes](#route-group-prefixes)
 - [CSRF Protection](#csrf-protection)
 	- [Introduction](#csrf-introduction)
-	- [Excluding URIs](#csrf-excluding-uris)
 	- [X-CSRF-Token](#csrf-x-csrf-token)
 	- [X-XSRF-Token](#csrf-x-xsrf-token)
 - [Form Method Spoofing](#form-method-spoofing)
@@ -175,44 +174,13 @@ You may also use the `prefix` parameter to specify common parameters for your gr
 
 Lumen makes it easy to protect your application from [cross-site request forgeries](http://en.wikipedia.org/wiki/Cross-site_request_forgery). Cross-site request forgeries are a type of malicious exploit whereby unauthorized commands are performed on behalf of the authenticated user.
 
-Lumen automatically generates a CSRF "token" for each active user session managed by the application. This token is used to verify that the authenticated user is the one actually making the requests to the application. To generate a hidden input field `_token` containing the CSRF token, you may use the `csrf_field` helper function:
+Lumen automatically generates a CSRF "token" for each active user session managed by the application. This token is used to verify that the authenticated user is the one actually making the requests to the application. To retrieve the current CSRF token value, use the `csrf_token` helper:
 
-	<?php echo csrf_field(); ?>
-
-The `csrf_field` helper function generates the following HTML:
+	<?php echo csrf_token(); ?>
 
 	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
-Of course, using the Blade templating engine:
-
-	{!! csrf_field() !!}
-
 You do not need to manually verify the CSRF token on POST, PUT, or DELETE requests. The `VerifyCsrfToken` [HTTP middleware](/docs/middleware) will verify token in the request input matches the token stored in the session.
-
-<a name="csrf-excluding-uris"></a>
-### Excluding URIs From CSRF Protection
-
-Sometimes you may wish to exclude a set of URIs from CSRF protection. For example, if you are using [Stripe](https://stripe.com) to process payments and are utilizing their webhook system, you will need to exclude your webhook handler route from Lumen's CSRF protection.
-
-You may exclude URIs by adding them to the `$except` property of the `VerifyCsrfToken` middleware:
-
-	<?php
-
-	namespace App\Http\Middleware;
-
-	use Laravel\Lumen\Http\Middleware\VerifyCsrfToken as BaseVerifier;
-
-	class VerifyCsrfToken extends BaseVerifier
-	{
-	    /**
-	     * The URIs that should be excluded from CSRF verification.
-	     *
-	     * @var array
-	     */
-	    protected $except = [
-	        'stripe/*',
-	    ];
-	}
 
 <a name="csrf-x-csrf-token"></a>
 ### X-CSRF-TOKEN
