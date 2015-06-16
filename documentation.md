@@ -8,14 +8,12 @@
     - [Requests](/docs/requests)
     - [Responses](/docs/responses)
     - [Views](/docs/views)
-- Core Features
-    - [Authentication](/docs/authentication)
+- More Features
     - [Cache](/docs/cache)
     - [Database](/docs/database)
     - [Encryption](/docs/encryption)
     - [Errors & Logging](/docs/errors)
     - [Events](/docs/events)
-    - [Hashing](/docs/hashing)
     - [Queues](/docs/queues)
     - [Service Container](/docs/container)
     - [Service Providers](/docs/providers)

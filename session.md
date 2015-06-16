@@ -3,12 +3,11 @@
 - [Introduction](#introduction)
 - [Basic Usage](#basic-usage)
 	- [Flash Data](#flash-data)
-- [Adding Custom Session Drivers](#adding-custom-session-drivers)
 
 <a name="introduction"></a>
 ## Introduction
 
-Since HTTP driven applications are stateless, sessions provide a way to store information about the user across requests. Laravel ships with a variety of session back-ends available for use through a clean, unified API. Support for popular back-ends such as [Memcached](http://memcached.org), [Redis](http://redis.io), and databases is included out of the box.
+Since HTTP driven applications are stateless, sessions provide a way to store information about the user across requests. Lumen ships with a variety of session back-ends available for use through a clean, unified API. Support for popular back-ends such as [Memcached](http://memcached.org), [Redis](http://redis.io), and databases is included out of the box.
 
 ### Enabling The Session
 
@@ -18,7 +17,7 @@ To enable sessions, you must uncomment all of the middleware within the `$app->m
 
 The session driver is controlled by the `SESSION_DRIVER` configuration option in your `.env` file. By default, Lumen is configured to use the `memcached` session driver, which will work well for the majority of applications. In production applications, you may consider using the `memcached` or `redis` drivers for even faster session performance.
 
-The session driver defines where session data will be stored for each request. Laravel ships with several great drivers out of the box:
+The session driver defines where session data will be stored for each request. Lumen ships with several great drivers out of the box:
 
 <div class="content-list" markdown="1">
 - `file` - sessions are stored in `storage/framework/sessions`.
@@ -44,18 +43,18 @@ When using the `database` session driver, you will need to setup a table to cont
 
 #### Redis
 
-Before using Redis sessions with Laravel, you will need to install the `predis/predis` package (~1.0) via Composer.
+Before using Redis sessions with Lumen, you will need to install the `predis/predis` package (~1.0) via Composer.
 
 ### Other Session Considerations
 
-The Laravel framework uses the `flash` session key internally, so you should not add an item to the session by that name.
+The Lumen framework uses the `flash` session key internally, so you should not add an item to the session by that name.
 
 <a name="basic-usage"></a>
 ## Basic Usage
 
 #### Accessing The Session
 
-First, let's access the session. We can access the session instance via the HTTP request, which can be type-hinted on a controller method. Remember, controller method dependencies are injected via the Laravel [service container](/docs/container):
+First, let's access the session. We can access the session instance via the HTTP request, which can be type-hinted on a controller method. Remember, controller method dependencies are injected via the Lumen [service container](/docs/container):
 
 	<?php
 
@@ -155,71 +154,3 @@ If you need to keep your flash data around for even more requests, you may use t
 	$request->session()->reflash();
 
 	$request->session()->keep(['username', 'email']);
-
-<a name="adding-custom-session-drivers"></a>
-## Adding Custom Session Drivers
-
-To add additional drivers to Laravel's session back-end, you may use the `extend` method on the `Session` [facade](/docs/session). You can call the `extend` method from the `boot` method of a [service provider](/docs/providers):
-
-    <?php
-
-    namespace App\Providers;
-
-    use Session;
-    use App\Extensions\MongoSessionStore;
-    use Illuminate\Support\ServiceProvider;
-
-    class SessionServiceProvider extends ServiceProvider
-    {
-        /**
-         * Perform post-registration booting of services.
-         *
-         * @return void
-         */
-        public function boot()
-        {
-			Session::extend('mongo', function($app) {
-				// Return implementation of SessionHandlerInterface...
-				return new MongoSessionStore;
-			});
-        }
-
-        /**
-         * Register bindings in the container.
-         *
-         * @return void
-         */
-        public function register()
-        {
-            //
-        }
-    }
-
-Note that your custom session driver should implement the `SessionHandlerInterface`. This interface contains just a few simple methods we need to implement. A stubbed MongoDB implementation looks something like this:
-
-	<?php
-
-	namespace App\Extensions;
-
-	class MongoHandler implements SessionHandlerInterface
-	{
-		public function open($savePath, $sessionName) {}
-		public function close() {}
-		public function read($sessionId) {}
-		public function write($sessionId, $data) {}
-		public function destroy($sessionId) {}
-		public function gc($lifetime) {}
-	}
-
-Since these methods are not as readily understandable as the cache `StoreInterface`, let's quickly cover what each of the methods do:
-
-<div class="content-list" markdown="1">
-- The `open` method would typically be used in file based session store systems. Since Laravel ships with a `file` session driver, you will almost never need to put anything in this method. You can leave it as an empty stub. It is simply a fact of poor interface design (which we'll discuss later) that PHP requires us to implement this method.
-- The `close` method, like the `open` method, can also usually be disregarded. For most drivers, it is not needed.
-- The `read` method should return the string version of the session data associated with the given `$sessionId`. There is no need to do any serialization or other encoding when retrieving or storing session data in your driver, as Laravel will perform the serialization for you.
-- The `write` method should write the given `$data` string associated with the `$sessionId` to some persistent storage system, such as MongoDB, Dynamo, etc.
-- The `destroy` method should remove the data associated with the `$sessionId` from persistent storage.
-- The `gc` method should destroy all session data that is older than the given `$lifetime`, which is a UNIX timestamp. For self-expiring systems like Memcached and Redis, this method may be left empty.
-</div>
-
-Once the session driver has been registered, you may use the `mongo` driver in your `.env` configuration file.
