@@ -41,7 +41,7 @@ Once installed, the simple `lumen new` command will create a fresh Lumen install
 
 You may also install Lumen by issuing the Composer `create-project` command in your terminal:
 
-	composer create-project lumen/lumen --prefer-dist
+	composer create-project laravel/lumen --prefer-dist
 
 <a name="configuration"></a>
 ## Configuration
