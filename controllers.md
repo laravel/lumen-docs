@@ -104,7 +104,6 @@ The Lumen [service container](/docs/container) is used to resolve all Lumen cont
 
 	namespace App\Http\Controllers;
 
-	use Illuminate\Routing\Controller;
 	use App\Repositories\UserRepository;
 
 	class UserController extends Controller
@@ -135,7 +134,6 @@ In addition to constructor injection, you may also type-hint dependencies on you
 	namespace App\Http\Controllers;
 
 	use Illuminate\Http\Request;
-	use Illuminate\Routing\Controller;
 
 	class UserController extends Controller
 	{
@@ -160,7 +158,6 @@ If your controller method is also expecting input from a route parameter, simply
 	namespace App\Http\Controllers;
 
 	use Illuminate\Http\Request;
-	use Illuminate\Routing\Controller;
 
 	class UserController extends Controller
 	{
