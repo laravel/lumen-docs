@@ -20,7 +20,7 @@ You may use the `DB_*` configuration options in your `.env` configuration file t
 
 #### Basic Queries
 
-To learn how to execute basic, raw SQL queries via the database component, you may consult the [full Laravel documentation](http://laravel.com/docs/database#running-queries).
+To learn how to execute basic, raw SQL queries via the database component, you may consult the [full Laravel documentation](http://laravel.com/docs/database).
 
 #### Query Builder
 
@@ -35,4 +35,4 @@ Of course, you may easily use the full Eloquent ORM with Lumen. To learn how to 
 <a name="migrations"></a>
 ## Migrations
 
-For further information on how to create database tables and run migrations, check out the Laravel documentation on the [schema builder](http://laravel.com/docs/schema) and [migrator](http://laravel.com/docs/migrations).
+For further information on how to create database tables and run migrations, check out the Laravel documentation on the [schema builder](http://laravel.com/docs/migrations) and [migrator](http://laravel.com/docs/migrations).
