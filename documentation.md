@@ -19,7 +19,6 @@
     - [Errors & Logging](/docs/errors)
     - [Events](/docs/events)
     - [Hashing](/docs/hashing)
-    - [Helpers](/docs/helpers)
     - [Queues](/docs/queues)
     - [Session](/docs/session)
     - [Unit Testing](/docs/testing)
