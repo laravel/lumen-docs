@@ -1,7 +1,13 @@
 # Release Notes
 
+- [5.1.0](#5.1.0)
 - [5.0.4](#5.0.4)
 - [5.0 (Based On Laravel 5.0.x)](#5.0)
+
+<a name="5.1.0"></a>
+## Lumen 5.1.0
+
+Lumen 5.1.0 upgrades the framework to use the 5.1 family of Laravel components. Features such as event broadcasting, middleware parameters, and testing improvements are now available in Lumen. For the full Laravel 5.1 release notes, consult the [Laravel documentation](http://laravel.com/docs/releases).
 
 <a name="5.0.4"></a>
 ## Lumen 5.0.4
