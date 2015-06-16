@@ -8,9 +8,6 @@
     - [Requests](/docs/requests)
     - [Responses](/docs/responses)
     - [Views](/docs/views)
-- Architecture Foundations
-    - [Service Providers](/docs/providers)
-    - [Service Container](/docs/container)
 - Core Features
     - [Authentication](/docs/authentication)
     - [Cache](/docs/cache)
@@ -20,6 +17,8 @@
     - [Events](/docs/events)
     - [Hashing](/docs/hashing)
     - [Queues](/docs/queues)
+    - [Service Container](/docs/container)
+    - [Service Providers](/docs/providers)
     - [Session](/docs/session)
     - [Unit Testing](/docs/testing)
     - [Validation](/docs/validation)
