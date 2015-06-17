@@ -132,9 +132,3 @@ The logger provides the seven logging levels defined in [RFC 5424](http://tools.
 An array of contextual data may also be passed to the log methods. This contextual data will be formatted and displayed with the log message:
 
 	Log::info('User failed to login.', ['id' => $user->id]);
-
-#### Accessing The Underlying Monolog Instance
-
-Monolog has a variety of additional handlers you may use for logging. If needed, you may access the underlying Monolog instance being used by Lumen:
-
-	$monolog = Log::getMonolog();
