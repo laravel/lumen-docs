@@ -35,4 +35,4 @@ Of course, you may easily use the full Eloquent ORM with Lumen. To learn how to 
 <a name="migrations"></a>
 ## Migrations
 
-For further information on how to create database tables and run migrations, check out the Laravel documentation on the [schema builder](http://laravel.com/docs/migrations) and [migrator](http://laravel.com/docs/migrations).
+For further information on how to create database tables and run migrations, check out the Laravel documentation on the  [migrations](http://laravel.com/docs/migrations).
