@@ -93,6 +93,8 @@ Sometimes you may need to apply middleware to a group of routes. Instead of spec
 
 Shared attributes are specified in an array format as the first parameter to the `$app->group()` method.
 
+> **Note:** Unlike Laravel, nested groups will not work.
+
 <a name="route-group-middleware"></a>
 ### Middleware
 
