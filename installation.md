@@ -57,7 +57,7 @@ After installing Lumen, you should set your application key to a 32 character, r
 
 #### Additional Configuration
 
-Lumen needs almost no other configuration out of the box. You are free to get started developing! However, you may wish to review the `config/app.php` file and its documentation. It contains several options such as `timezone` and `locale` that you may wish to change according to your application.
+Lumen needs almost no other configuration out of the box. You are free to get started developing!
 
 You may also want to configure a few additional components of Lumen, such as:
 
