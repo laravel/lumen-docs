@@ -308,7 +308,7 @@ Another option is to wrap every test case in a database transaction. Again, Lume
 <a name="model-factories"></a>
 ### Model Factories
 
-When testing, it is common to need to insert a few records into your database before executing your test. Instead of manually specifying the value of each column when you create this test data, Lumen allows you to define a default set of attributes for each of your [Eloquent models](/docs/eloquent) using "factories". To get started, take a look at the `database/factories/ModelFactory.php` file in your application. Out of the box, this file contains one factory definition:
+When testing, it is common to need to insert a few records into your database before executing your test. Instead of manually specifying the value of each column when you create this test data, Lumen allows you to define a default set of attributes for each of your [Eloquent models](http://laravel.com/docs/5.1/eloquent) using "factories". To get started, take a look at the `database/factories/ModelFactory.php` file in your application. Out of the box, this file contains one factory definition:
 
 	$factory->define('App\User', function ($faker) {
 	    return [
@@ -392,7 +392,7 @@ Again, you may override attributes on the model by passing an array to the `crea
 
 #### Adding Relations To Models
 
-You may even persist multiple models to the database. In this example, we'll even attach a relation to the created models. When using the `create` method to create multiple models, an Eloquent [collection instance](/docs/eloquent-collections) is returned, allowing you to use any of the convenient functions provided by the collection, such as `each`:
+You may even persist multiple models to the database. In this example, we'll even attach a relation to the created models. When using the `create` method to create multiple models, an Eloquent [collection instance](http://laravel.com/docs/5.1/eloquent-collections) is returned, allowing you to use any of the convenient functions provided by the collection, such as `each`:
 
     $users = factory('App\User', 3)
                ->create()
