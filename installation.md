@@ -11,7 +11,7 @@
 
 ### Server Requirements
 
-The Lumen framework has a few system requirements. Of course, all of these requirements are satisfied by the [Laravel Homestead](http://lumen.com/docs/homestead) virtual machine:
+The Lumen framework has a few system requirements. Of course, all of these requirements are satisfied by the [Laravel Homestead](http://laravel.com/docs/homestead) virtual machine:
 
 <div class="content-list" markdown="1">
 - PHP >= 5.5.9
