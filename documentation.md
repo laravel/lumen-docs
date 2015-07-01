@@ -1,9 +1,6 @@
-- Prologue
-    - [Introduction](/docs/introduction)
-    - [Release Notes](/docs/releases)
 - Getting Started
     - [Installation](/docs/installation)
-    - [Configuration](/docs/configuration)
+    - [Release Notes](/docs/releases)
 - The Basics
     - [Routing](/docs/routing)
     - [Middleware](/docs/middleware)
@@ -11,24 +8,15 @@
     - [Requests](/docs/requests)
     - [Responses](/docs/responses)
     - [Views](/docs/views)
-- Architecture Foundations
-    - [Service Providers](/docs/providers)
-    - [Service Container](/docs/container)
-- Core Features
+- More Features
     - [Cache](/docs/cache)
     - [Database](/docs/database)
     - [Encryption](/docs/encryption)
     - [Errors & Logging](/docs/errors)
     - [Events](/docs/events)
-    - [Helpers](/docs/helpers)
     - [Queues](/docs/queues)
+    - [Service Container](/docs/container)
+    - [Service Providers](/docs/providers)
+    - [Session](/docs/session)
     - [Unit Testing](/docs/testing)
     - [Validation](/docs/validation)
-- Full-Stack Features
-    - [Authentication](/docs/authentication)
-    - [Filesystem / Cloud Storage](/docs/filesystem)
-    - [Hashing](/docs/hashing)
-    - [Mail](/docs/mail)
-    - [Pagination](/docs/pagination)
-    - [Session](/docs/session)
-    - [Templates](/docs/templates)

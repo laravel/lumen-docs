@@ -2,196 +2,210 @@
 
 - [Basic Routing](#basic-routing)
 - [Route Parameters](#route-parameters)
+	- [Required Parameters](#required-parameters)
+	- [Regular Expression Constraints](#parameters-regular-expression-constraints)
 - [Named Routes](#named-routes)
 - [Route Groups](#route-groups)
-- [Route Prefixing](#route-prefixing)
+	- [Middleware](#route-group-middleware)
+	- [Namespaces](#route-group-namespaces)
+	- [Sub-Domain Routing](#route-group-sub-domain-routing)
+	- [Route Prefixes](#route-group-prefixes)
 - [CSRF Protection](#csrf-protection)
-- [Method Spoofing](#method-spoofing)
+	- [Introduction](#csrf-introduction)
+	- [X-CSRF-Token](#csrf-x-csrf-token)
+	- [X-XSRF-Token](#csrf-x-xsrf-token)
+- [Form Method Spoofing](#form-method-spoofing)
 - [Throwing 404 Errors](#throwing-404-errors)
 
 <a name="basic-routing"></a>
 ## Basic Routing
 
-You will define most of the routes for your application in the `app/Http/routes.php` file, which is loaded by the `bootstrap/app.php` file. Like Laravel, the most basic Lumen routes simply accept a URI and a `Closure`:
+You will define most of the routes for your application in the `app/Http/routes.php` file, which is loaded by the `bootstrap/app.php` file. The most basic Lumen routes simply accept a URI and a `Closure`:
 
-#### Basic GET Route
-
-	$app->get('/', function() {
+	$app->get('/', function () {
 		return 'Hello World';
 	});
 
-#### Other Basic Routes
-
-	$app->post('foo/bar', function() {
+	$app->post('foo/bar', function () {
 		return 'Hello World';
 	});
 
-	$app->patch('foo/bar', function() {
+	$app->put('foo/bar', function () {
 		//
 	});
 
-	$app->put('foo/bar', function() {
+	$app->delete('foo/bar', function () {
 		//
 	});
 
-	$app->delete('foo/bar', function() {
-		//
-	});
+#### Generating URLs To Routes
 
-Often, you will need to generate URLs to your routes, you may do so using the `url` helper:
+You may generate URLs to your application's routes using the `url` helper:
 
 	$url = url('foo');
-
-#### Routing Requests To Controllers
-
-If you are interested in routing requests to classes, check out the documentation on [controllers](/docs/controllers).
 
 <a name="route-parameters"></a>
 ## Route Parameters
 
-Of course, you can capture segments of the request URI within your route:
+<a name="required-parameters"></a>
+### Required Parameters
 
-#### Basic Route Parameter
+Of course, sometimes you will need to capture segments of the URI within your route. For example, you may need to capture a user's ID from the URL. You may do so by defining route parameters:
 
-	$app->get('user/{id}', function($id) {
+	$app->get('user/{id}', function ($id) {
 		return 'User '.$id;
 	});
 
-#### Regular Expression Parameter Constraints
+You may define as many route parameters as required by your route:
 
-> **Note:** This is the only portion of Lumen that is not directly portable to the full Laravel framework. If you choose to upgrade your Lumen application to Laravel, your regular expression constraints must be moved to a `where` method call on the route.
+	$app->get('posts/{post}/comments/{comment}', function ($postId, $commentId) {
+		//
+	});
 
-	$app->get('user/{name:[A-Za-z]+}', function($name) {
+Route parameters are always encased within "curly" braces. The parameters will be passed into your route's `Closure` when the route is executed.
+
+> **Note:** Route parameters cannot contain the `-` character. Use an underscore (`_`) instead.
+
+<a name="parameters-regular-expression-constraints"></a>
+### Regular Expression Constraints
+
+You may constrain the format of your route parameters by defining a regular expression in your route definition:
+
+	$app->get('user/{name:[A-Za-z]+}', function ($name) {
 		//
 	});
 
 <a name="named-routes"></a>
 ## Named Routes
 
-Named routes allow you to conveniently generate URLs or redirects for a specific route. You may specify a name for a route with the `as` array key:
+Named routes allow you to conveniently generate URLs or redirects for a specific route. You may specify a name for a route using the `as` array key when defining the route:
 
-	$app->get('user/profile', ['as' => 'profile', function() {
+	$app->get('user/profile', ['as' => 'profile', function () {
 		//
 	}]);
 
 You may also specify route names for controller actions:
 
 	$app->get('user/profile', [
-		'as' => 'profile', 'uses' => 'App\Http\Controllers\UserController@showProfile'
+		'as' => 'profile', 'uses' => 'UserController@showProfile'
 	]);
 
-Now, you may use the route's name when generating URLs or redirects:
+#### Generating URLs To Named Routes
+
+Once you have assigned a name to a given route, you may use the route's name when generating URLs or redirects via the `route` function:
 
 	$url = route('profile');
 
 	$redirect = redirect()->route('profile');
 
+If the route defines parameters, you may pass the parameters as the second argument to the `route` method. The given parameters will automatically be inserted into the URL:
+
+	$app->get('user/{id}/profile', ['as' => 'profile', function ($id) {
+		//
+	}]);
+
+	$url = route('profile', ['id' => 1]);
+
 <a name="route-groups"></a>
 ## Route Groups
 
-Sometimes you may need to apply middleware to a group of routes. Instead of specifying the middleware on each route, you may use a route group.
+Route groups allow you to share route attributes, such as middleware or namespaces, across a large number of routes without needing to define those attributes on each individual routes. Shared attributes are specified in an array format as the first parameter to the `$app->group` method.
 
-Shared attributes are specified in an array format as the first parameter to the `$app->group()` method.
+To learn more about route groups, we'll walk through several common use-cases for the feature.
 
 <a name="route-group-middleware"></a>
 ### Middleware
 
-Middleware is applied to all routes within the group by defining the list of middleware with the `middleware` parameter on the group attribute array. Middleware will be executed in the order you define this array:
+To assign middleware to all routes within a group, you may use the `middleware` key in the group attribute array. Middleware will be executed in the order you define this array:
 
-	$app->group(['middleware' => 'foo|bar'], function($app)
-	{
-		$app->get('/', function() {
-			// Uses Foo & Bar Middleware
+	$app->group(['middleware' => 'auth'], function () {
+		$app->get('/', function ()	{
+			// Uses Auth Middleware
 		});
 
-		$app->get('user/profile', function() {
-			// Uses Foo & Bar Middleware
+		$app->get('user/profile', function () {
+			// Uses Auth Middleware
 		});
 	});
 
-<a name="route-group-namespace"></a>
+<a name="route-group-namespaces"></a>
 ### Namespaces
 
-You may use the `namespace` parameter in your group attribute array to specify the namespace for all controllers within the group:
+Another common use-case for route groups is assigning the same PHP namespace to a group of controllers. You may use the `namespace` parameter in your group attribute array to specify the namespace for all controllers within the group:
 
-	$app->group(['namespace' => 'App\Http\Controllers\Admin'], function($app) {
+	$app->group(['namespace' => 'Admin'], function()
+	{
 		// Controllers Within The "App\Http\Controllers\Admin" Namespace
+
+		Route::group(['namespace' => 'User'], function()
+		{
+			// Controllers Within The "App\Http\Controllers\Admin\User" Namespace
+		});
 	});
 
-<a name="route-prefixing"></a>
-### Route Prefixing
+Remember, by default, the `RouteServiceProvider` includes your `routes.php` file within a namespace group, allowing you to register controller routes without specifying the full `App\Http\Controllers` namespace prefix. So, we only need to specify the portion of the namespace that comes after the base `App\Http\Controllers` namespace root.
 
-A group of routes may be prefixed by using the `prefix` option in the attributes array of a group:
+<a name="route-group-prefixes"></a>
+### Route Prefixes
 
-	$app->group(['prefix' => 'admin'], function($app)
-	{
-		$app->get('users', function()
-		{
+The `prefix` group array attribute may be used to prefix each route in the group with a given URI. For example, you may want to prefix all route URIs within the group with `admin`:
+
+	$app->group(['prefix' => 'admin'], function () {
+		$app->get('users', function ()	{
 			// Matches The "/admin/users" URL
 		});
 	});
 
-You can also utilize the `prefix` parameter to pass common parameters to your routes:
+You may also use the `prefix` parameter to specify common parameters for your grouped routes:
 
-#### URL Parameter In Prefix
-
-	$app->group(['prefix' => 'accounts/{account_id}'], function($app)
-	{
-		$app->get('detail', function($account_id)
-		{
-			//
+	$app->group(['prefix' => 'accounts/{account_id}'], function () {
+		$app->get('detail', function ($account_id)	{
+			// Matches The accounts/{account_id}/detail URL
 		});
 	});
 
 <a name="csrf-protection"></a>
 ## CSRF Protection
 
-> **Note:** You must [enable sessions](/docs/session#session-usage) to utilize this feature of Lumen.
+> **Note:** You must [enable sessions](/docs/session) before using this Lumen feature.
 
-Lumen, like Laravel, makes it easy to protect your application from [cross-site request forgeries](http://en.wikipedia.org/wiki/Cross-site_request_forgery). Cross-site request forgeries are a type of malicious exploit whereby unauthorized commands are performed on behalf of the authenticated user.
+<a name="csrf-introduction"></a>
+### Introduction
 
-Lumen automatically generates a CSRF "token" for each active user session managed by the application. This token is used to verify that the authenticated user is the one actually making the requests to the application.
+Lumen makes it easy to protect your application from [cross-site request forgeries](http://en.wikipedia.org/wiki/Cross-site_request_forgery). Cross-site request forgeries are a type of malicious exploit whereby unauthorized commands are performed on behalf of the authenticated user.
 
-#### Insert The CSRF Token Into A Form
+Lumen automatically generates a CSRF "token" for each active user session managed by the application. This token is used to verify that the authenticated user is the one actually making the requests to the application. To retrieve the current CSRF token value, use the `csrf_token` helper:
+
+	<?php echo csrf_token(); ?>
 
 	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
-Of course, using the Blade [templating engine](/docs/templates):
+You do not need to manually verify the CSRF token on POST, PUT, or DELETE requests. The `VerifyCsrfToken` [HTTP middleware](/docs/middleware) will verify token in the request input matches the token stored in the session.
 
-	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<a name="csrf-x-csrf-token"></a>
+### X-CSRF-TOKEN
 
-You do not need to manually verify the CSRF token on POST, PUT, or DELETE requests. If it is enabled in the `bootstrap/app.php` file, the `Laravel\Lumen\Http\Middleware\VerifyCsrfToken` [HTTP middleware](/docs/middleware) will verify that the token in the request input matches the token stored in the session.
+In addition to checking for the CSRF token as a POST parameter, the Lumen `VerifyCsrfToken` middleware will also check for the `X-CSRF-TOKEN` request header. You could, for example, store the token in a "meta" tag:
 
-#### X-CSRF-TOKEN
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-In addition to looking for the CSRF token as a "POST" parameter, the middleware will also check for the `X-CSRF-TOKEN` request header. You could, for example, store the token in a "meta" tag and instruct jQuery to add it to all request headers:
-
-	<meta name="csrf-token" content="{{ csrf_token() }}" />
+Once you have created the `meta` tag, you can instruct a library like jQuery to add the token to all request headers. This provides simple, convenient CSRF protection for your AJAX based applications:
 
 	$.ajaxSetup({
-		headers: {
-			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		}
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
 	});
 
-Now all AJAX requests will automatically include the CSRF token:
+<a name="csrf-x-xsrf-token"></a>
+### X-XSRF-TOKEN
 
-	$.ajax({
-	   url: "/foo/bar",
-	})
+Lumen also stores the CSRF token in a `XSRF-TOKEN` cookie. You can use the cookie value to set the `X-XSRF-TOKEN` request header. Some JavaScript frameworks, like Angular, do this automatically for you. It is unlikely that you will need to use this value manually.
 
-#### X-XSRF-TOKEN
+<a name="form-method-spoofing"></a>
+## Form Method Spoofing
 
-Lumen also stores the CSRF token in a `XSRF-TOKEN` cookie. You can use the cookie value to set the `X-XSRF-TOKEN` request header. Some Javascript frameworks, like Angular, do this automatically for you.
-
-> Note: The difference between the `X-CSRF-TOKEN` and `X-XSRF-TOKEN` is that the first uses a plain text value and the latter uses an encrypted value, because cookies in Lumen are always encrypted when the global middleware in the `bootstrap/app.php` file are enabled.
-
-<a name="method-spoofing"></a>
-## Method Spoofing
-
-HTML forms do not support `PUT`, `PATCH` or `DELETE` actions. So, when defining `PUT`, `PATCH` or `DELETE` routes that are called from an HTML form, you will need to add a hidden `_method` field to the form.
-
-The value sent with the `_method` field will be used as the HTTP request method. For example:
+HTML forms do not support `PUT`, `PATCH` or `DELETE` actions. So, when defining `PUT`, `PATCH` or `DELETE` routes that are called from an HTML form, you will need to add a hidden `_method` field to the form. The value sent with the `_method` field will be used as the HTTP request method:
 
 	<form action="/foo/bar" method="POST">
 		<input type="hidden" name="_method" value="PUT">
@@ -201,11 +215,9 @@ The value sent with the `_method` field will be used as the HTTP request method.
 <a name="throwing-404-errors"></a>
 ## Throwing 404 Errors
 
-There are two ways to manually trigger a 404 error from a route. First, you may use the `abort` helper:
+There are two ways to manually trigger a 404 error from a route. First, you may use the `abort` helper. The `abort` helper simply throws a `Symfony\Component\HttpFoundation\Exception\HttpException` with the specified status code:
 
 	abort(404);
-
-The `abort` helper simply throws a `Symfony\Component\HttpKernel\Exception\HttpException` with the specified status code.
 
 Secondly, you may manually throw an instance of `Symfony\Component\HttpKernel\Exception\NotFoundHttpException`.
 

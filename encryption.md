@@ -1,30 +1,58 @@
 # Encryption
 
-- [Introduction](#introduction)
+- [Configuration](#configuration)
 - [Basic Usage](#basic-usage)
 
-<a name="introduction"></a>
-## Introduction
+<a name="configuration"></a>
+## Configuration
 
-Lumen provides facilities for strong AES encryption via the Mcrypt PHP extension.
+Before using Lumens's encrypter, you should set the `APP_KEY` option of your `bootstrap/app.php` file to a 32 character, random string. If this value is not properly set, all values encrypted by Lumens will be insecure.
 
 <a name="basic-usage"></a>
 ## Basic Usage
 
 #### Encrypting A Value
 
-	$encrypted = Crypt::encrypt('secret');
+You may encrypt a value using the `Crypt` facade. All encrypted values are encrypted using OpenSSL and the `AES-256-CBC` cipher. Furthermore, all encrypted values are signed with a message authentication code (MAC) to detect any modifications to the encrypted string.
 
-> **Note:** Be sure to set a 32 character random string in the `APP_KEY` option of the `.env` file. Otherwise, encrypted values will not be secure.
+For example, we may use the `encrypt` method to encrypt a secret and store it on an [Eloquent model](http://laravel.com/docs/5.1/eloquent):
+
+	<?php
+
+	namespace App\Http\Controllers;
+
+	use Crypt;
+	use App\User;
+	use Illuminate\Http\Request;
+	use App\Http\Controllers\Controller;
+
+	class UserController extends Controller
+	{
+		/**
+		 * Store a secret message for the user.
+		 *
+		 * @param  Request  $request
+		 * @param  int  $id
+		 * @return Response
+		 */
+		public function storeSecret(Request $request, $id)
+		{
+			$user = User::findOrFail($id);
+
+			$user->fill([
+				'secret' => Crypt::encrypt($request->secret)
+			])->save();
+		}
+	}
 
 #### Decrypting A Value
 
-	$decrypted = Crypt::decrypt($encryptedValue);
+Of course, you may decrypt values using the `decrypt` method on the `Crypt` facade. If the value can not be properly decrypted, such as when the MAC is invalid, an `Illuminate\Contracts\Encryption\DecryptException` will be thrown:
 
-#### Setting The Cipher & Mode
+	use Illuminate\Contracts\Encryption\DecryptException;
 
-You may also set the cipher and mode used by the encrypter:
-
-	Crypt::setMode('ctr');
-
-	Crypt::setCipher($cipher);
+	try {
+		$decrypted = Crypt::decrypt($encryptedValue);
+	} catch (DecryptException $e) {
+		//
+	}
