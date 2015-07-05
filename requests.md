@@ -184,7 +184,7 @@ To retrieve flashed input from the previous request, use the `old` method on the
 
 	$username = $request->old('username');
 
-Lumen also provides a global `old` helper function. If you are displaying old input within a [Blade template](/docs/views), it is more convenient to use the `old` helper:
+Lumen also provides a global `old` helper function. If you are displaying old input within a [Blade template](http://laravel.com/docs/blade), it is more convenient to use the `old` helper:
 
 	{{ old('username') }}
 
