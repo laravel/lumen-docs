@@ -460,7 +460,7 @@ Lumen provides a convenient `expectsJobs` method that will verify that the expec
 <a name="mocking-facades"></a>
 ### Mocking Facades
 
-When testing, you may often want to mock a call to a Lumen [facade](/docs/facades). For example, consider the following controller action:
+When testing, you may often want to mock a call to a Lumen [facade](http://laravel.com/docs/facades). For example, consider the following controller action:
 
 	<?php
 
