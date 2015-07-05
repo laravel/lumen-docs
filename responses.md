@@ -139,7 +139,7 @@ If you are redirecting to a route with an "ID" parameter that is being populated
 
 > **Note:** You must [enable sessions](/docs/session) before using this feature.
 
-Redirecting to a new URL and [flashing data to the session](/docs/session) are typically done at the same time. So, for convenience, you may create a `RedirectResponse` instance **and** flash data to the session in a single method chain. This is particularly convenient for storing status messages after an action:
+Redirecting to a new URL and [flashing data to the session](/docs/session#flash-data) are typically done at the same time. So, for convenience, you may create a `RedirectResponse` instance **and** flash data to the session in a single method chain. This is particularly convenient for storing status messages after an action:
 
 	$app->post('user/profile', function () {
 		// Update the user's profile...
@@ -147,7 +147,7 @@ Redirecting to a new URL and [flashing data to the session](/docs/session) are t
 		return redirect('dashboard')->with('status', 'Profile updated!');
 	});
 
-Of course, after the user is redirected to a new page, you may retrieve and display the flashed message from the [session](/docs/session). For example, using [Blade syntax](/docs/views):
+Of course, after the user is redirected to a new page, you may retrieve and display the flashed message from the [session](/docs/session). For example, using [Blade syntax](http://laravel.com/docs/blade#control-structures):
 
 	@if (session('status'))
 		<div class="alert alert-success">
