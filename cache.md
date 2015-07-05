@@ -38,7 +38,7 @@ Before using a Redis cache with Lumen, you will need to install the `predis/pred
 <a name="obtaining-a-cache-instance"></a>
 ### Obtaining A Cache Instance
 
-The `Illuminate\Contracts\Cache\Factory` and `Illuminate\Contracts\Cache\Repository` [contracts](/docs/contracts) provide access to Lumen's cache services. The `Factory` contract provides access to all cache drivers defined for your application. The `Repository` contract is typically an implementation of the default cache driver for your application as specified by your `cache` configuration file.
+The `Illuminate\Contracts\Cache\Factory` and `Illuminate\Contracts\Cache\Repository` [contracts](http://laravel.com/docs/contracts) provide access to Lumen's cache services. The `Factory` contract provides access to all cache drivers defined for your application. The `Repository` contract is typically an implementation of the default cache driver for your application as specified by your `cache` configuration file.
 
 However, you may also use the `Cache` facade, which is what we will use throughout this documentation. The `Cache` facade provides convenient, terse access to the underlying implementations of the Lumen cache contracts.
 
