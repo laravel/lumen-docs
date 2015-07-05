@@ -93,4 +93,4 @@ So, what if we need to register a view composer within our service provider? Thi
 <a name="registering-providers"></a>
 ## Registering Providers
 
-All service providers are registered in the `bootstrap/app.php` file. This file contains a call to the `$app->register()` method. You may add as many calls to the `regsiter` method as needed to register all of your providers.
+All service providers are registered in the `bootstrap/app.php` file. This file contains a call to the `$app->register()` method. You may add as many calls to the `register` method as needed to register all of your providers.
