@@ -37,7 +37,7 @@ The `EventServiceProvider` included with your Lumen application provides a conve
 <a name="defining-events"></a>
 ## Defining Events
 
-An event class is simply a data container which holds the information related to the event. For example, let's assume our generated `PodcastWasPurchased` event receives a [Eloquent ORM](/docs/eloquent) object:
+An event class is simply a data container which holds the information related to the event. For example, let's assume our generated `PodcastWasPurchased` event receives a [Eloquent ORM](http://laravel.com/docs/eloquent) object:
 
 	<?php
 
