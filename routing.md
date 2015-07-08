@@ -118,7 +118,7 @@ To learn more about route groups, we'll walk through several common use-cases fo
 
 To assign middleware to all routes within a group, you may use the `middleware` key in the group attribute array. Middleware will be executed in the order you define this array:
 
-	$app->group(['middleware' => 'auth'], function () {
+	$app->group(['middleware' => 'auth'], function ($app) {
 		$app->get('/', function ()	{
 			// Uses Auth Middleware
 		});
@@ -150,7 +150,7 @@ Remember, by default, the `RouteServiceProvider` includes your `routes.php` file
 
 The `prefix` group array attribute may be used to prefix each route in the group with a given URI. For example, you may want to prefix all route URIs within the group with `admin`:
 
-	$app->group(['prefix' => 'admin'], function () {
+	$app->group(['prefix' => 'admin'], function ($app) {
 		$app->get('users', function ()	{
 			// Matches The "/admin/users" URL
 		});
@@ -158,7 +158,7 @@ The `prefix` group array attribute may be used to prefix each route in the group
 
 You may also use the `prefix` parameter to specify common parameters for your grouped routes:
 
-	$app->group(['prefix' => 'accounts/{account_id}'], function () {
+	$app->group(['prefix' => 'accounts/{account_id}'], function ($app) {
 		$app->get('detail', function ($account_id)	{
 			// Matches The accounts/{account_id}/detail URL
 		});
