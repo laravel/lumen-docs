@@ -133,17 +133,30 @@ To assign middleware to all routes within a group, you may use the `middleware` 
 
 Another common use-case for route groups is assigning the same PHP namespace to a group of controllers. You may use the `namespace` parameter in your group attribute array to specify the namespace for all controllers within the group:
 
-	$app->group(['namespace' => 'Admin'], function()
+	$app->group(['namespace' => 'Admin'], function($app)
 	{
 		// Controllers Within The "App\Http\Controllers\Admin" Namespace
 
-		Route::group(['namespace' => 'User'], function()
+		$app->group(['namespace' => 'User'], function()
 		{
 			// Controllers Within The "App\Http\Controllers\Admin\User" Namespace
 		});
 	});
 
 Remember, by default, the `RouteServiceProvider` includes your `routes.php` file within a namespace group, allowing you to register controller routes without specifying the full `App\Http\Controllers` namespace prefix. So, we only need to specify the portion of the namespace that comes after the base `App\Http\Controllers` namespace root.
+
+<a name="route-group-sub-domain-routing"></a>
+### Sub-Domain Routing
+
+Route groups may also be used to route wildcard sub-domains. Sub-domains may be assigned route parameters just like route URIs, allowing you to capture a portion of the sub-domain for usage in your route or controller. The sub-domain may be specified using the domain key on the group attribute array:
+
+```php
+$app->group(['domain' => '{account}.myapp.com'], function ($app) {
+    $app->get('user/{id}', function ($account, $id) {
+        //
+    });
+});
+```
 
 <a name="route-group-prefixes"></a>
 ### Route Prefixes
