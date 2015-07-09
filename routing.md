@@ -8,7 +8,6 @@
 - [Route Groups](#route-groups)
 	- [Middleware](#route-group-middleware)
 	- [Namespaces](#route-group-namespaces)
-	- [Sub-Domain Routing](#route-group-sub-domain-routing)
 	- [Route Prefixes](#route-group-prefixes)
 - [CSRF Protection](#csrf-protection)
 	- [Introduction](#csrf-introduction)
