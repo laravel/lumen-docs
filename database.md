@@ -18,6 +18,13 @@ You may use the `DB_*` configuration options in your `.env` configuration file t
 
 > **Note:** If you would like to use the `DB` facade, you should uncomment the `$app->withFacades()` call in your `bootstrap/app.php` file.
 
+    $results = app('db')->select("SELECT * FROM users");
+
+or, with facades enabled:
+
+    $results = DB::select("SELECT * FROM users");
+
+
 #### Basic Queries
 
 To learn how to execute basic, raw SQL queries via the database component, you may consult the [full Laravel documentation](http://laravel.com/docs/database).
