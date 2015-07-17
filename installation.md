@@ -106,7 +106,7 @@ Feel free to modify your environment variables as needed for your own local serv
 If you are developing with a team, you may wish to continue including a `.env.example` file with your application. By putting place-holder values in the example configuration file, other developers on your team can clearly see which environment variables are needed to run your application.
 
 <a name="configuration-files"></a>
-#### Configuration files
+#### Configuration Files
 
 You may use full "Laravel style" configuration files if you wish. The default files are stored in the `vendor/laravel/lumen-framework/config` directory. Lumen will use your copy of the configuration file if you copy and paste one of the files into a `config` directory within your project root.
 
@@ -115,7 +115,7 @@ Using full configuration files will give you more control over some aspects of L
 <a name="custom-configuration-files"></a>
 #### Custom Configuration Files
 
-You may also create your own custom configuration files and load them using the `$app->configure()` method. For example, if your configuration file is located in `config/options.php`, you can load the file like so:
+You may also create your own custom configuration files and load them using the `$app->configure()` method. For example, if your configuration file is located at `config/options.php`, you can load the file like so:
 
 	$app->configure('options');
 
