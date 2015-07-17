@@ -18,9 +18,11 @@ You may use the `DB_*` configuration options in your `.env` configuration file t
 
 > **Note:** If you would like to use the `DB` facade, you should uncomment the `$app->withFacades()` call in your `bootstrap/app.php` file.
 
+For example, without facades enabled, you may access a database connection via the `app` helper:
+
     $results = app('db')->select("SELECT * FROM users");
 
-or, with facades enabled:
+Or, with facades enabled, you may access the database connection via the `DB` facade:
 
     $results = DB::select("SELECT * FROM users");
 
