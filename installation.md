@@ -4,6 +4,8 @@
 - [Configuration](#configuration)
 	- [Basic Configuration](#basic-configuration)
 	- [Environment Configuration](#environment-configuration)
+	- [Configuration Files](#configuration-files)
+	- [Custom Configuration Files](#custom-configuration-files)
 	- [Accessing Configuration Values](#accessing-configuration-values)
 
 <a name="installation"></a>
@@ -102,6 +104,20 @@ All of the variables listed in this file will be loaded into the `$_ENV` PHP sup
 Feel free to modify your environment variables as needed for your own local server, as well as your production environment. However, your `.env` file should not be committed to your application's source control, since each developer / server using your application could require a different environment configuration.
 
 If you are developing with a team, you may wish to continue including a `.env.example` file with your application. By putting place-holder values in the example configuration file, other developers on your team can clearly see which environment variables are needed to run your application.
+
+<a name="configuration-files"></a>
+#### Configuration files
+
+You may use full "Laravel style" configuration files if you wish. The default files are stored in the `vendor/laravel/lumen-framework/config` directory. Lumen will use your copy of the configuration file if you copy and paste one of the files into a `config` directory within your project root.
+
+Using full configuration files will give you more control over some aspects of Lumen's configuration, such as configuring multiple storage "disks" or read / write database connections.
+
+<a name="custom-configuration-files"></a>
+#### Custom Configuration Files
+
+You may also create your own custom configuration files and load them using the `$app->configure()` method. For example, if your configuration file is located in `config/options.php`, you can load the file like so:
+
+	$app->configure('options');
 
 #### Accessing The Current Application Environment
 
