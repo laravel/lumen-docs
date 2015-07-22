@@ -57,6 +57,8 @@ Unlike the full-stack Laravel framework which has multiple configuration files, 
 
 After installing Lumen, you should set your application key to a 32 character, random string. The key can be set in the `.env` environment file. If you have not renamed the `.env.example` file to `.env`, you should do that now. **If the application key is not set, your user sessions and other encrypted data will not be secure!**
 
+> **Note:** In order for your configuration values to be loaded, you will need to uncomment the `Dotenv::load()` method call in your `bootstrap/app.php` file.
+
 #### Additional Configuration
 
 Lumen needs almost no other configuration out of the box. You are free to get started developing!
