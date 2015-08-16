@@ -208,7 +208,7 @@ Lumen supports several broadcast drivers out of the box: [Pusher](https://pusher
 The following dependencies are needed for event broadcasting:
 
 - Pusher: `pusher/pusher-php-server ~2.0`
-- Redis: `predis/predis ~1.0`
+- Redis: `predis/predis ~1.0` `illuminate/redis ~5.1`
 
 #### Queue Prerequisites
 
