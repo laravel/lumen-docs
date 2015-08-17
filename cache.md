@@ -30,7 +30,7 @@ Using the Memcached cache requires the [Memcached PECL package](http://pecl.php.
 
 #### Redis
 
-Before using a Redis cache with Lumen, you will need to install the `predis/predis` package (~1.0) via Composer.
+Before using a Redis cache with Lumen, you will need to install the `predis/predis` package (~1.0) and `illuminate/redis` package (~5.1) via Composer.
 
 <a name="cache-usage"></a>
 ## Cache Usage
