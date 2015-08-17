@@ -43,7 +43,7 @@ When using the `database` session driver, you will need to setup a table to cont
 
 #### Redis
 
-Before using Redis sessions with Lumen, you will need to install the `predis/predis` package (~1.0) via Composer.
+Before using Redis sessions with Lumen, you will need to install the `predis/predis` package (~1.0) and `illuminate/redis` package (~5.1) via Composer.
 
 ### Other Session Considerations
 
