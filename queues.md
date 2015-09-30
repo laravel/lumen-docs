@@ -66,7 +66,7 @@ By default, all of the queueable jobs for your application are stored in the `ap
 
 	class SendReminderEmail extends Job implements SelfHandling, ShouldQueue
 	{
-	    use InteractsWithQueue, SerializesModels;
+	    use SerializesModels;
 
 	    protected $user;
 
