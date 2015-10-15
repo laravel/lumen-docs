@@ -2,7 +2,7 @@
 
 - [Introduction](#introduction)
 - [Validation Quickstart](#validation-quickstart)
-- [Other Validation Approaches](#foo)
+- [Other Validation Approaches](#other-validation-approaches)
 	- [Manually Creating Validators](#manually-creating-validators)
 - [Working With Error Messages](#working-with-error-messages)
 	- [Custom Error Messages](#custom-error-messages)
