@@ -21,7 +21,12 @@ Lumen's events provides a simple observer implementation, allowing you to subscr
 <a name="registering-events-and-listeners"></a>
 ## Registering Events / Listeners
 
-The `EventServiceProvider` included with your Lumen application provides a convenient place to register all event listeners. The `listen` property contains an array of all events (keys) and their listeners (values). Of course, you may add as many events to this array as your application requires. For example, let's add our `PodcastWasPurchased` event:
+The `EventServiceProvider` included with your Lumen application provides a convenient place to register all event listeners. The provider is not loaded by default and must be enabled by un-commenting the line 
+
+	// $app->register(App\Providers\EventServiceProvider::class);
+in your `bootstrap/app.php` file.
+
+The `listen` property contains an array of all events (keys) and their listeners (values). Of course, you may add as many events to this array as your application requires. For example, let's add our `PodcastWasPurchased` event:
 
 	/**
 	 * The event listener mappings for the application.
