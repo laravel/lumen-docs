@@ -102,6 +102,14 @@ The PSR-7 standard specifies interfaces for HTTP messages, including requests an
 
 	composer require zendframework/zend-diactoros
 
+In case you are using Lumen you need to add binding, so that request for `ServerRequestInterface` interface can be resolved to an instatiable object.
+
+	use Symfony\Bridge\PsrHttpMessage\Factory\DiactorosFactory;
+
+    $this->app->bind('Psr\Http\Message\ServerRequestInterface', function ($app) {
+        return (new DiactorosFactory)->createRequest($app->make('request'));
+    });
+
 Once you have installed these libraries, you may obtain a PSR-7 request by simply type-hinting the request type on your route or controller:
 
 	use Psr\Http\Message\ServerRequestInterface;
