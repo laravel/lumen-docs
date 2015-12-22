@@ -6,7 +6,7 @@
 <a name="configuration"></a>
 ## Configuration
 
-Before using Lumens's encrypter, you should set the `APP_KEY` option of your `bootstrap/app.php` file to a 32 character, random string. If this value is not properly set, all values encrypted by Lumens will be insecure.
+Before using Lumens's encrypter, you should set the `APP_KEY` option of your `.env` file to a 32 character, random string. If this value is not properly set, all values encrypted by Lumen will be insecure.
 
 <a name="basic-usage"></a>
 ## Basic Usage
@@ -15,7 +15,7 @@ Before using Lumens's encrypter, you should set the `APP_KEY` option of your `bo
 
 You may encrypt a value using the `Crypt` facade. All encrypted values are encrypted using OpenSSL and the `AES-256-CBC` cipher. Furthermore, all encrypted values are signed with a message authentication code (MAC) to detect any modifications to the encrypted string.
 
-For example, we may use the `encrypt` method to encrypt a secret and store it on an [Eloquent model](http://laravel.com/docs/5.1/eloquent):
+For example, we may use the `encrypt` method to encrypt a secret and store it on an [Eloquent model](http://laravel.com/docs/eloquent):
 
 	<?php
 
@@ -24,7 +24,6 @@ For example, we may use the `encrypt` method to encrypt a secret and store it on
 	use Crypt;
 	use App\User;
 	use Illuminate\Http\Request;
-	use App\Http\Controllers\Controller;
 
 	class UserController extends Controller
 	{
