@@ -11,7 +11,7 @@
 <a name="configuration"></a>
 ## Configuration
 
-> **Note:** This documentation page assumes you have uncommented the `$app->withFacades()` method call in your `bootstrap/app.php` file.
+> **Note:** This documentation assumes you have uncommented the `$app->withFacades()` method call in your `bootstrap/app.php` file.
 
 Laravel provides a unified API for various caching systems. The cache configuration is located in the `.env` file. In this file you may specify which cache driver you would like used by default throughout your application. Laravel supports popular caching backends like [Memcached](http://memcached.org) and [Redis](http://redis.io) out of the box.
 
