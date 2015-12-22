@@ -2,10 +2,9 @@
 
 - [Introduction](#introduction)
 - [Writing Service Providers](#writing-service-providers)
-	- [The Register Method](#the-register-method)
-	- [The Boot Method](#the-boot-method)
+    - [The Register Method](#the-register-method)
+    - [The Boot Method](#the-boot-method)
 - [Registering Providers](#registering-providers)
-- [Deferred Providers](#deferred-providers)
 
 <a name="introduction"></a>
 ## Introduction
@@ -30,67 +29,60 @@ As mentioned previously, within the `register` method, you should only bind thin
 
 Now, let's take a look at a basic service provider:
 
-	<?php
+    <?php
 
-	namespace App\Providers;
+    namespace App\Providers;
 
-	use Riak\Connection;
-	use Illuminate\Support\ServiceProvider;
+    use Riak\Connection;
+    use Illuminate\Support\ServiceProvider;
 
-	class RiakServiceProvider extends ServiceProvider
-	{
-		/**
-		 * Register bindings in the container.
-		 *
-		 * @return void
-		 */
-		public function register()
-		{
-			$this->app->singleton('Riak\Contracts\Connection', function ($app) {
-				return new Connection(config('riak'));
-			});
-		}
-	}
+    class RiakServiceProvider extends ServiceProvider
+    {
+        /**
+         * Register bindings in the container.
+         *
+         * @return void
+         */
+        public function register()
+        {
+            $this->app->singleton(Connection::class, function ($app) {
+                return new Connection(config('riak'));
+            });
+        }
+    }
 
-This service provider only defines a `register` method, and uses that method to define an implementation of `Riak\Contracts\Connection` in the service container. If you don't understand how the service container works, check out [its documentation](/docs/container).
+This service provider only defines a `register` method, and uses that method to define an implementation of `Riak\Connection` in the service container. If you don't understand how the service container works, check out [its documentation](/docs/container).
 
 <a name="the-boot-method"></a>
 ### The Boot Method
 
 So, what if we need to register a view composer within our service provider? This should be done within the `boot` method. **This method is called after all other service providers have been registered**, meaning you have access to all other services that have been registered by the framework:
 
-	<?php
+    <?php
 
-	namespace App\Providers;
+    namespace App\Providers;
 
-	use Illuminate\Support\ServiceProvider;
+    use Queue;
+    use Illuminate\Support\ServiceProvider;
 
-	class EventServiceProvider extends ServiceProvider
-	{
-		/**
-		 * Perform post-registration booting of services.
-		 *
-		 * @return void
-		 */
-		public function boot()
-		{
-			view()->composer('view', function () {
-				//
-			});
-		}
+    class AppServiceProvider extends ServiceProvider
+    {
+        // Other Service Provider Properties...
 
-		/**
-		 * Register bindings in the container.
-		 *
-		 * @return void
-		 */
-		public function register()
-		{
-			//
-		}
-	}
+        /**
+         * Bootstrap any application services.
+         *
+         * @return void
+         */
+        public function boot()
+        {
+            Queue::failing(function ($event) {
+
+            });
+        }
+    }
 
 <a name="registering-providers"></a>
 ## Registering Providers
 
-All service providers are registered in the `bootstrap/app.php` file. This file contains a call to the `$app->register()` method. You may add as many calls to the `register` method as needed to register all of your providers.
+All service providers are registered in the `bootstrap/app.php` file. This file contains a call to the `$app->register()` method. You may add as many calls to the register method as needed to register all of your providers.
