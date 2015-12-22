@@ -17,6 +17,5 @@
     - [Queues](/docs/queues)
     - [Service Container](/docs/container)
     - [Service Providers](/docs/providers)
-    - [Session](/docs/session)
     - [Unit Testing](/docs/testing)
     - [Validation](/docs/validation)
