@@ -179,18 +179,3 @@ You may still type-hint the `Illuminate\Http\Request` and access your route para
             //
         }
     }
-
-<a name="route-caching"></a>
-## Route Caching
-
-> **Note:** Route caching does not work with Closure based routes. To use route caching, you must convert any Closure routes to use controller classes.
-
-If your application is exclusively using controller based routes, you should take advantage of Lumen's route cache. Using the route cache will drastically decrease the amount of time it takes to register all of your application's routes. In some cases, your route registration may even be up to 100x faster! To generate a route cache, just execute the `route:cache` Artisan command:
-
-    php artisan route:cache
-
-That's all there is to it! Your cached routes file will now be used instead of your `app/Http/routes.php` file. Remember, if you add any new routes you will need to generate a fresh route cache. Because of this, you should only run the `route:cache` command during your project's deployment.
-
-To remove the cached routes file without generating a new cache, use the `route:clear` command:
-
-    php artisan route:clear
