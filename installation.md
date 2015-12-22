@@ -11,7 +11,7 @@
 <a name="server-requirements"></a>
 ### Server Requirements
 
-The Lumen framework has a few system requirements. Of course, all of these requirements are satisfied by the [Laravel Homestead](/docs/{{version}}/homestead) virtual machine, so it's highly recommended that you use Homestead as your local Lumen development environment.
+The Lumen framework has a few system requirements. Of course, all of these requirements are satisfied by the [Laravel Homestead](http://laravel.com/docs/homestead) virtual machine, so it's highly recommended that you use Homestead as your local Lumen development environment.
 
 However, if you are not using Homestead, you will need to make sure your server meets the following requirements:
 
@@ -48,7 +48,7 @@ You may also install Lumen by issuing the Composer `create-project` command in y
 <a name="configuration"></a>
 ### Configuration
 
-All of the configuration options for the Lumen framework are stored in the `.env` file. Once Lumen is installed, you should also [configure your local environment](/docs/{{version}}/configuration#environment-configuration).
+All of the configuration options for the Lumen framework are stored in the `.env` file. Once Lumen is installed, you should also [configure your local environment](/docs/configuration#environment-configuration).
 
 #### Application Key
 
