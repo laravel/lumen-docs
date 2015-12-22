@@ -37,7 +37,7 @@ Here is an example of a basic controller class. All Lumen controllers should ext
 
 We can route to the controller action like so:
 
-    Route::get('user/{id}', 'UserController@show');
+    $app->get('user/{id}', 'UserController@show');
 
 Now, when a request matches the specified route URI, the `show` method on the `UserController` class will be executed. Of course, the route parameters will also be passed to the method.
 
@@ -47,13 +47,13 @@ It is very important to note that we did not need to specify the full controller
 
 If you choose to nest or organize your controllers using PHP namespaces deeper into the `App\Http\Controllers` directory, simply use the specific class name relative to the `App\Http\Controllers` root namespace. So, if your full controller class is `App\Http\Controllers\Photos\AdminController`, you would register a route like so:
 
-    Route::get('foo', 'Photos\AdminController@method');
+    $app->get('foo', 'Photos\AdminController@method');
 
 #### Naming Controller Routes
 
 Like Closure routes, you may specify names on controller routes:
 
-    Route::get('foo', ['uses' => 'FooController@method', 'as' => 'name']);
+    $app->get('foo', ['uses' => 'FooController@method', 'as' => 'name']);
 
 You may also use the `route` helper to generate a URL to a named controller route:
 
@@ -64,7 +64,7 @@ You may also use the `route` helper to generate a URL to a named controller rout
 
 [Middleware](/docs/middleware) may be assigned to the controller's routes like so:
 
-    Route::get('profile', [
+    $app->get('profile', [
         'middleware' => 'auth',
         'uses' => 'UserController@showProfile'
     ]);
@@ -154,7 +154,7 @@ In addition to constructor injection, you may also type-hint dependencies on you
 
 If your controller method is also expecting input from a route parameter, simply list your route arguments after your other dependencies. For example, if your route is defined like so:
 
-    Route::put('user/{id}', 'UserController@update');
+    $app->put('user/{id}', 'UserController@update');
 
 You may still type-hint the `Illuminate\Http\Request` and access your route parameter `id` by defining your controller method like the following:
 

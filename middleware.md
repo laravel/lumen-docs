@@ -115,13 +115,13 @@ If you would like to assign middleware to specific routes, you should first assi
 
 Once the middleware has been defined in the HTTP kernel, you may use the `middleware` key in the route options array:
 
-    Route::get('admin/profile', ['middleware' => 'auth', function () {
+    $app->get('admin/profile', ['middleware' => 'auth', function () {
         //
     }]);
 
 Use an array to assign multiple middleware to the route:
 
-    Route::get('/', ['middleware' => ['first', 'second'], function () {
+    $app->get('/', ['middleware' => ['first', 'second'], function () {
         //
     }]);
 
@@ -161,7 +161,7 @@ Additional middleware parameters will be passed to the middleware after the `$ne
 
 Middleware parameters may be specified when defining the route by separating the middleware name and parameters with a `:`. Multiple parameters should be delimited by commas:
 
-    Route::put('post/{id}', ['middleware' => 'role:editor', function ($id) {
+    $app->put('post/{id}', ['middleware' => 'role:editor', function ($id) {
         //
     }]);
 
