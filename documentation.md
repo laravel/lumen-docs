@@ -8,7 +8,6 @@
     - [Controllers](/docs/controllers)
     - [Requests](/docs/requests)
     - [Responses](/docs/responses)
-    - [Views](/docs/views)
 - More Features
     - [Cache](/docs/cache)
     - [Database](/docs/database)
