@@ -2,15 +2,18 @@
 
 - [Configuration](#configuration)
 - [Cache Usage](#cache-usage)
-	- [Obtaining A Cache Instance](#obtaining-a-cache-instance)
-	- [Retrieving Items From The Cache](#retrieving-items-from-the-cache)
-	- [Storing Items In The Cache](#storing-items-in-the-cache)
-	- [Removing Items From The Cache](#removing-items-from-the-cache)
+    - [Obtaining A Cache Instance](#obtaining-a-cache-instance)
+    - [Retrieving Items From The Cache](#retrieving-items-from-the-cache)
+    - [Storing Items In The Cache](#storing-items-in-the-cache)
+    - [Removing Items From The Cache](#removing-items-from-the-cache)
+- [Events](#cache-events)
 
 <a name="configuration"></a>
 ## Configuration
 
-Lumen provides a unified API for various caching systems. The cache configuration is located in your application's `env` file. In this file you may specify which cache driver you would like used by default throughout your application. Lumen supports popular caching backends like [Memcached](http://memcached.org) and [Redis](http://redis.io) out of the box. For larger applications, it is recommended that you use an in-memory cache such as Memcached or APC.
+> **Note:** This documentation page assumes you have uncommented the `$app->withFacades()` method call in your `bootstrap/app.php` file.
+
+Laravel provides a unified API for various caching systems. The cache configuration is located in the `.env` file. In this file you may specify which cache driver you would like used by default throughout your application. Laravel supports popular caching backends like [Memcached](http://memcached.org) and [Redis](http://redis.io) out of the box.
 
 ### Cache Prerequisites
 
@@ -18,19 +21,39 @@ Lumen provides a unified API for various caching systems. The cache configuratio
 
 When using the `database` cache driver, you will need to setup a table to contain the cache items. You'll find an example `Schema` declaration for the table below:
 
-	Schema::create('cache', function($table) {
-		$table->string('key')->unique();
-		$table->text('value');
-		$table->integer('expiration');
-	});
+    Schema::create('cache', function($table) {
+        $table->string('key')->unique();
+        $table->text('value');
+        $table->integer('expiration');
+    });
 
 #### Memcached
 
-Using the Memcached cache requires the [Memcached PECL package](http://pecl.php.net/package/memcached) to be installed. The default [configuration](#configuration) uses TCP/IP based on [Memcached::addServer](http://php.net/manual/en/memcached.addserver.php).
+Using the Memcached cache requires the [Memcached PECL package](http://pecl.php.net/package/memcached) to be installed.
+
+The default [configuration](#configuration) uses TCP/IP based on [Memcached::addServer](http://php.net/manual/en/memcached.addserver.php):
+
+    'memcached' => [
+        [
+            'host' => '127.0.0.1',
+            'port' => 11211,
+            'weight' => 100
+        ],
+    ],
+
+You may also set the `host` option to a UNIX socket path. If you do this, the `port` option should be set to `0`:
+
+    'memcached' => [
+        [
+            'host' => '/var/run/memcached/memcached.sock',
+            'port' => 0,
+            'weight' => 100
+        ],
+    ],
 
 #### Redis
 
-Before using a Redis cache with Lumen, you will need to install the `predis/predis` package (~1.0) and `illuminate/redis` package (~5.1) via Composer.
+Before using a Redis cache with Laravel, you will need to install the `predis/predis` package (~1.0) via Composer.
 
 <a name="cache-usage"></a>
 ## Cache Usage
@@ -38,123 +61,157 @@ Before using a Redis cache with Lumen, you will need to install the `predis/pred
 <a name="obtaining-a-cache-instance"></a>
 ### Obtaining A Cache Instance
 
-The `Illuminate\Contracts\Cache\Factory` and `Illuminate\Contracts\Cache\Repository` [contracts](http://laravel.com/docs/contracts) provide access to Lumen's cache services. The `Factory` contract provides access to all cache drivers defined for your application. The `Repository` contract is typically an implementation of the default cache driver for your application as specified by your `cache` configuration file.
+The `Illuminate\Contracts\Cache\Factory` and `Illuminate\Contracts\Cache\Repository` [contracts](/docs/{{version}}/contracts) provide access to Laravel's cache services. The `Factory` contract provides access to all cache drivers defined for your application. The `Repository` contract is typically an implementation of the default cache driver for your application as specified by your `cache` configuration file.
 
-However, you may also use the `Cache` facade, which is what we will use throughout this documentation. The `Cache` facade provides convenient, terse access to the underlying implementations of the Lumen cache contracts.
+However, you may also use the `Cache` facade, which is what we will use throughout this documentation. The `Cache` facade provides convenient, terse access to the underlying implementations of the Laravel cache contracts.
 
 For example, let's import the `Cache` facade into a controller:
 
-	<?php
+    <?php
 
-	namespace App\Http\Controllers;
+    namespace App\Http\Controllers;
 
-	use Cache;
+    use Cache;
 
-	class UserController extends Controller
-	{
-		/**
-		 * Show a list of all users of the application.
-		 *
-		 * @return Response
-		 */
-		public function index()
-		{
-			$value = Cache::get('key');
+    class UserController extends Controller
+    {
+        /**
+         * Show a list of all users of the application.
+         *
+         * @return Response
+         */
+        public function index()
+        {
+            $value = Cache::get('key');
 
-			//
-		}
-	}
+            //
+        }
+    }
 
 #### Accessing Multiple Cache Stores
 
 Using the `Cache` facade, you may access various cache stores via the `store` method. The key passed to the `store` method should correspond to one of the stores listed in the `stores` configuration array in your `cache` configuration file:
 
-	$value = Cache::store('file')->get('foo');
+    $value = Cache::store('file')->get('foo');
 
-	Cache::store('redis')->put('bar', 'baz', 10);
+    Cache::store('redis')->put('bar', 'baz', 10);
 
 <a name="retrieving-items-from-the-cache"></a>
 ### Retrieving Items From The Cache
 
 The `get` method on the `Cache` facade is used to retrieve items from the cache. If the item does not exist in the cache, `null` will be returned. If you wish, you may pass a second argument to the `get` method specifying the custom default value you wish to be returned if the item doesn't exist:
 
-	$value = Cache::get('key');
+    $value = Cache::get('key');
 
-	$value = Cache::get('key', 'default');
+    $value = Cache::get('key', 'default');
 
 
 You may even pass a `Closure` as the default value. The result of the `Closure` will be returned if the specified item does not exist in the cache. Passing a Closure allows you to defer the retrieval of default values from a database or other external service:
 
-	$value = Cache::get('key', function() {
-		return DB::table(...)->get();
-	});
+    $value = Cache::get('key', function() {
+        return DB::table(...)->get();
+    });
 
 #### Checking For Item Existence
 
 The `has` method may be used to determine if an item exists in the cache:
 
-	if (Cache::has('key')) {
-		//
-	}
+    if (Cache::has('key')) {
+        //
+    }
 
 #### Incrementing / Decrementing Values
 
 The `increment` and `decrement` methods may be used to adjust the value of integer items in the cache. Both of these methods optionally accept a second argument indicating the amount by which to increment or decrement the item's value:
 
-	Cache::increment('key');
+    Cache::increment('key');
 
-	Cache::increment('key', $amount);
+    Cache::increment('key', $amount);
 
-	Cache::decrement('key');
+    Cache::decrement('key');
 
-	Cache::decrement('key', $amount);
+    Cache::decrement('key', $amount);
 
 #### Retrieve Or Update
 
 Sometimes you may wish to retrieve an item from the cache, but also store a default value if the requested item doesn't exist. For example, you may wish to retrieve all users from the cache or, if they don't exist, retrieve them from the database and add them to the cache. You may do this using the `Cache::remember` method:
 
-	$value = Cache::remember('users', $minutes, function() {
-		return DB::table('users')->get();
-	});
+    $value = Cache::remember('users', $minutes, function() {
+        return DB::table('users')->get();
+    });
 
 If the item does not exist in the cache, the `Closure` passed to the `remember` method will be executed and its result will be placed in the cache.
 
 You may also combine the `remember` and `forever` methods:
 
-	$value = Cache::rememberForever('users', function() {
-		return DB::table('users')->get();
-	});
+    $value = Cache::rememberForever('users', function() {
+        return DB::table('users')->get();
+    });
 
 #### Retrieve And Delete
 
 If you need to retrieve an item from the cache and then delete it, you may use the `pull` method. Like the `get` method, `null` will be returned if the item does not exist in the cache:
 
-	$value = Cache::pull('key');
+    $value = Cache::pull('key');
 
 <a name="storing-items-in-the-cache"></a>
 ### Storing Items In The Cache
 
 You may use the `put` method on the `Cache` facade to store items in the cache. When you place an item in the cache, you will need to specify the number of minutes for which the value should be cached:
 
-	Cache::put('key', 'value', $minutes);
+    Cache::put('key', 'value', $minutes);
 
 Instead of passing the number of minutes until the item expires, you may also pass a PHP `DateTime` instance representing the expiration time of the cached item:
 
-	$expiresAt = Carbon::now()->addMinutes(10);
+    $expiresAt = Carbon::now()->addMinutes(10);
 
-	Cache::put('key', 'value', $expiresAt);
+    Cache::put('key', 'value', $expiresAt);
 
 The `add` method will only add the item to the cache if it does not already exist in the cache store. The method will return `true` if the item is actually added to the cache. Otherwise, the method will return `false`:
 
-	Cache::add('key', 'value', $minutes);
+    Cache::add('key', 'value', $minutes);
 
 The `forever` method may be used to store an item in the cache permanently. These values must be manually removed from the cache using the `forget` method:
 
-	Cache::forever('key', 'value');
+    Cache::forever('key', 'value');
 
 <a name="removing-items-from-the-cache"></a>
 ### Removing Items From The Cache
 
 You may remove items from the cache using the `forget` method on the `Cache` facade:
 
-	Cache::forget('key');
+    Cache::forget('key');
+
+You may clear the entire cache using the `flush` method:
+
+    Cache::flush();
+
+Flushing the cache **does not** respect the cache prefix and will remove all entries from the cache. Consider this carefully when clearing a cache which is shared by other applications.
+
+<a name="events"></a>
+## Events
+
+To execute code on every cache operation, you may listen for the [events](/docs/events) fired by the cache. Typically, you should place these event listeners within your `EventServiceProvider`:
+
+    /**
+     * The event listener mappings for the application.
+     *
+     * @var array
+     */
+    protected $listen = [
+        'Illuminate\Cache\Events\CacheHit' => [
+            'App\Listeners\LogCacheHit',
+        ],
+
+        'Illuminate\Cache\Events\CacheMissed' => [
+            'App\Listeners\LogCacheMissed',
+        ],
+
+        'Illuminate\Cache\Events\KeyForgotten' => [
+            'App\Listeners\LogKeyForgotten',
+        ],
+
+        'Illuminate\Cache\Events\KeyWritten' => [
+            'App\Listeners\LogKeyWritten',
+        ],
+    ];
