@@ -53,6 +53,10 @@ You may also install Lumen by issuing the Composer `create-project` command in y
 
 Unlike the full-stack Laravel framework which has multiple configuration files, all of the configuration options for the Lumen framework are stored in a single `.env` configuration file.
 
+#### Directory Permissions
+
+After installing Lumen, you may need to configure some permissions. Directories within the `storage` directory should be writable by your web server or Lumen will not run. If you are using the [Homestead](/docs/{{version}}/homestead) virtual machine, these permissions should already be set.
+
 #### Application Key
 
 After installing Lumen, you should set your application key to a 32 character, random string. The key can be set in the `.env` environment file. If you have not renamed the `.env.example` file to `.env`, you should do that now. **If the application key is not set, your user sessions and other encrypted data will not be secure!**
