@@ -77,7 +77,7 @@ Lumen does not include generators for automatically creating new Job classes. In
 
 #### Dispatching Jobs
 
-Again, you should consult the full Laravel documentation for complete information on dispatching queued jobs; however, just like in the Laravel framework, you may use the `dispatch` function to dispatch jobs from anywhere within your Lumen application.
+Again, you should consult the full Laravel documentation for complete information on dispatching queued jobs; however, just like in the Laravel framework, you may use the `dispatch` function to dispatch jobs from anywhere within your Lumen application:
 
     dispatch(new ExampleJob);
 
