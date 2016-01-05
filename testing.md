@@ -154,8 +154,8 @@ One option is to rollback the database after each test and migrate it before the
 
 	<?php
 
-	use Illuminate\Foundation\Testing\DatabaseMigrations;
-	use Illuminate\Foundation\Testing\DatabaseTransactions;
+	use Laravel\Lumen\Testing\DatabaseMigrations;
+	use Laravel\Lumen\Testing\DatabaseTransactions;
 
 	class ExampleTest extends TestCase
 	{
@@ -168,8 +168,7 @@ One option is to rollback the database after each test and migrate it before the
 	     */
 	    public function testBasicExample()
 	    {
-	        $this->visit('/')
-	             ->see('Lumen.');
+	    	$this->get('/foo');
 	    }
 	}
 
@@ -179,8 +178,8 @@ Another option is to wrap every test case in a database transaction. Again, Lume
 
 	<?php
 
-	use Illuminate\Foundation\Testing\DatabaseMigrations;
-	use Illuminate\Foundation\Testing\DatabaseTransactions;
+	use Laravel\Lumen\Testing\DatabaseMigrations;
+	use Laravel\Lumen\Testing\DatabaseTransactions;
 
 	class ExampleTest extends TestCase
 	{
@@ -193,22 +192,19 @@ Another option is to wrap every test case in a database transaction. Again, Lume
 	     */
 	    public function testBasicExample()
 	    {
-	        $this->visit('/')
-	             ->see('Lumen.');
+	    	$this->get('/foo');
 	    }
 	}
 
 <a name="model-factories"></a>
 ### Model Factories
 
-When testing, it is common to need to insert a few records into your database before executing your test. Instead of manually specifying the value of each column when you create this test data, Lumen allows you to define a default set of attributes for each of your [Eloquent models](http://laravel.com/docs/eloquent) using "factories". To get started, take a look at the `database/factories/ModelFactory.php` file in your application. Out of the box, this file contains one factory definition:
+When testing, it is common to need to insert a few records into your database before executing your test. Instead of manually specifying the value of each column when you create this test data, Lumen allows you to define a default set of attributes for each of your [Eloquent models](https://laravel.com/docs/eloquent) using "factories". To get started, take a look at the `database/factories/ModelFactory.php` file in your application. Out of the box, this file contains one factory definition:
 
 	$factory->define('App\User', function ($faker) {
 	    return [
 	        'name' => $faker->name,
 	        'email' => $faker->email,
-	        'password' => str_random(10),
-	        'remember_token' => str_random(10),
 	    ];
 	});
 
@@ -224,8 +220,6 @@ Sometimes you may wish to have multiple factories for the same Eloquent model cl
 	    return [
 	        'name' => $faker->name,
 	        'email' => $faker->email,
-	        'password' => str_random(10),
-	        'remember_token' => str_random(10),
 	        'admin' => true,
 	    ];
 	});
@@ -348,12 +342,12 @@ Lumen provides a convenient `expectsJobs` method that will verify that the expec
 	    }
 	}
 
-> **Note:** This method only detects jobs that are dispatched via the `DispatchesJobs` trait's dispatch methods. It does not detect jobs that are sent directly to `Queue::push`.
+> **Note:** This method only detects jobs that are dispatched via the `DispatchesJobs` trait's dispatch methods or the `dispatch` helper function. It does not detect jobs that are sent directly to `Queue::push`.
 
 <a name="mocking-facades"></a>
 ### Mocking Facades
 
-When testing, you may often want to mock a call to a Lumen [facade](http://laravel.com/docs/facades). For example, consider the following controller action:
+When testing, you may often want to mock a call to a Lumen [facade](https://laravel.com/docs/facades). For example, consider the following controller action:
 
 	<?php
 
