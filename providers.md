@@ -15,8 +15,6 @@ But, what do we mean by "bootstrapped"? In general, we mean **registering** thin
 
 If you open the `bootstrap/app.php` file included with Lumen, you will see a call to `$app->register()`. You may add additional calls to this method to register as many service providers as your application requires.
 
-In this overview you will learn how to write your own service providers and register them with your Lumen application.
-
 <a name="writing-service-providers"></a>
 ## Writing Service Providers
 
@@ -25,7 +23,7 @@ All service providers extend the `Illuminate\Support\ServiceProvider` class. Thi
 <a name="the-register-method"></a>
 ### The Register Method
 
-As mentioned previously, within the `register` method, you should only bind things into the [service container](/docs/container). You should never attempt to register any event listeners, routes, or any other piece of functionality within the `register` method. Otherwise, you may accidently use a service that is provided by a service provider which has not loaded yet.
+As mentioned previously, within the `register` method, you should only bind things into the [service container](/docs/container). You should never attempt to register any event listeners, routes, or any other piece of functionality within the `register` method. Otherwise, you may accidentally use a service that is provided by a service provider which has not loaded yet.
 
 Now, let's take a look at a basic service provider:
 

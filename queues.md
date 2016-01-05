@@ -5,7 +5,7 @@
 
 The Lumen queue service provides a unified API across a variety of different queue back-ends. Queues allow you to defer the processing of a time consuming task, such as performing a task on a remote server, until a later time which drastically speeds up web requests to your application.
 
-**Like events, Lumen queued jobs function identically to Laravel's queued jobs. So, to learn more about queuing jobs in Lumen, please review the [full Laravel queue documentation](https://laravel.com/docs/queues).**
+**Like events, Lumen's queued jobs function identically to Laravel's queued jobs. So, to learn more about queuing jobs in Lumen, please review the [full Laravel queue documentation](https://laravel.com/docs/queues).**
 
 <a name="configuration"></a>
 ### Configuration
@@ -40,7 +40,7 @@ The following dependencies are needed for the listed queue drivers:
 
 ## Differences From Laravel
 
-**Like events, Lumen queued jobs function identically to Laravel's queued jobs. So, to learn more about queuing jobs in Lumen, please review the [full Laravel queue documentation](https://laravel.com/docs/queues).**
+**Like events, Lumen's queued jobs function identically to Laravel's queued jobs. So, to learn more about queuing jobs in Lumen, please review the [full Laravel queue documentation](https://laravel.com/docs/queues).**
 
 However, there are a few minor differences that we will discuss now. First, let's talk about how queued jobs are generated in Lumen.
 
