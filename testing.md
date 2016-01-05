@@ -2,9 +2,8 @@
 
 - [Introduction](#introduction)
 - [Application Testing](#application-testing)
-	- [Interacting With Your Application](#interacting-with-your-application)
 	- [Testing JSON APIs](#testing-json-apis)
-	- [Sessions / Authentication](#sessions-and-authentication)
+	- [Authentication](#authentication)
 	- [Custom HTTP Requests](#custom-http-requests)
 - [Working With Databases](#working-with-databases)
 	- [Resetting The Database After Each Test](#resetting-the-database-after-each-test)
@@ -17,13 +16,13 @@
 <a name="introduction"></a>
 ## Introduction
 
-Lumen is built with testing in mind. In fact, support for testing with PHPUnit is included out of the box, and a `phpunit.xml` file is already setup for your application. The framework also ships with convenient helper methods allowing you to expressively test your applications.
+Lumen is built with testing in mind. In fact, support for testing with PHPUnit is included out of the box, and a `phpunit.xml` file is already setup for your application. The framework also ships with convenient helper methods allowing you to expressively test your application's JSON responses.
 
 An `ExampleTest.php` file is provided in the `tests` directory. After installing a new Lumen application, simply run `phpunit` on the command line to run your tests.
 
 ### Test Environment
 
-Lumen automatically configures the session and cache to the `array` driver while testing, meaning no session or cache data will be persisted while testing.
+Lumen automatically configures the cache to the `array` driver while testing, meaning no cache data will be persisted while testing.
 
 You are free to create other testing environment configurations as necessary. The `testing` environment variables may be configured in the `phpunit.xml` file.
 
@@ -46,99 +45,7 @@ To create a test case, simply create a new test file in the `tests` directory. T
 <a name="application-testing"></a>
 ## Application Testing
 
-Lumen provides a very fluent API for making HTTP requests to your application, examining the output, and even filling out forms. For example, take a look at the `ExampleTest.php` file included in your `tests` directory:
-
-	<?php
-
-	class ExampleTest extends TestCase
-	{
-	    /**
-	     * A basic functional test example.
-	     *
-	     * @return void
-	     */
-	    public function testBasicExample()
-	    {
-	        $this->visit('/')
-	             ->see('Lumen.');
-	    }
-	}
-
-The `visit` method makes a `GET` request into the application. The `see` method asserts that we should see the given text in the response returned by the application. This is the most basic application test available in Lumen.
-
-<a name="interacting-with-your-application"></a>
-### Interacting With Your Application
-
-Of course, you can do much more than simply assert that text appears in a given response. Let's take a look at some examples of clicking links and filling out forms:
-
-#### Clicking Links
-
-In this test, we will make a request to the application, "click" a link in the returned response, and then assert that we landed on a given URI. For example, let's assume there is a link in our response that has a text value of "About Us":
-
-	<a href="/about-us">About Us</a>
-
-Now, let's write a test that clicks the link and asserts the user lands on the correct page:
-
-    public function testBasicExample()
-    {
-        $this->visit('/')
-             ->click('About Us')
-             ->seePageIs('/about-us');
-    }
-
-#### Working With Forms
-
-Lumen also provides several methods for testing forms. The `type`, `select`, `check`, `attach`, and `press` methods allow you to interact with all of your form's inputs. For example, let's imagine this form exists on the application's registration page:
-
-	<form action="/register" method="POST">
-		<input type="hidden" value="{{ csrf_token() }}" name="_token">
-
-		<div>
-			Name: <input type="text" name="name">
-		</div>
-
-		<div>
-			<input type="checkbox" value="yes" name="terms"> Accept Terms
-		</div>
-
-		<div>
-			<input type="submit" value="Register">
-		</div>
-	</form>
-
-We can write a test to complete this form and inspect the result:
-
-    public function testNewUserRegistration()
-    {
-        $this->visit('/register')
-             ->type('Taylor', 'name')
-             ->check('terms')
-             ->press('Register')
-             ->seePageIs('/dashboard');
-    }
-
-Of course, if your form contains other inputs such as radio buttons or drop-down boxes, you may easily fill out those types of fields as well. Here is a list of each form manipulation method:
-
-Method  | Description
-------------- | -------------
-`$this->type($text, $elementName)`  |  "Type" text into a given field.
-`$this->select($value, $elementName)`  |  "Select" a radio button or drop-down field.
-`$this->check($elementName)`  |  "Check" a checkbox field.
-`$this->attach($pathToFile, $elementName)`  |  "Attach" a file to the form.
-`$this->press($buttonTextOrElementName)`  |  "Press" a button with the given text or name.
-
-#### Working With Attachments
-
-If your form contains `file` input types, you may attach files to the form using the `attach` method:
-
-    public function testPhotoCanBeUploaded()
-    {
-        $this->visit('/upload')
-             ->name('File Name', 'name')
-             ->attach($absolutePathToFile, 'photo')
-             ->press('Upload')
-             ->see('Upload Successful!');
-    }
+Lumen provides a very fluent API for making HTTP requests to your application and examining the output.
 
 <a name="testing-json-apis"></a>
 ### Testing JSON APIs
@@ -187,23 +94,10 @@ If you would like to verify that the given array is an **exact** match for the J
 	    }
 	}
 
-<a name="sessions-and-authentication"></a>
-### Sessions / Authentication
+<a name="authentication"></a>
+### Authentication
 
-Lumen provides several helpers for working with the session during testing. First, you may set the session data to a given array using the `withSession` method. This is useful for loading the session with data before testing a request to your application:
-
-	<?php
-
-	class ExampleTest extends TestCase
-	{
-	    public function testApplication()
-	    {
-			$this->withSession(['foo' => 'bar'])
-			     ->visit('/');
-	    }
-	}
-
-Of course, one common use of the session is for maintaining user state, such as the authenticated user. The `actingAs` helper method provides a simple way to authenticate a given user as the current user. For example, we may use a [model factory](#model-factories) to generate and authenticate a user:
+The `actingAs` helper method provides a simple way to authenticate a given user as the current user:
 
 	<?php
 
@@ -214,8 +108,7 @@ Of course, one common use of the session is for maintaining user state, such as 
 	    	$user = factory('App\User')->create();
 
 			$this->actingAs($user)
-				 ->withSession(['foo' => 'bar'])
-			     ->visit('/')
+			     ->get('/user')
 			     ->see('Hello, '.$user->name);
 	    }
 	}
