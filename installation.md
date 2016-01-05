@@ -3,7 +3,7 @@
 - [Installation](#installation)
     - [Server Requirements](#server-requirements)
     - [Installing Lumen](#installing-lumen)
-    - [Configuration](#confiugration)
+    - [Configuration](#configuration)
 
 <a name="installation"></a>
 ## Installation

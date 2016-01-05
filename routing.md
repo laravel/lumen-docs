@@ -8,8 +8,6 @@
     - [Middleware](#route-group-middleware)
     - [Namespaces](#route-group-namespaces)
     - [Route Prefixes](#route-group-prefixes)
-- [Route Model Binding](#route-model-binding)
-- [Form Method Spoofing](#form-method-spoofing)
 
 <a name="basic-routing"></a>
 ## Basic Routing
@@ -146,13 +144,3 @@ You may also use the `prefix` parameter to specify common parameters for your gr
             // Matches The "/accounts/{account_id}/detail" URL
         });
     });
-
-<a name="form-method-spoofing"></a>
-## Form Method Spoofing
-
-HTML forms do not support `PUT`, `PATCH` or `DELETE` actions. So, when defining `PUT`, `PATCH` or `DELETE` routes that are called from an HTML form, you will need to add a hidden `_method` field to the form. The value sent with the `_method` field will be used as the HTTP request method:
-
-    <form action="/foo/bar" method="POST">
-        <input type="hidden" name="_method" value="PUT">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    </form>

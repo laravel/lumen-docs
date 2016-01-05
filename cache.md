@@ -6,7 +6,6 @@
     - [Retrieving Items From The Cache](#retrieving-items-from-the-cache)
     - [Storing Items In The Cache](#storing-items-in-the-cache)
     - [Removing Items From The Cache](#removing-items-from-the-cache)
-- [Events](#cache-events)
 
 <a name="configuration"></a>
 ## Configuration
@@ -29,31 +28,11 @@ When using the `database` cache driver, you will need to setup a table to contai
 
 #### Memcached
 
-Using the Memcached cache requires the [Memcached PECL package](http://pecl.php.net/package/memcached) to be installed.
-
-The default [configuration](#configuration) uses TCP/IP based on [Memcached::addServer](http://php.net/manual/en/memcached.addserver.php):
-
-    'memcached' => [
-        [
-            'host' => '127.0.0.1',
-            'port' => 11211,
-            'weight' => 100
-        ],
-    ],
-
-You may also set the `host` option to a UNIX socket path. If you do this, the `port` option should be set to `0`:
-
-    'memcached' => [
-        [
-            'host' => '/var/run/memcached/memcached.sock',
-            'port' => 0,
-            'weight' => 100
-        ],
-    ],
+Using the Memcached cache requires the [Memcached PECL package](http://pecl.php.net/package/memcached) to be installed. The default [configuration](#configuration) uses TCP/IP based on [Memcached::addServer](http://php.net/manual/en/memcached.addserver.php). You may configure the `MEMCACHED_HOST` and `MEMCACHED_PORT` environment variables to customize your Memcached connection settings.
 
 #### Redis
 
-Before using a Redis cache with Laravel, you will need to install the `predis/predis` package (~1.0) via Composer.
+Before using a Redis cache with Laravel, you will need to install the `predis/predis` package (~1.0) via Composer. You may configure the `REDIS_HOST`, `REDIS_PORT`, `REDIS_DATABASE`, and the `REDIS_PASSWORD` environment variables to customize your Redis connection settings.
 
 <a name="cache-usage"></a>
 ## Cache Usage
@@ -61,7 +40,7 @@ Before using a Redis cache with Laravel, you will need to install the `predis/pr
 <a name="obtaining-a-cache-instance"></a>
 ### Obtaining A Cache Instance
 
-The `Illuminate\Contracts\Cache\Factory` and `Illuminate\Contracts\Cache\Repository` [contracts](/docs/{{version}}/contracts) provide access to Laravel's cache services. The `Factory` contract provides access to all cache drivers defined for your application. The `Repository` contract is typically an implementation of the default cache driver for your application as specified by your `cache` configuration file.
+The `Illuminate\Contracts\Cache\Factory` and `Illuminate\Contracts\Cache\Repository` provide access to Laravel's cache services. The `Factory` contract provides access to all cache drivers defined for your application. The `Repository` contract is typically an implementation of the default cache driver for your application as specified by your `.env` environment file.
 
 However, you may also use the `Cache` facade, which is what we will use throughout this documentation. The `Cache` facade provides convenient, terse access to the underlying implementations of the Laravel cache contracts.
 
@@ -87,14 +66,6 @@ For example, let's import the `Cache` facade into a controller:
             //
         }
     }
-
-#### Accessing Multiple Cache Stores
-
-Using the `Cache` facade, you may access various cache stores via the `store` method. The key passed to the `store` method should correspond to one of the stores listed in the `stores` configuration array in your `cache` configuration file:
-
-    $value = Cache::store('file')->get('foo');
-
-    Cache::store('redis')->put('bar', 'baz', 10);
 
 <a name="retrieving-items-from-the-cache"></a>
 ### Retrieving Items From The Cache
@@ -187,31 +158,3 @@ You may clear the entire cache using the `flush` method:
     Cache::flush();
 
 Flushing the cache **does not** respect the cache prefix and will remove all entries from the cache. Consider this carefully when clearing a cache which is shared by other applications.
-
-<a name="events"></a>
-## Events
-
-To execute code on every cache operation, you may listen for the [events](/docs/events) fired by the cache. Typically, you should place these event listeners within your `EventServiceProvider`:
-
-    /**
-     * The event listener mappings for the application.
-     *
-     * @var array
-     */
-    protected $listen = [
-        'Illuminate\Cache\Events\CacheHit' => [
-            'App\Listeners\LogCacheHit',
-        ],
-
-        'Illuminate\Cache\Events\CacheMissed' => [
-            'App\Listeners\LogCacheMissed',
-        ],
-
-        'Illuminate\Cache\Events\KeyForgotten' => [
-            'App\Listeners\LogKeyForgotten',
-        ],
-
-        'Illuminate\Cache\Events\KeyWritten' => [
-            'App\Listeners\LogKeyWritten',
-        ],
-    ];
