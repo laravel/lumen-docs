@@ -10,6 +10,7 @@
     - [Responses](/docs/responses)
 - More Features
     - [Authentication](/docs/authentication)
+    - [Authorization](/docs/authorization)
     - [Cache](/docs/cache)
     - [Database](/docs/database)
     - [Encryption](/docs/encryption)
