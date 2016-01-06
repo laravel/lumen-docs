@@ -22,12 +22,18 @@ Just like in the full Laravel framework, you may use the `Auth::user` method to 
 
 	use Illuminate\Http\Request;
 
-	$app->get('/post/{id}', function (Request $request, $id) {
+	$app->get('/post/{id}', ['middleware' => 'auth', function (Request $request, $id) {
 		$user = Auth::user();
 
 		$user = $request->user();
 
 		//
-	});
+	}]);
 
 > **Note:** If you would like to use `Auth::user()` to access the currently authenticated user, you should uncomment the `$app->withFacades()` method in your `bootstrap/app.php` file.
+
+Of course, any routes you wish to authenticate should be assigned the `auth` [middleware](/docs/middleware), so you should uncomment the call to `$app->routeMiddleware()` in your `bootstrap/app.php` file:
+
+	$app->routeMiddleware([
+	    'auth' => App\Http\Middleware\Authenticate::class,
+	]);
