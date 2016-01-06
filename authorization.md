@@ -26,7 +26,7 @@ Again, to learn more about policies, you should consult the [full Laravel docume
 
 #### Checking Abilities
 
-You may "check" abilities just as you would in the full Laravel framework. First, you may use the `Gate` facade. If you choose to use the facade, be sure to enable facades in your `bootstrap/app.php` file:
+You may "check" abilities just as you would in the full Laravel framework. First, you may use the `Gate` facade. If you choose to use the facade, be sure to enable facades in your `bootstrap/app.php` file. Remember, we don't need to pass the `User` instance into the `allows` method since the currently authenticated user will automatically be passed to your authorization callback:
 
     if (Gate::allows('update-post', $post)) {
         //

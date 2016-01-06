@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Authentication in Lumen, while using the same underlying libraries as Laravel, is configured quite differently from the full Laravel framework. Since Lumen does not support session state, incoming requests that you wish to authenticate must be authenticated via a stateless mechanism such as API tokens.
+Authentication in Lumen, while using the same underlying libraries as Laravel, is configured quite differently from the full Laravel framework. **Since Lumen does not support session state, incoming requests that you wish to authenticate must be authenticated via a stateless mechanism such as API tokens.**
 
 ## Getting Started
 
