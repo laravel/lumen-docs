@@ -159,12 +159,6 @@ If you need to retrieve a sub-set of the input data, you may use the `only` and 
 
     $input = $request->except('credit_card');
 
-#### Dynamic Properties
-
-You may also access user input using dynamic properties on the `Illuminate\Http\Request` instance. For example, if one of your application's forms contains a `name` field, you may access the value of the posted field like so:
-
-    $name = $request->name;
-
 <a name="files"></a>
 ### Files
 
