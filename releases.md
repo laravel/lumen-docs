@@ -1,8 +1,22 @@
 # Release Notes
 
+- [5.2.0](#5.2.0)
 - [5.1.0](#5.1.0)
 - [5.0.4](#5.0.4)
 - [5.0 (Based On Laravel 5.0.x)](#5.0)
+
+<a name="5.2.0"></a>
+## Lumen 5.2.0
+
+Lumen 5.2.0 upgrades the framework to use the 5.2 family of Laravel components, as well as introduces some significant changes to Lumen's underlying philosophy and purpose.
+
+### Only Stateless APIs
+
+Lumen 5.2 represents a shift to solely focusing serving stateless, JSON APIs. **As such, sessions and views are no longer included with the framework.** If you need access to these features, you should use the full Laravel framework. Upgrading your Lumen application to the full Laravel framework mainly involves copying your routes and classes over into a fresh installation of Laravel. Since Laravel and Lumen share many of the same components, your classes should not require any modification.
+
+### Testing Helpers
+
+Since session and views are no longer included with Lumen, all of the form interaction testing helpers have been removed. The testing helpers for JSON APIs remain, so be sure to review the [testing documentation](/docs/testing).
 
 <a name="5.1.0"></a>
 ## Lumen 5.1.0

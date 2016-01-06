@@ -9,6 +9,7 @@
     - [Requests](/docs/requests)
     - [Responses](/docs/responses)
 - More Features
+    - [Authentication](/docs/authentication)
     - [Cache](/docs/cache)
     - [Database](/docs/database)
     - [Encryption](/docs/encryption)
