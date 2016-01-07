@@ -125,7 +125,7 @@ If you would like to make a custom HTTP request into your application and get th
     	$this->assertEquals(200, $response->status());
     }
 
-If you are making `POST`, `PUT`, or `PATCH` requests you may pass an array of input data with the request. Of course, this data will be available in your routes and controller via the [Request instance](/docs/requests):
+If you are making `POST`, `PUT`, or `PATCH` requests you may pass an array of input data with the request. Of course, this data will be available in your routes and controller via the [Request instance](/docs/{{version}}/requests):
 
    	$response = $this->call('POST', '/user', ['name' => 'Taylor']);
 
@@ -370,7 +370,7 @@ When testing, you may often want to mock a call to a Lumen [facade](https://lara
 		}
 	}
 
-We can mock the call to the `Cache` facade by using the `shouldReceive` method, which will return an instance of a [Mockery](https://github.com/padraic/mockery) mock. Since facades are actually resolved and managed by the Lumen [service container](/docs/container), they have much more testability than a typical static class. For example, let's mock our call to the `Cache` facade:
+We can mock the call to the `Cache` facade by using the `shouldReceive` method, which will return an instance of a [Mockery](https://github.com/padraic/mockery) mock. Since facades are actually resolved and managed by the Lumen [service container](/docs/{{version}}/container), they have much more testability than a typical static class. For example, let's mock our call to the `Cache` facade:
 
 	<?php
 

@@ -15,7 +15,7 @@ Update your `composer.json` file to point to `laravel/lumen 5.2.*`.
 
 ### Authentication
 
-Since sessions are no longer support in Lumen, authentication is totally based on stateless authentication via API tokens or headers. You should review the [full authentication documentation](/docs/authentication) for more information on how to use the authentication system.
+Since sessions are no longer support in Lumen, authentication is totally based on stateless authentication via API tokens or headers. You should review the [full authentication documentation](/docs/{{version}}/authentication) for more information on how to use the authentication system.
 
 ### Collections
 

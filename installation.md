@@ -48,7 +48,7 @@ You may also install Lumen by issuing the Composer `create-project` command in y
 <a name="configuration"></a>
 ### Configuration
 
-All of the configuration options for the Lumen framework are stored in the `.env` file. Once Lumen is installed, you should also [configure your local environment](/docs/configuration#environment-configuration).
+All of the configuration options for the Lumen framework are stored in the `.env` file. Once Lumen is installed, you should also [configure your local environment](/docs/{{version}}/configuration#environment-configuration).
 
 #### Application Key
 

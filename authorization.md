@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In addition to providing [authentication](/docs/authentication) services out of the box, Lumen also provides a simple way to organize authorization logic and control access to resources. There are a variety of methods and helpers to assist you in organizing your authorization logic.
+In addition to providing [authentication](/docs/{{version}}/authentication) services out of the box, Lumen also provides a simple way to organize authorization logic and control access to resources. There are a variety of methods and helpers to assist you in organizing your authorization logic.
 
 **In general, authorization can be used in Lumen the same way it is used in Laravel. We will cover a few differences here, but you should refer to the [full Laravel documentation](https://laravel.com/docs/authorization) for additional details.**
 

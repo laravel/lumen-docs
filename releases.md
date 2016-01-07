@@ -16,11 +16,11 @@ Lumen 5.2 represents a shift to solely focusing serving stateless, JSON APIs. **
 
 ### Authentication
 
-Because sessions are no longer included with Lumen, authentication must be done statelessly using API tokens or headers. You have complete control over the authentication process in the new `AuthServiceProvider`. Please review the [authentication documentation](/docs/authentication) for more information.
+Because sessions are no longer included with Lumen, authentication must be done statelessly using API tokens or headers. You have complete control over the authentication process in the new `AuthServiceProvider`. Please review the [authentication documentation](/docs/{{version}}/authentication) for more information.
 
 ### Testing Helpers
 
-Since session and views are no longer included with Lumen, all of the form interaction testing helpers have been removed. The testing helpers for JSON APIs remain, so be sure to review the [testing documentation](/docs/testing).
+Since session and views are no longer included with Lumen, all of the form interaction testing helpers have been removed. The testing helpers for JSON APIs remain, so be sure to review the [testing documentation](/docs/{{version}}/testing).
 
 <a name="5.1.0"></a>
 ## Lumen 5.1.0

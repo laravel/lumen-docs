@@ -12,7 +12,7 @@ Lumen uses the exact same service container as the Laravel framework, so you hav
 
 The `Laravel\Lumen\Application` instance is an extension of `Illuminate\Container\Container`, so may be treated as the service container for your application.
 
-Typically, you will register bindings into the container within your [service providers](/docs/providers). Of course, you may use the `bind`, `singleton`, `instance`, and other container methods provided by the container. **Remember, all of these methods are documented in the [full Laravel container documentation](https://laravel.com/docs/container).**
+Typically, you will register bindings into the container within your [service providers](/docs/{{version}}/providers). Of course, you may use the `bind`, `singleton`, `instance`, and other container methods provided by the container. **Remember, all of these methods are documented in the [full Laravel container documentation](https://laravel.com/docs/container).**
 
 #### Resolving Instances
 
