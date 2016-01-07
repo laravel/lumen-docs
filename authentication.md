@@ -2,11 +2,13 @@
 
 ## Introduction
 
-Authentication in Lumen, while using the same underlying libraries as Laravel, is configured quite differently from the full Laravel framework. **Since Lumen does not support session state, incoming requests that you wish to authenticate must be authenticated via a stateless mechanism such as API tokens.**
+Authentication in Lumen, while using the same underlying libraries as Laravel, is configured quite differently from the full Laravel framework. Since Lumen does not support session state, incoming requests that you wish to authenticate must be authenticated via a stateless mechanism such as API tokens.
 
 ## Getting Started
 
 #### Authentication Service Provider
+
+> **Note:** Before using Lumen's authentication features, you should uncomment the call to register the `AuthServiceProvider` service provider in your `bootstrap/app.php` file.
 
 The `AuthServiceProvider` located in your `app/Providers` directory contains a single call to `Auth::viaRequest`. The `viaRequest` method accepts a Closure which will be called when the incoming request needs to be authenticated. Within this Closure, you may resolve your `App\User` instance however you wish. If no authenticated user can be found for the request, the Closure should return `null`:
 
@@ -18,7 +20,7 @@ Again, you may retrieve the authenticated user however you wish. You may use an 
 
 #### Accessing The Authenticated User
 
-Just like in the full Laravel framework, you may use the `Auth::user` method to retrieve the current user. Alternatively, you may use the `$request->user()` method on an `Illuminate\Http\Request` instance:
+Just like in the full Laravel framework, you may use the `Auth::user()` method to retrieve the current user. Alternatively, you may use the `$request->user()` method on an `Illuminate\Http\Request` instance:
 
 	use Illuminate\Http\Request;
 

@@ -4,7 +4,7 @@
 
 In addition to providing [authentication](/docs/{{version}}/authentication) services out of the box, Lumen also provides a simple way to organize authorization logic and control access to resources. There are a variety of methods and helpers to assist you in organizing your authorization logic.
 
-**In general, authorization can be used in Lumen the same way it is used in Laravel. We will cover a few differences here, but you should refer to the [full Laravel documentation](https://laravel.com/docs/authorization) for additional details.**
+In general, authorization can be used in Lumen the same way it is used in Laravel. We will cover a few differences here, but you should refer to the [full Laravel documentation](https://laravel.com/docs/authorization) for additional details.
 
 ## Differences From Laravel
 
@@ -18,7 +18,7 @@ The primary difference when using authorization in Lumen compared to Laravel is 
 
 #### Defining Policies
 
-Unlike Laravel, Lumen does not have a `$policies` array on its `AuthServiceProvider`. However, you may still call the `policy` method on the `Gate` facade:
+Unlike Laravel, Lumen does not have a `$policies` array on its `AuthServiceProvider`. However, you may still call the `policy` method on the `Gate` facade from within the provider's `boot` method:
 
     Gate::policy(Post::class, PostPolicy::class);
 
