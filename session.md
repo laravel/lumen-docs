@@ -27,7 +27,7 @@ The session driver defines where session data will be stored for each request. L
 - `array` - sessions are stored in a simple PHP array and will not be persisted across requests.
 </div>
 
-> **Note:** The array driver is typically used for running [tests](/docs/testing) to prevent session data from persisting.
+> **Note:** The array driver is typically used for running [tests](/docs/{{version}}/testing) to prevent session data from persisting.
 
 ### Driver Prerequisites
 
@@ -54,7 +54,7 @@ The Lumen framework uses the `flash` session key internally, so you should not a
 
 #### Accessing The Session
 
-First, let's access the session. We can access the session instance via the HTTP request, which can be type-hinted on a controller method. Remember, controller method dependencies are injected via the Lumen [service container](/docs/container):
+First, let's access the session. We can access the session instance via the HTTP request, which can be type-hinted on a controller method. Remember, controller method dependencies are injected via the Lumen [service container](/docs/{{version}}/container):
 
 	<?php
 

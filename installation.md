@@ -55,7 +55,7 @@ Unlike the full-stack Laravel framework which has multiple configuration files, 
 
 #### Directory Permissions
 
-After installing Lumen, you may need to configure some permissions. Directories within the `storage` directory should be writable by your web server or Lumen will not run. If you are using the [Homestead](/docs/{{version}}/homestead) virtual machine, these permissions should already be set.
+After installing Lumen, you may need to configure some permissions. Directories within the `storage` directory should be writable by your web server or Lumen will not run. If you are using the [Homestead](/docs/{{version}}/{{version}}/homestead) virtual machine, these permissions should already be set.
 
 #### Application Key
 
@@ -69,8 +69,8 @@ Lumen needs almost no other configuration out of the box. You are free to get st
 
 You may also want to configure a few additional components of Lumen, such as:
 
-- [Cache](/docs/cache#configuration)
-- [Database](/docs/database#configuration)
+- [Cache](/docs/{{version}}/cache#configuration)
+- [Database](/docs/{{version}}/database#configuration)
 
 <a name="pretty-urls"></a>
 #### Pretty URLs

@@ -66,7 +66,7 @@ You may also use the `route` helper to generate a URL to a named controller rout
 <a name="controller-middleware"></a>
 ## Controller Middleware
 
-[Middleware](/docs/middleware) may be assigned to the controller's routes like so:
+[Middleware](/docs/{{version}}/middleware) may be assigned to the controller's routes like so:
 
 	$app->get('profile', [
 		'middleware' => 'auth',
@@ -97,7 +97,7 @@ However, it is more convenient to specify middleware within your controller's co
 
 #### Constructor Injection
 
-The Lumen [service container](/docs/container) is used to resolve all Lumen controllers. As a result, you are able to type-hint any dependencies your controller may need in its constructor. The dependencies will automatically be resolved and injected into the controller instance:
+The Lumen [service container](/docs/{{version}}/container) is used to resolve all Lumen controllers. As a result, you are able to type-hint any dependencies your controller may need in its constructor. The dependencies will automatically be resolved and injected into the controller instance:
 
 	<?php
 

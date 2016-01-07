@@ -95,7 +95,7 @@ As you can see, we simply pass the incoming HTTP request and desired validation 
 
 #### Displaying The Validation Errors
 
-So, what if the incoming request parameters do not pass the given validation rules? As mentioned previously, Lumen will automatically redirect the user back to their previous location. In addition, all of the validation errors will automatically be [flashed to the session](/docs/session#flash-data).
+So, what if the incoming request parameters do not pass the given validation rules? As mentioned previously, Lumen will automatically redirect the user back to their previous location. In addition, all of the validation errors will automatically be [flashed to the session](/docs/{{version}}/session#flash-data).
 
 Again, notice that we did not have to explicitly bind the error messages to the view in our `GET` route. This is because Lumen will always check for errors in the session data, and automatically bind them to the view if they are available. **So, it is important to note that an `$errors` variable will always be available in all of your views on every request**, allowing you to conveniently assume the `$errors` variable is always defined and can be safely used. The `$errors` variable will be an instance of `Illuminate\Support\MessageBag`. For more information on working with this object, [check out its documentation](#working-with-error-messages).
 
@@ -641,7 +641,7 @@ The first argument passed to the `sometimes` method is the name of the field we 
 <a name="custom-validation-rules"></a>
 ## Custom Validation Rules
 
-Lumen provides a variety of helpful validation rules; however, you may wish to specify some of your own. One method of registering custom validation rules is using the `extend` method on the `Validator` facade. Let's use this method within a [service provider](/docs/providers) to register a custom validation rule:
+Lumen provides a variety of helpful validation rules; however, you may wish to specify some of your own. One method of registering custom validation rules is using the `extend` method on the `Validator` facade. Let's use this method within a [service provider](/docs/{{version}}/providers) to register a custom validation rule:
 
 	<?php
 
@@ -691,7 +691,7 @@ You will also need to define an error message for your custom rule. You can do s
 
     // The rest of the validation error messages...
 
-When creating a custom validation rule, you may sometimes need to define custom place-holder replacements for error messages. You may do so by creating a custom Validator as described above then making a call to the `replacer` method on the `Validator` facade. You may do this within the `boot` method of a [service provider](/docs/providers):
+When creating a custom validation rule, you may sometimes need to define custom place-holder replacements for error messages. You may do so by creating a custom Validator as described above then making a call to the `replacer` method on the `Validator` facade. You may do this within the `boot` method of a [service provider](/docs/{{version}}/providers):
 
     /**
      * Bootstrap any application services.

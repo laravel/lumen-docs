@@ -160,7 +160,7 @@ You may also use the `prefix` parameter to specify common parameters for your gr
 <a name="csrf-protection"></a>
 ## CSRF Protection
 
-> **Note:** You must [enable sessions](/docs/session) before using this Lumen feature.
+> **Note:** You must [enable sessions](/docs/{{version}}/session) before using this Lumen feature.
 
 <a name="csrf-introduction"></a>
 ### Introduction
@@ -173,7 +173,7 @@ Lumen automatically generates a CSRF "token" for each active user session manage
 
 	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
-You do not need to manually verify the CSRF token on POST, PUT, or DELETE requests. The `VerifyCsrfToken` [HTTP middleware](/docs/middleware) will verify token in the request input matches the token stored in the session.
+You do not need to manually verify the CSRF token on POST, PUT, or DELETE requests. The `VerifyCsrfToken` [HTTP middleware](/docs/{{version}}/middleware) will verify token in the request input matches the token stored in the session.
 
 <a name="csrf-x-csrf-token"></a>
 ### X-CSRF-TOKEN
@@ -214,4 +214,4 @@ There are two ways to manually trigger a 404 error from a route. First, you may 
 
 Secondly, you may manually throw an instance of `Symfony\Component\HttpKernel\Exception\NotFoundHttpException`.
 
-More information on handling 404 exceptions and using custom responses for these errors may be found in the [errors](/docs/errors#http-exceptions) section of the documentation.
+More information on handling 404 exceptions and using custom responses for these errors may be found in the [errors](/docs/{{version}}/errors#http-exceptions) section of the documentation.

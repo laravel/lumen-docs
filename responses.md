@@ -22,7 +22,7 @@ Of course, all routes and controllers should return some kind of response to be 
 
 The given string will automatically be converted into an HTTP response by the framework.
 
-However, for most routes and controller actions, you will be returning a full `Illuminate\Http\Response` instance or a [view](/docs/views). Returning a full `Response` instance allows you to customize the response's HTTP status code and headers. A `Response` instance inherits from the `Symfony\Component\HttpFoundation\Response` class, providing a variety of methods for building HTTP responses:
+However, for most routes and controller actions, you will be returning a full `Illuminate\Http\Response` instance or a [view](/docs/{{version}}/views). Returning a full `Response` instance allows you to customize the response's HTTP status code and headers. A `Response` instance inherits from the `Symfony\Component\HttpFoundation\Response` class, providing a variety of methods for building HTTP responses:
 
 	use Illuminate\Http\Response;
 
@@ -71,7 +71,7 @@ The `response` helper may be used to conveniently generate other types of respon
 <a name="view-responses"></a>
 #### View Responses
 
-If you need control over the response status and headers, but also need to return a [view](/docs/views) as the response content, you may use the `view` method:
+If you need control over the response status and headers, but also need to return a [view](/docs/{{version}}/views) as the response content, you may use the `view` method:
 
 	return response()->view('hello', $data)->header('Content-Type', $type);
 
@@ -137,9 +137,9 @@ If you are redirecting to a route with an "ID" parameter that is being populated
 <a name="redirecting-with-flashed-session-data"></a>
 #### Redirecting With Flashed Session Data
 
-> **Note:** You must [enable sessions](/docs/session) before using this feature.
+> **Note:** You must [enable sessions](/docs/{{version}}/session) before using this feature.
 
-Redirecting to a new URL and [flashing data to the session](/docs/session#flash-data) are typically done at the same time. So, for convenience, you may create a `RedirectResponse` instance **and** flash data to the session in a single method chain. This is particularly convenient for storing status messages after an action:
+Redirecting to a new URL and [flashing data to the session](/docs/{{version}}/session#flash-data) are typically done at the same time. So, for convenience, you may create a `RedirectResponse` instance **and** flash data to the session in a single method chain. This is particularly convenient for storing status messages after an action:
 
 	$app->post('user/profile', function () {
 		// Update the user's profile...
@@ -147,7 +147,7 @@ Redirecting to a new URL and [flashing data to the session](/docs/session#flash-
 		return redirect('dashboard')->with('status', 'Profile updated!');
 	});
 
-Of course, after the user is redirected to a new page, you may retrieve and display the flashed message from the [session](/docs/session). For example, using [Blade syntax](http://laravel.com/docs/blade#control-structures):
+Of course, after the user is redirected to a new page, you may retrieve and display the flashed message from the [session](/docs/{{version}}/session). For example, using [Blade syntax](http://laravel.com/docs/blade#control-structures):
 
 	@if (session('status'))
 		<div class="alert alert-success">
