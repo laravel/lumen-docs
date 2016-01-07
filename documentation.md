@@ -1,7 +1,9 @@
+- Prologue
+    - [Release Notes](/docs/releases)
+    - [Upgrade Guide](/docs/upgrade)
 - Getting Started
     - [Installation](/docs/installation)
     - [Configuration](/docs/configuration)
-    - [Release Notes](/docs/releases)
 - The Basics
     - [Routing](/docs/routing)
     - [Middleware](/docs/middleware)
