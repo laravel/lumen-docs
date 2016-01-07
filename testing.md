@@ -108,8 +108,7 @@ The `actingAs` helper method provides a simple way to authenticate a given user 
 	    	$user = factory('App\User')->create();
 
 			$this->actingAs($user)
-			     ->get('/user')
-			     ->see('Hello, '.$user->name);
+			     ->get('/user');
 	    }
 	}
 
@@ -342,7 +341,7 @@ Lumen provides a convenient `expectsJobs` method that will verify that the expec
 	    }
 	}
 
-> **Note:** This method only detects jobs that are dispatched via the `DispatchesJobs` trait's dispatch methods or the `dispatch` helper function. It does not detect jobs that are sent directly to `Queue::push`.
+> **Note:** This method only detects jobs that are dispatched via the `dispatch` global helper function or the `$this->dispatch` method from a route or controller. It does not detect jobs that are sent directly to `Queue::push`.
 
 <a name="mocking-facades"></a>
 ### Mocking Facades
@@ -383,7 +382,7 @@ We can mock the call to the `Cache` facade by using the `shouldReceive` method, 
 						->with('key')
 						->andReturn('value');
 
-			$this->visit('/users')->see('value');
+			$this->get('/users');
 		}
 	}
 
