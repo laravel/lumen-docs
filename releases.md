@@ -20,7 +20,7 @@ Because sessions are no longer included with Lumen, authentication must be done 
 
 ### Testing Helpers
 
-Since session and views are no longer included with Lumen, all of the form interaction testing helpers have been removed. The testing helpers for JSON APIs remain, so be sure to review the [testing documentation](/docs/{{version}}/testing).
+Since sessions are no longer included with Lumen, all of the form interaction testing helpers have been removed. The testing helpers for JSON APIs remain, so be sure to review the [testing documentation](/docs/{{version}}/testing).
 
 <a name="5.1.0"></a>
 ## Lumen 5.1.0
