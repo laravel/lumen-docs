@@ -5,7 +5,7 @@
 
 Lumen provides several different approaches to validate your application's incoming data. By default, Lumen's base controller class uses a `ValidatesRequests` trait which provides a convenient method to validate incoming HTTP request with a variety of powerful validation rules.
 
-**In general, validation in Lumen works exactly like validation in Laravel, so you should consult the [full Laravel validation documentation](https://laravel.com/docs/validation); however, there are a few important differences.**
+In general, validation in Lumen works exactly like validation in Laravel, so you should consult the [full Laravel validation documentation](https://laravel.com/docs/validation); however, there are a few important differences.
 
 ## Differences From Laravel
 
