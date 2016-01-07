@@ -31,7 +31,7 @@ Lumen utilizes [Composer](http://getcomposer.org) to manage its dependencies. So
 
 First, download the Lumen installer using Composer:
 
-    composer global require "lumen/installer"
+    composer global require "laravel/lumen-installer"
 
 Make sure to place the `~/.composer/vendor/bin` directory in your PATH so the `lumen` executable can be located by your system.
 
