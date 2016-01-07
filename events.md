@@ -7,7 +7,7 @@ Lumen's events provides a simple observer implementation, allowing you to subscr
 
 ## Differences From Laravel
 
-**In general, events in Lumen function exactly like they do in the full-stack Laravel framework, so please review the [full Laravel documentation](https://laravel.com/docs/events).** Event broadcasting is even supported in Lumen, which allows you to listen for your server side events in your client-side JavaScript. However, there are a few minor differences which warrant discussion.
+In general, events in Lumen function exactly like they do in the full-stack Laravel framework, so please review the [full Laravel documentation](https://laravel.com/docs/events). Event broadcasting is even supported in Lumen, which allows you to listen for your server side events in your client-side JavaScript. However, there are a few minor differences which warrant discussion.
 
 #### Generators
 
@@ -30,7 +30,8 @@ Like the full Laravel framework, the `EventServiceProvider` included with your L
 
 #### Firing Events
 
-You may use the `event` helper function to fire events throughout your Lumen application. Again, this function behaves exactly like the full Laravel framework equivalent:
-
+You may use the `event` helper function or `Event` facade to fire events throughout your Lumen application. Again, these functions behave exactly like their full Laravel framework equivalent:
 
     event(new ExampleEvent);
+
+    Event::fire(new ExampleEvent);
