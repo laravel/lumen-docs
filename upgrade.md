@@ -105,4 +105,8 @@ Add the following code to your `bootstrap/app.php`
     $app->singleton('filesystem', function ($app) {
         return $app->loadComponent('filesystems', Illuminate\Filesystem\FilesystemServiceProvider::class, 'filesystem');
     });
-    
+
+### Validation
+
+The `ValidatesRequests` trait has been merged into the `ProvidesConvenienceMethods` trait which is used by Lumen's base controller.
+If you previously used the `ValidatesRequests` trait anywhere else than the BaseController, you have to copy it [from the 5.1 branch](https://github.com/laravel/lumen-framework/blob/5.1/src/Routing/ValidatesRequests.php) or use the full `ProvidesConvenienceMethods` trait.
