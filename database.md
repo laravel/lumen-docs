@@ -11,8 +11,6 @@ Lumen makes connecting with databases and running queries extremely simple. Curr
 
 You may use the `DB_*` configuration options in your `.env` configuration file to configure your database settings, such as the driver, host, username, and password.
 
-> **Note:** In order for your configuration values to be loaded, you will need to uncomment the `Dotenv::load()` method call in your `bootstrap/app.php` file.
-
 <a name="basic-usage"></a>
 ## Basic Usage
 
