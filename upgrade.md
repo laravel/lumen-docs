@@ -11,7 +11,7 @@ Upgrading your Lumen application to the full Laravel framework mainly involves c
 
 ### Updating Dependencies
 
-Update your `composer.json` file to point to `laravel/lumen 5.2.*`.
+Update your `composer.json` file to point to `laravel/lumen-framework 5.2.*`.
 
 ### Authentication
 
