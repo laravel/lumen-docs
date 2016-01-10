@@ -96,3 +96,13 @@ Your `App\Exceptions\Handler` class' `$dontReport` property should be updated to
 The IronMQ queue driver has been moved into its own package and is no longer shipped with the core framework.
 
 [http://github.com/LaravelCollective/iron-queue](http://github.com/laravelcollective/iron-queue)
+
+### Storage
+
+If you made use of Laravels Storage system, you will have to re-include the filesystem-singleton.
+Add the following code to your `bootstrap/app.php`
+
+    $app->singleton('filesystem', function ($app) {
+        return $app->loadComponent('filesystems', Illuminate\Filesystem\FilesystemServiceProvider::class, 'filesystem');
+    });
+    
