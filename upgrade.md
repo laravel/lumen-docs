@@ -99,14 +99,18 @@ The IronMQ queue driver has been moved into its own package and is no longer shi
 
 ### Storage
 
-If you made use of Laravels Storage system, you will have to re-include the filesystem-singleton.
-Add the following code to your `bootstrap/app.php`
+If you made use of Laravel's Flysystem integration, you will need to register the `filesystem` binding. Add the following code to your `bootstrap/app.php`:
 
     $app->singleton('filesystem', function ($app) {
-        return $app->loadComponent('filesystems', Illuminate\Filesystem\FilesystemServiceProvider::class, 'filesystem');
+        return $app->loadComponent(
+            'filesystems',
+            Illuminate\Filesystem\FilesystemServiceProvider::class,
+            'filesystem'
+        );
     });
 
 ### Validation
 
-The `ValidatesRequests` trait has been merged into the `ProvidesConvenienceMethods` trait which is used by Lumen's base controller.
-If you previously used the `ValidatesRequests` trait anywhere else than the BaseController, you have to copy it [from the 5.1 branch](https://github.com/laravel/lumen-framework/blob/5.1/src/Routing/ValidatesRequests.php) or use the full `ProvidesConvenienceMethods` trait.
+The `ValidatesRequests` trait has been merged into the `ProvidesConvenienceMethods` trait used by Lumen's base controller.
+
+If you previously used the `ValidatesRequests` trait outside of the BaseController, you may copy it [from the 5.1 branch](https://github.com/laravel/lumen-framework/blob/5.1/src/Routing/ValidatesRequests.php) or use the full `ProvidesConvenienceMethods` trait.
