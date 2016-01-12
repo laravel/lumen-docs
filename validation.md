@@ -15,7 +15,7 @@ Form requests are not supported by Lumen. If you would like to use form requests
 
 #### The `$this->validate` Method
 
-The `$this->validate` helper which is available in Lumen will always return a JSON response with the relevant error messages. This is in contrast to the Laravel version of the method which will return a redirect response if the request is not an AJAX request. Since Lumen is stateless and does not support sessions, flashing errors to the session is not a possibility. If you would like to used redirects and flashed error data, you should use the full Laravel framework.
+The `$this->validate` helper which is available in Lumen will always return a JSON response with the relevant error messages. This is in contrast to the Laravel version of the method which will return a redirect response if the request is not an AJAX request. Since Lumen is stateless and does not support sessions, flashing errors to the session is not a possibility. If you would like to use redirects and flashed error data, you should use the full Laravel framework.
 
 Unlike Laravel, Lumen provides access to the `validate` method from within Route closures:
 
