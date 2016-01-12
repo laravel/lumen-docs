@@ -12,7 +12,7 @@ Authentication in Lumen, while using the same underlying libraries as Laravel, i
 
 The `AuthServiceProvider` located in your `app/Providers` directory contains a single call to `Auth::viaRequest`. The `viaRequest` method accepts a Closure which will be called when the incoming request needs to be authenticated. Within this Closure, you may resolve your `App\User` instance however you wish. If no authenticated user can be found for the request, the Closure should return `null`:
 
-    Auth::viaRequest('api', function ($request) {
+    $this->app['auth']->viaRequest('api', function ($request) {
     	// Return User or null...
     });
 
