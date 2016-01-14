@@ -114,3 +114,9 @@ If you made use of Laravel's Flysystem integration, you will need to register th
 The `ValidatesRequests` trait has been merged into the `ProvidesConvenienceMethods` trait used by Lumen's base controller.
 
 If you previously used the `ValidatesRequests` trait outside of the BaseController, you may copy it [from the 5.1 branch](https://github.com/laravel/lumen-framework/blob/5.1/src/Routing/ValidatesRequests.php) or use the full `ProvidesConvenienceMethods` trait.
+
+### Testing
+
+The traits `ApplicationTrait`, `AssertionsTrait`, and `CrawlerTrait` have been removed.  Many of the methods have been merged into the `MakesHttpRequests` trait.
+
+If you previously used these traits outside of the TestCase or would like to use a method that has been removed, you may copy the traits [from the 5.1 branch](https://github.com/laravel/lumen-framework/tree/5.1/src/Testing).
