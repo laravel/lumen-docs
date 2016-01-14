@@ -109,6 +109,10 @@ If you made use of Laravel's Flysystem integration, you will need to register th
         );
     });
 
+The `Storage` facade is no longer registered automatically.  If you would like to use the `Storage` facade, you may add the following line to `bootstrap/app.php`:
+
+    class_alias('Illuminate\Support\Facades\Storage', 'Storage');
+
 ### Validation
 
 The `ValidatesRequests` trait has been merged into the `ProvidesConvenienceMethods` trait used by Lumen's base controller.
