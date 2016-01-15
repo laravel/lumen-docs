@@ -13,6 +13,10 @@ Upgrading your Lumen application to the full Laravel framework mainly involves c
 
 Update your `composer.json` file to point to `laravel/lumen-framework 5.2.*`.
 
+### Application
+
+Since lumen does not support all of the features of the full Laravel framework, Lumen no longer implements the `Illuminate\Contracts\Foundation\Application` contract.  Any Application contract typehints should be updated to reference the `Laravel\Lumen\Application` class directly. 
+
 ### Authentication
 
 Since sessions are no longer support in Lumen, authentication is totally based on stateless authentication via API tokens or headers. You should review the [full authentication documentation](/docs/{{version}}/authentication) for more information on how to use the authentication system.
