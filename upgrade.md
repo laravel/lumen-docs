@@ -15,7 +15,7 @@ Update your `composer.json` file to point to `laravel/lumen-framework 5.2.*`.
 
 ### Application
 
-Since lumen does not support all of the features of the full Laravel framework, Lumen no longer implements the `Illuminate\Contracts\Foundation\Application` contract.  Any Application contract typehints should be updated to reference the `Laravel\Lumen\Application` class directly. 
+Lumen no longer implements the `Illuminate\Contracts\Foundation\Application` contract.  Any `Application` contract type-hints should be updated to reference the `Laravel\Lumen\Application` class directly.
 
 ### Authentication
 
