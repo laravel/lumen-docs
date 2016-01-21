@@ -99,7 +99,7 @@ Redirect responses are instances of the `Illuminate\Http\RedirectResponse` class
 <a name="redirecting-named-routes"></a>
 #### Redirecting To Named Routes
 
-When you call the `redirect` helper with no parameters, an instance of `Illuminate\Routing\Redirector` is returned, allowing you to call any method on the `Redirector` instance. For example, to generate a `RedirectResponse` to a named route, you may use the `route` method:
+When you call the `redirect` helper with no parameters, an instance of `Laravel\Lumen\Http\Redirector` is returned, allowing you to call any method on the `Redirector` instance. For example, to generate a `RedirectResponse` to a named route, you may use the `route` method:
 
     return redirect()->route('login');
 
