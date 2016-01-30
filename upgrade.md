@@ -5,7 +5,7 @@
 <a name="upgrade-5.2.0"></a>
 ## Upgrading To 5.2.0 From 5.1
 
-Lumen 5.2 represents a more decided shift towards focusing on stateless APIs. Therefore, sessions have been removed from the framework. If you would like to use these features, you should uprade your Lumen 5.1 application to Laravel 5.2.
+Lumen 5.2 represents a more decided shift towards focusing on stateless APIs. Therefore, sessions have been removed from the framework. If you would like to use these features, you should upgrade your Lumen 5.1 application to Laravel 5.2.
 
 Upgrading your Lumen application to the full Laravel framework mainly involves copying your routes and classes over into a fresh installation of Laravel. Since Laravel and Lumen share many of the same components, your classes should not require any modification.
 
