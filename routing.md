@@ -67,7 +67,7 @@ Named routes allow the convenient generation of URLs or redirects for specific r
 You may also specify route names for controller actions:
 
     $app->get('profile', [
-        'as' => 'profile', 'uses' => 'UserController@showProfile'
+        'as' => 'profile', 'uses' => 'App\Http\Controllers\UserController@showProfile'
     ]);
 
 #### Generating URLs To Named Routes
