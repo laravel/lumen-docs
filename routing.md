@@ -119,7 +119,7 @@ Another common use-case for route groups is assigning the same PHP namespace to 
     {
         // Controllers Within The "App\Http\Controllers\Admin" Namespace
 
-        $app->group(['namespace' => 'User'], function() {
+        $app->group(['namespace' => 'User'], function() use ($app) {
             // Controllers Within The "App\Http\Controllers\Admin\User" Namespace
         });
     });
