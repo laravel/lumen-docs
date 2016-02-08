@@ -10,4 +10,6 @@ The Lumen cache drivers utilize the exact same code as the full Laravel cache dr
 
 > **Note:** Before using the `Cache` facade, be sure you have uncommented the `$app->withFacades()` method call in your `bootstrap/app.php` file.
 
-> **Note 2:** Before using a Redis cache with Lumen, you will need to install the predis/predis (~1.0) and illuminate/redis (5.2.*) packages via Composer. Also register the `Illuminate\Redis\RedisServiceProvider` in your `bootstrap/app.php`.
+### Redis Support
+
+Before using a Redis cache with Lumen, you will need to install the `predis/predis (~1.0)` and `illuminate/redis (5.2.*)` packages via Composer. Then, you should register the `Illuminate\Redis\RedisServiceProvider` in your `bootstrap/app.php` file.
