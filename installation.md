@@ -63,6 +63,21 @@ After installing Lumen, you should set your application key to a 32 character, r
 
 > **Note:** In order for your configuration values to be loaded, you will need to uncomment the `Dotenv::load()` method call in your `bootstrap/app.php` file.
 
+#### Enabling Facades
+You can enable Eloquent uncomment this line:
+
+	$app->withFacades();
+	
+in your `bootstrap/app.php`
+
+#### Enabling Eloquent
+You can enable Eloquent uncomment this line:
+
+	$app->withEloquent();
+	
+in your `bootstrap/app.php`
+
+	
 #### Additional Configuration
 
 Lumen needs almost no other configuration out of the box. You are free to get started developing!
