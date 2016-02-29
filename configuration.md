@@ -54,3 +54,17 @@ You may also pass arguments to the `environment` method to check if the environm
     if (app()->environment('local', 'staging')) {
         // The environment is either local OR staging...
     }
+
+### Enabling Facades
+You can enable Facades uncomment this line:
+
+	$app->withFacades();
+	
+in your `bootstrap/app.php`
+
+### Enabling Eloquent
+You can enable Eloquent uncomment this line:
+
+	$app->withEloquent();
+	
+in your `bootstrap/app.php`
