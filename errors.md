@@ -128,6 +128,8 @@ The Lumen logging facilities provide a simple layer on top of the powerful [Mono
         }
     }
 
+> **Note:** Before using the `Log` facade, be sure you have uncommented the `$app->withFacades()` method call in your `bootstrap/app.php` file.
+
 The logger provides the eight logging levels defined in [RFC 5424](http://tools.ietf.org/html/rfc5424): **emergency**, **alert**, **critical**, **error**, **warning**, **notice**, **info** and **debug**.
 
     Log::emergency($error);
