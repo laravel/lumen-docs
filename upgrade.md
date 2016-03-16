@@ -13,6 +13,16 @@ Upgrading your Lumen application to the full Laravel framework mainly involves c
 
 Update your `composer.json` file to point to `laravel/lumen-framework 5.2.*`.
 
+### Bootstrap
+
+In the `bootstrap/app.php` file you need to change `Dotenv::load(__DIR__.'/../');` to the following:
+
+    try {
+        (new Dotenv\Dotenv(__DIR__.'/../'))->load();
+    } catch (Dotenv\Exception\InvalidPathException $e) {
+        //
+    }
+
 ### Application
 
 Lumen no longer implements the `Illuminate\Contracts\Foundation\Application` contract.  Any `Application` contract type-hints should be updated to reference the `Laravel\Lumen\Application` class directly.
@@ -118,3 +128,17 @@ If you made use of Laravel's Flysystem integration, you will need to register th
 The `ValidatesRequests` trait has been merged into the `ProvidesConvenienceMethods` trait used by Lumen's base controller.
 
 If you previously used the `ValidatesRequests` trait outside of the BaseController, you may copy it [from the 5.1 branch](https://github.com/laravel/lumen-framework/blob/5.1/src/Routing/ValidatesRequests.php) or use the full `ProvidesConvenienceMethods` trait.
+
+### Testing
+
+The `DatabaseMigrations` and `DatabaseTransactions` traits have moved from `Illuminate\Foundation\Testing\DatabaseMigrations` and `Illuminate\Foundation\Testing\DatabaseTransactions`. Update tests to import the new namespace:
+
+    <?php
+
+    use Laravel\Lumen\Testing\DatabaseMigrations;
+    use Laravel\Lumen\Testing\DatabaseTransactions;
+
+    class ExampleTest extends TestCase
+    {
+        use DatabaseMigrations;
+    }
