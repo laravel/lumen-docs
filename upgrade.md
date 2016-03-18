@@ -15,7 +15,7 @@ Update your `composer.json` file to point to `laravel/lumen-framework 5.2.*`.
 
 ### Bootstrap
 
-In the `bootstrap/app.php` file you need to change `Dotenv::load(__DIR__.'/../');` to the following:
+In the `bootstrap/app.php` file you need to modify the `Dotenv::load(...)` method call to the following:
 
     try {
         (new Dotenv\Dotenv(__DIR__.'/../'))->load();
@@ -131,7 +131,7 @@ If you previously used the `ValidatesRequests` trait outside of the BaseControll
 
 ### Testing
 
-The `DatabaseMigrations` and `DatabaseTransactions` traits have moved from `Illuminate\Foundation\Testing\DatabaseMigrations` and `Illuminate\Foundation\Testing\DatabaseTransactions`. Update tests to import the new namespace:
+The `DatabaseMigrations` and `DatabaseTransactions` traits have moved from `Illuminate\Foundation\Testing\DatabaseMigrations` and `Illuminate\Foundation\Testing\DatabaseTransactions` to a new location. Update your tests to import the new namespace:
 
     <?php
 
