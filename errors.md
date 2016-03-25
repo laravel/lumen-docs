@@ -28,6 +28,8 @@ If you would like to have complete control over how Monolog is configured for yo
 
     $app->configureMonologUsing(function($monolog) {
         $monolog->pushHandler(...);
+
+        return $monolog;
     });
 
     return $app;
