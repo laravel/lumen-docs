@@ -104,7 +104,7 @@ This method may be used at any time during the request's lifecycle.
 <a name="logging"></a>
 ## Logging
 
-The Lumen logging facilities provide a simple layer on top of the powerful [Monolog](http://github.com/seldaek/monolog) library. By default, Lumen is configured to create a single log file for your application entitled `lumen.log` which is stored in the `storage/logs` directory. You may write information to the logs using the `Log` facade:
+The Lumen logging facilities provide a simple layer on top of the powerful [Monolog](http://github.com/seldaek/monolog) library. By default, Lumen is configured to create a single log file for your application which is stored in the `storage/logs` directory. You may write information to the logs using the `Log` facade:
 
     <?php
 
