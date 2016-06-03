@@ -63,7 +63,7 @@ Lumen also provides several helpers for testing JSON APIs and their responses. F
 	     */
 	    public function testBasicExample()
 	    {
-	    	$this->json('POST','/user', ['name' => 'Sally'])
+	    	$this->json('POST', '/user', ['name' => 'Sally'])
 	    	     ->seeJson([
 	    	     	'created' => true,
 	    	     ]);
