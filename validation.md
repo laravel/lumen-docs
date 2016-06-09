@@ -34,4 +34,4 @@ Of course, you are free to manually create validator instances using the `Valida
 
 #### The `$errors` View Variable
 
-Lumen does not support sessions out of the box, so the `$errors` view variable that is available in every view in Laravel is not available in Lumen. The `$this->validate` helper will **always** return JSON responses with the relevant error messages when validation fails. If you are not building a stateless API that solely sends JSON responses, you should use the full Laravel framework.
+Lumen does not support sessions out of the box, so the `$errors` view variable that is available in every view in Laravel is not available in Lumen. Should validation fail, the `$this->validate` helper will throw `Illuminate\Validation\ValidationException` with embedded JSON response that includes all relevant error messages. If you are not building a stateless API that solely sends JSON responses, you should use the full Laravel framework.
