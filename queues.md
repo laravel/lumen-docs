@@ -10,7 +10,9 @@ Like many other parts of the framework, Lumen's queued jobs function identically
 <a name="configuration"></a>
 ### Configuration
 
-The queue configuration options are in the `.env` file.
+The queue configuration options are in the `.env` file. 
+
+If you would like to use the Amazon SQS, Beanstalkd, Iron.io or Redis queue drivers, then you must copy the entire `vendor/laravel/lumen-framework/config/queue.php` file to the `config` directory in the root of your project, and adjust the necessary configuration options as needed. If the `config` directory does not exist, then you must create it first.
 
 ### Driver Prerequisites
 
