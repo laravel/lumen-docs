@@ -168,7 +168,7 @@ Middleware parameters may be specified when defining the route by separating the
 <a name="terminable-middleware"></a>
 ## Terminable Middleware
 
-Sometimes a middleware may need to do some work after the HTTP response has already been sent to the browser. For example, the "session" middleware included with Lumen writes the session data to storage _after_ the response has been sent to the browser. To accomplish this, define the middleware as "terminable" by adding a `terminate` method to the middleware:
+Sometimes a middleware may need to do some work after the HTTP response has already been sent to the browser. For example, the "session" middleware writes the session data to storage _after_ the response has been sent to the browser. To accomplish this, define the middleware as "terminable" by adding a `terminate` method to the middleware:
 
     <?php
 
