@@ -1,6 +1,16 @@
 # Upgrade Guide
 
+- [Upgrading To 5.3.0 From 5.2](#upgrade-5.3.0)
 - [Upgrading To 5.2.0 From 5.1](#upgrade-5.2.0)
+
+<a name="upgrade-5.3.0"></a>
+## Upgrading To 5.3.0 From 5.2
+
+Lumen 5.3 does not change the structure of the framework. Instead, it serves as a maintenance release to upgrade the underlying Laravel packages to the 5.3 release series. Before upgrading your application to Lumen 5.3, you should review the Laravel 5.3 [upgrade guide](https://laravel.com/docs/5.3/upgrade#upgrade-5.3.0) and make any applicable changes to your application according to which Laravel components you are using.
+
+Once you have made the necessary adjustments to your application, you may upgrade your Lumen framework dependency in your `composer.json` file and run the `composer update` command:
+
+    `"laravel/lumen-framework": "5.3.*"`
 
 <a name="upgrade-5.2.0"></a>
 ## Upgrading To 5.2.0 From 5.1
