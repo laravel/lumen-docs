@@ -10,7 +10,7 @@ Lumen 5.3 does not change the structure of the framework. Instead, it serves as 
 
 Once you have made the necessary adjustments to your application, you may upgrade your Lumen framework dependency in your `composer.json` file and run the `composer update` command:
 
-    `"laravel/lumen-framework": "5.3.*"`
+    "laravel/lumen-framework": "5.3.*"
 
 <a name="upgrade-5.2.0"></a>
 ## Upgrading To 5.2.0 From 5.1
