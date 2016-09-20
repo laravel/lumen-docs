@@ -70,6 +70,10 @@ The `json` method will automatically set the `Content-Type` header to `applicati
 
     return response()->json(['name' => 'Abigail', 'state' => 'CA']);
 
+You can optionally provide a status code and an array of additional headers:
+
+    return response()->json(['error' => 'Unauthorized'], 401, ['X-Header-One' => 'Header Value']);
+
 If you would like to create a JSONP response, you may use the `json` method in addition to `setCallback`:
 
     return response()
