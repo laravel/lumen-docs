@@ -12,7 +12,7 @@
 <a name="basic-routing"></a>
 ## Basic Routing
 
-You will define all of the routes for your application in the `app/Http/routes.php` file. The most basic Lumen routes simply accept a URI and a `Closure`:
+You will define all of the routes for your application in the `routes/web.php` file. The most basic Lumen routes simply accept a URI and a `Closure`:
 
     $app->get('foo', function () {
         return 'Hello World';
