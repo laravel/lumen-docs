@@ -8,18 +8,20 @@
 <a name="introduction"></a>
 ## Introduction
 
-All of the configuration options for the Lumen framework are stored in the `.env` file.
+Most of the configuration options for the Lumen framework are stored in the `.env` file. By default, there is no `config` directory in the root of your project and you will need to create one in order to define new configurations or override the existing ones. You may take a look at `vendor/laravel/lumen-framework/config/`.
 
 <a name="accessing-configuration-values"></a>
 ## Accessing Configuration Values
 
 You may easily access your configuration values using the global `config` helper function from anywhere in your application. The configuration values may be accessed using "dot" syntax, which includes the name of the file and option you wish to access. A default value may also be specified and will be returned if the configuration option does not exist:
 
-    $value = config('app.timezone');
+    $value = config('app.locale');
 
 To set configuration values at runtime, pass an array to the `config` helper:
 
-    config(['app.timezone' => 'America/Chicago']);
+    config(['app.locale' => 'en']);
+
+{note} Lumen doesn't have all the configurations Laravel has. i.e.: if you need to configure your timezone, you should do it in your `.env` file with the `APP_TIMEZONE` variable.
 
 <a name="environment-configuration"></a>
 ## Environment Configuration
