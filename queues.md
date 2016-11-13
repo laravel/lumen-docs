@@ -32,7 +32,7 @@ In order to use the `database` queue driver, you will need database tables to ho
         $table->index(['queue', 'reserved', 'reserved_at']);
     });
 
-    Schema::create(config('queue.failed.table', 'failed_jobs'), function(Blueprint $table) {
+    Schema::create('failed_jobs', function(Blueprint $table) {
         $table->increments('id');
         $table->text('connection');
         $table->text('queue');
@@ -40,7 +40,7 @@ In order to use the `database` queue driver, you will need database tables to ho
         $table->longText('exception');
         $table->timestamp('failed_at')->useCurrent();
     });
-     
+
 
 #### Other Queue Dependencies
 
