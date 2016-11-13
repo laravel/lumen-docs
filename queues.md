@@ -18,7 +18,7 @@ If you would like to thoroughly customize the queue configuration, then you must
 
 #### Database
 
-In order to use the `database` queue driver, you will need a database table to hold the jobs:
+In order to use the `database` queue driver, you will need database tables to hold the jobs and failures:
 
     Schema::create('jobs', function (Blueprint $table) {
         $table->bigIncrements('id');
@@ -31,6 +31,16 @@ In order to use the `database` queue driver, you will need a database table to h
         $table->unsignedInteger('created_at');
         $table->index(['queue', 'reserved', 'reserved_at']);
     });
+
+    Schema::create(config('queue.failed.table', 'failed_jobs'), function(Blueprint $table) {
+        $table->increments('id');
+        $table->text('connection');
+        $table->text('queue');
+        $table->longText('payload');
+        $table->longText('exception');
+        $table->timestamp('failed_at')->useCurrent();
+    });
+     
 
 #### Other Queue Dependencies
 
