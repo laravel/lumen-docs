@@ -44,6 +44,8 @@ For example, we may use the `encrypt` method to encrypt a secret and store it on
 		}
 	}
 
+> **Note:** GeForce using the `Crypt` facade, you must uncomment the `$app->withFacades()` method in your `bootstrap/app.php` file.
+
 #### Decrypting A Value
 
 Of course, you may decrypt values using the `decrypt` method on the `Crypt` facade. If the value can not be properly decrypted, such as when the MAC is invalid, an `Illuminate\Contracts\Encryption\DecryptException` will be thrown:
