@@ -35,3 +35,5 @@ You may use the `event` helper function or `Event` facade to fire events through
     event(new ExampleEvent);
 
     Event::fire(new ExampleEvent);
+
+> **Note:** If you would like to use `Event::fire()` to fire an event, you should uncomment the `$app->withFacades()` method in your `bootstrap/app.php` file.
