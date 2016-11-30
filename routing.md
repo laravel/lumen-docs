@@ -115,7 +115,7 @@ To assign middleware to all routes within a group, you may use the `middleware` 
 
 Another common use-case for route groups is assigning the same PHP namespace to a group of controllers. You may use the `namespace` parameter in your group attribute array to specify the namespace for all controllers within the group:
 
-    $app->group(['namespace' => 'App\Http\Controllers\Admin'], function() use ($app)
+    $app->group(['namespace' => 'Admin'], function() use ($app)
     {
         // Using The "App\Http\Controllers\Admin" Namespace...
 
