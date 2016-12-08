@@ -45,6 +45,12 @@ You may also install Lumen by issuing the Composer `create-project` command in y
 
     composer create-project --prefer-dist laravel/lumen blog
 
+### Starting The Server
+
+Run the PHP built-in server from the root of your project.
+
+`php -S localhost:8000 -t public`
+
 <a name="configuration"></a>
 ### Configuration
 
@@ -53,3 +59,4 @@ All of the configuration options for the Lumen framework are stored in the `.env
 #### Application Key
 
 The next thing you should do after installing Lumen is set your application key to a random string. Typically, this string should be 32 characters long. The key can be set in the `.env` environment file. If you have not renamed the `.env.example` file to `.env`, you should do that now. **If the application key is not set, your user encrypted data will not be secure!**
+
