@@ -45,11 +45,11 @@ You may also install Lumen by issuing the Composer `create-project` command in y
 
     composer create-project --prefer-dist laravel/lumen blog
 
-### Starting The Server
+### Serving Your Application
 
-Run the PHP built-in server from the root of your project.
+To serve your project locally, you may use the [Laravel Homestead](http://laravel.com/docs/homestead) virtual machine, [Laravel Valet](http://laravel.com/docs/valet), or the built-in PHP development server:
 
-`php -S localhost:8000 -t public`
+    php -S localhost:8000 -t public
 
 <a name="configuration"></a>
 ### Configuration
