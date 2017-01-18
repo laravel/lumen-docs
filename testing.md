@@ -343,6 +343,20 @@ Lumen provides a convenient `expectsJobs` method that will verify that the expec
 
 > **Note:** This method only detects jobs that are dispatched via the `dispatch` global helper function or the `$this->dispatch` method from a route or controller. It does not detect jobs that are sent directly to `Queue::push`.
 
+You can also check a job was not dispatched:
+
+	<?php
+
+	class ExampleTest extends TestCase
+	{
+	    public function testPurchasePodcast()
+	    {
+	    	$this->doesNotExpectJobs('App\Jobs\PurchasePodcast');
+
+	    	// Test purchase podcast code...
+	    }
+	}
+
 <a name="mocking-facades"></a>
 ### Mocking Facades
 
