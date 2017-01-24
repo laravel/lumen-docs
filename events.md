@@ -34,4 +34,4 @@ You may use the `event` helper function or `Event` facade to fire events through
 
     event(new ExampleEvent);
 
-    Event::fire(new ExampleEvent);
+    Event::dispatch(new ExampleEvent);
