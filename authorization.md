@@ -39,7 +39,7 @@ You may "check" abilities just as you would in the full Laravel framework. First
 Of course, you may also check if a given `User` instance has a given ability:
 
     if ($request->user()->can('update-post', $post)) {
-        abort(403);
+        // user is allowed to update the post
     }
 
     if ($request->user()->cannot('update-post', $post)) {
