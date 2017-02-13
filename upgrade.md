@@ -7,11 +7,15 @@
 <a name="upgrade-5.4.0"></a>
 ## Upgrading To 5.4.0 From 5.3
 
-Lumen 5.4 does not change the structure of the framework. Instead, it serves as a maintenance release to upgrade the underlying Laravel packages to the 5.4 release series. Before upgrading your application to Lumen 5.4, you should review the Laravel 5.4 [upgrade guide](https://laravel.com/docs/5.4/upgrade#upgrade-5.4.0) and make any applicable changes to your application according to which Laravel components you are using.
+Lumen 5.4 serves as a maintenance release to upgrade the underlying Laravel packages to the 5.4 release series. Before upgrading your application to Lumen 5.4, you should review the Laravel 5.4 [upgrade guide](https://laravel.com/docs/5.4/upgrade#upgrade-5.4.0) and make any applicable changes to your application according to which Laravel components you are using. 
 
 Once you have made the necessary adjustments to your application, you may upgrade your Lumen framework dependency in your `composer.json` file and run the `composer update` command:
 
     "laravel/lumen-framework": "5.4.*"
+
+#### Accessing Requests from Service Providers
+There is one more change to be aware of. If you were previously accessing current request in one of your application's service providers (via an instance of `Illuminate\Http\Request`), you should refactor your code to do it in a middleware instead. The current request is no longer accessible to the service provider when it boots up, but this is easily handled with a middleware.
+
 
 <a name="upgrade-5.3.0"></a>
 ## Upgrading To 5.3.0 From 5.2
