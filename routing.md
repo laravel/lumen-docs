@@ -3,6 +3,7 @@
 - [Basic Routing](#basic-routing)
 - [Route Parameters](#route-parameters)
     - [Required Parameters](#required-parameters)
+    - [Regular Expression Constraints](#parameters-regular-expression-constraints)
 - [Named Routes](#named-routes)
 - [Route Groups](#route-groups)
     - [Middleware](#route-group-middleware)
@@ -54,6 +55,15 @@ You may define as many route parameters as required by your route:
 Route parameters are always encased within "curly" braces. The parameters will be passed into your route's `Closure` when the route is executed.
 
 > **Note:** Route parameters cannot contain the `-` character. Use an underscore (`_`) instead.
+
+<a name="parameters-regular-expression-constraints"></a>
+### Regular Expression Constraints
+
+You may constrain the format of your route parameters by defining a regular expression in your route definition:
+
+    $app->get('user/{name:[A-Za-z]+}', function ($name) {
+        //
+    });
 
 <a name="named-routes"></a>
 ## Named Routes
