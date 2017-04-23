@@ -3,6 +3,7 @@
 - [Basic Routing](#basic-routing)
 - [Route Parameters](#route-parameters)
     - [Required Parameters](#required-parameters)
+    - [Optional Parameters](#optional-parameters)
     - [Regular Expression Constraints](#parameters-regular-expression-constraints)
 - [Named Routes](#named-routes)
 - [Route Groups](#route-groups)
@@ -55,6 +56,30 @@ You may define as many route parameters as required by your route:
 Route parameters are always encased within "curly" braces. The parameters will be passed into your route's `Closure` when the route is executed.
 
 > **Note:** Route parameters cannot contain the `-` character. Use an underscore (`_`) instead.
+
+<a name="optional-parameters"></a>
+### Optional Parameters
+
+Occasionally you may need to specify a route parameter, but make the presence of that route parameter optional. You may do so by enclosing part of a route in `[...]`. So `/foo[bar]` will match both `/foo` and `/foobar`. Optional parts are only supported in a trailing position not in the middle of a route. Make sure to give the route's corresponding variable a default value:
+
+```
+$app->get('user[/{name}]', function ($name = null) {
+    return $name;
+});
+```
+
+```
+$app->get('user[/{name}]', function ($name = 'John') {
+    return $name;
+});
+```
+
+```
+// This route is NOT valid, because optional parts can only occur at the end
+$app->get('GET', '/user[/{id}]/{name}', function ($id, $name) {
+    return $id;
+});
+```
 
 <a name="parameters-regular-expression-constraints"></a>
 ### Regular Expression Constraints
