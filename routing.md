@@ -49,7 +49,7 @@ Of course, sometimes you will need to capture segments of the URI within your ro
 
 You may define as many route parameters as required by your route:
 
-    $app->get('posts/{post}/comments/{comment}', function ($postId, $commentId) {
+    $app->get('posts/{postId}/comments/{commentId}', function ($postId, $commentId) {
         //
     });
 
