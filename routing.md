@@ -157,8 +157,8 @@ The `prefix` group attribute may be used to prefix each route in the group with 
 
 You may also use the `prefix` parameter to specify common parameters for your grouped routes:
 
-    $app->group(['prefix' => 'accounts/{account_id}'], function () use ($app) {
+    $app->group(['prefix' => 'accounts/{accountId}'], function () use ($app) {
         $app->get('detail', function ($accountId)    {
-            // Matches The "/accounts/{account_id}/detail" URL
+            // Matches The "/accounts/{accountId}/detail" URL
         });
     });
