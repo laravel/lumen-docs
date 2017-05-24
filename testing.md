@@ -186,7 +186,30 @@ If you would like to verify that the given array is an **exact** match for the J
 	    	     ]);
 	    }
 	}
+	
+#### Add HTTP headers to your request
 
+You can add headers in the **second** parameter of `get` method and in the third parameter for other (`post`, `put`, `patch` and `delete`) as an associated array.
+Don't forget to prefix each header name with **HTTP_**.  
+
+	<?php
+
+	class ExampleTest extends TestCase
+	{
+	    /**
+	     * Test create user with valid oauth2 access token.
+	     *
+	     * @return void
+	     */
+	    public function testCreateUserWithOAuth2AccessToken()
+	    {
+	    	$this->post('/user', ['name' => 'Sally'], ['HTTP_Authorization' => 'Bearer DV9Fw5p9U3bzkn1czA7OldX18ybGcaXVFmzhAaGF'])
+	    	     ->seeJsonEquals([
+	    	     	'created' => true,
+	    	     ]);
+	    }
+	}
+	
 <a name="sessions-and-authentication"></a>
 ### Sessions / Authentication
 
