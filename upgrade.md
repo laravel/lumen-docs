@@ -16,7 +16,7 @@ Once you have made the necessary adjustments to your application, you may upgrad
 
 ### Updating The Bootstrap File
 
-In Laravel 5.5, the service container implements the PSR-11 interface, causing conflicts with the `get` method of the router when attempting to use the service container as a proxy to the router. For this reason, the `bootstrap/app.php` file needs to be updated to pass only a `Router` instance to the `routes.php` file. Near the bottom of your `bootstrap/app.php` file, adjust the inclusion of the `routes.php` file to look like the following:
+In Laravel 5.5, the service container implements the PSR-11 interface, causing conflicts with the `get` method of the router when attempting to use the service container as a router proxy. For this reason, the `bootstrap/app.php` file needs to be updated to pass only a `Router` instance to the `routes.php` file. Near the bottom of your `bootstrap/app.php` file, adjust the inclusion of the `routes.php` file to look like the following:
 
     $app->router->group([
         'namespace' => 'App\Http\Controllers',
