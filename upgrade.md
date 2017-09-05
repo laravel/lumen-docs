@@ -1,8 +1,28 @@
 # Upgrade Guide
 
+- [Upgrading To 5.5.0 From 5.4](#upgrade-5.5.0)
 - [Upgrading To 5.4.0 From 5.3](#upgrade-5.4.0)
 - [Upgrading To 5.3.0 From 5.2](#upgrade-5.3.0)
 - [Upgrading To 5.2.0 From 5.1](#upgrade-5.2.0)
+
+<a name="upgrade-5.5.0"></a>
+## Upgrading To 5.5.0 From 5.4
+
+Lumen 5.5 serves as a maintenance release to upgrade the underlying Laravel packages to the 5.5 release series. Before upgrading your application to Lumen 5.5, you should review the Laravel 5.5 [upgrade guide](https://laravel.com/docs/5.5/upgrade#upgrade-5.5.0) and make any applicable changes to your application according to which Laravel components you are using.
+
+Once you have made the necessary adjustments to your application, you may upgrade your Lumen framework dependency in your `composer.json` file and run the `composer update` command:
+
+    "laravel/lumen-framework": "5.5.*"
+
+### Updating The Bootstrap File
+
+In Laravel 5.5, the service container implements the PSR-11 interface, causing conflicts with the `get` method of the router when attempting to use the service container as a proxy to the router. For this reason, the `bootstrap/app.php` file needs to be updated to pass only a `Router` instance to the `routes.php` file. Near the bottom of your `bootstrap/app.php` file, adjust the inclusion of the `routes.php` file to look like the following:
+
+    $app->router->group([
+        'namespace' => 'App\Http\Controllers',
+    ], function ($router) {
+        require __DIR__.'/../routes/web.php';
+    });
 
 <a name="upgrade-5.4.0"></a>
 ## Upgrading To 5.4.0 From 5.3

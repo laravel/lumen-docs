@@ -1,11 +1,17 @@
 # Release Notes
 
+- [5.5.0](#5.5.0)
 - [5.4.0](#5.4.0)
 - [5.3.0](#5.3.0)
 - [5.2.0](#5.2.0)
 - [5.1.0](#5.1.0)
 - [5.0.4](#5.0.4)
 - [5.0 (Based On Laravel 5.0.x)](#5.0)
+
+<a name="5.5.0"></a>
+## Lumen 5.5.0
+
+Lumen 5.5 upgrades the framework's underlying Laravel components to the `5.5` series.
 
 <a name="5.4.0"></a>
 ## Lumen 5.4.0
