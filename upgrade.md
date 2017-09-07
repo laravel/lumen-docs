@@ -20,7 +20,7 @@ In Laravel 5.5, the service container implements the PSR-11 interface, causing c
 
     $app->router->group([
         'namespace' => 'App\Http\Controllers',
-    ], function ($router) {
+    ], function ($app) {
         require __DIR__.'/../routes/web.php';
     });
 
