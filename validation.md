@@ -21,7 +21,7 @@ Unlike Laravel, Lumen provides access to the `validate` method from within Route
 
 	use Illuminate\Http\Request;
 
-	$app->post('/user', function (Request $request) {
+	$router->post('/user', function (Request $request) {
 		$this->validate($request, [
 			'name' => 'required',
 			'email' => 'required|email|unique:users'

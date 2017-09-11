@@ -24,6 +24,14 @@ In Laravel 5.5, the service container implements the PSR-11 interface, causing c
         require __DIR__.'/../routes/web.php';
     });
 
+### Updating The Routes File
+
+The Routes file needs to be updated to reflect the Bootstrap file update to use the Router instance, So replace any use of `$app` parameter with the `$router` parameter in the routes definitions in `routes/web.php`:
+
+    $router->get('foo', function () {
+        return 'Hello World';
+    });
+
 <a name="upgrade-5.4.0"></a>
 ## Upgrading To 5.4.0 From 5.3
 
