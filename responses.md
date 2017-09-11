@@ -13,7 +13,7 @@
 
 Of course, all routes and controllers should return some kind of response to be sent back to the user's browser. Lumen provides several different ways to return responses. The most basic response is simply returning a string from a route or controller:
 
-    $app->get('/', function () {
+    $router->get('/', function () {
         return 'Hello World';
     });
 
@@ -25,14 +25,14 @@ However, for most routes and controller actions, you will be returning a full `I
 
     use Illuminate\Http\Response;
 
-    $app->get('home', function () {
+    $router->get('home', function () {
         return (new Response($content, $status))
                       ->header('Content-Type', $value);
     });
 
 For convenience, you may also use the `response` helper:
 
-    $app->get('home', function () {
+    $router->get('home', function () {
         return response($content, $status)
                       ->header('Content-Type', $value);
     });
@@ -96,7 +96,7 @@ The `download` method may be used to generate a response that forces the user's 
 
 Redirect responses are instances of the `Illuminate\Http\RedirectResponse` class, and contain the proper headers needed to redirect the user to another URL. There are several ways to generate a `RedirectResponse` instance. The simplest method is to use the global `redirect` helper method:
 
-    $app->get('dashboard', function () {
+    $router->get('dashboard', function () {
         return redirect('home/dashboard');
     });
 

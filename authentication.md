@@ -24,7 +24,7 @@ Just like in the full Laravel framework, you may use the `Auth::user()` method t
 
 	use Illuminate\Http\Request;
 
-	$app->get('/post/{id}', ['middleware' => 'auth', function (Request $request, $id) {
+	$router->get('/post/{id}', ['middleware' => 'auth', function (Request $request, $id) {
 		$user = Auth::user();
 
 		$user = $request->user();

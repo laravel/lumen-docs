@@ -35,7 +35,7 @@ To obtain an instance of the current HTTP request via dependency injection, you 
 
 If your controller method is also expecting input from a route parameter, simply list your route arguments after your other dependencies. For example, if your route is defined like so:
 
-    $app->put('user/{id}', 'UserController@update');
+    $router->put('user/{id}', 'UserController@update');
 
 You may still type-hint the `Illuminate\Http\Request` and access your route parameter `id` by defining your controller method like the following:
 
@@ -108,7 +108,7 @@ Once you have installed these libraries, you may obtain a PSR-7 request by simpl
 
     use Psr\Http\Message\ServerRequestInterface;
 
-    $app->get('/', function (ServerRequestInterface $request) {
+    $router->get('/', function (ServerRequestInterface $request) {
         //
     });
 
