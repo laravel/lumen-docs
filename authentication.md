@@ -18,6 +18,8 @@ The `AuthServiceProvider` located in your `app/Providers` directory contains a s
 
 Again, you may retrieve the authenticated user however you wish. You may use an API token in the request headers or query string, a bearer token on the request, or using any other approach your application requires.
 
+If you are not using Eloquent models in your project, you can return an instance of `Illuminate\Auth\GenericUser` with an array representation of the user record.
+
 #### Accessing The Authenticated User
 
 Just like in the full Laravel framework, you may use the `Auth::user()` method to retrieve the current user. Alternatively, you may use the `$request->user()` method on an `Illuminate\Http\Request` instance:
