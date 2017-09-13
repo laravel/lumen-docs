@@ -18,7 +18,11 @@ The `AuthServiceProvider` located in your `app/Providers` directory contains a s
 
 Again, you may retrieve the authenticated user however you wish. You may use an API token in the request headers or query string, a bearer token on the request, or using any other approach your application requires.
 
-If you are not using Eloquent models in your project, you can return an instance of `Illuminate\Auth\GenericUser` with an array representation of the user record.
+If your project does not use Eloquent, you may return an instance of the `Illuminate\Auth\GenericUser` class. This class accepts an array of attributes as its only constructor argument:
+
+    use Illuminate\Auth\GenericUser;
+
+    return new GenericUser(['id' => 1, 'name' => 'Taylor']);
 
 #### Accessing The Authenticated User
 
