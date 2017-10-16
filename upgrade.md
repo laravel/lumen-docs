@@ -26,7 +26,7 @@ In Laravel 5.5, the service container implements the PSR-11 interface, causing c
 
 ### Updating The Routes File
 
-After updating your `app/bootstrap.php` file, you should update your `routes/web.php` file to use the `$router` variable instead of the `$app` variable:
+After updating your `bootstrap/app.php` file, you should update your `routes/web.php` file to use the `$router` variable instead of the `$app` variable:
 
     $router->get('/hello', function () {
         return 'Hello World';
