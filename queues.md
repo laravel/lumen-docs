@@ -41,6 +41,9 @@ In order to use the `database` queue driver, you will need database tables to ho
         $table->timestamp('failed_at')->useCurrent();
     });
 
+#### Redis
+
+In order to use the `Redis` queue driver, you will need to install the `illuminate/redis (5.5.*)` package via Composer. Then, you should register the `Illuminate\Redis\RedisServiceProvider` in your `bootstrap/app.php` file.
 
 #### Other Queue Dependencies
 
@@ -48,7 +51,6 @@ The following dependencies are needed for the listed queue drivers:
 
 - Amazon SQS: `aws/aws-sdk-php ~3.0`
 - Beanstalkd: `pda/pheanstalk ~3.0`
-- Redis: `predis/predis ~1.0`
 
 ## Differences From Laravel
 
