@@ -57,6 +57,8 @@ Route parameters are always encased within "curly" braces. The parameters will b
 
 > **Note:** Route parameters cannot contain the `-` character. Use an underscore (`_`) instead.
 
+> **Note:** Route parameters **must** match the corresponding variable names.
+
 <a name="optional-parameters"></a>
 ### Optional Parameters
 
