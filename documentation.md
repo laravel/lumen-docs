@@ -21,5 +21,5 @@
     - [Queues](/docs/{{version}}/queues)
     - [Service Container](/docs/{{version}}/container)
     - [Service Providers](/docs/{{version}}/providers)
-    - [Unit Testing](/docs/{{version}}/testing)
+    - [Testing](/docs/{{version}}/testing)
     - [Validation](/docs/{{version}}/validation)
