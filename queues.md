@@ -28,7 +28,7 @@ In order to use the `database` queue driver, you will need database tables to ho
         $table->unsignedInteger('reserved_at')->nullable();
         $table->unsignedInteger('available_at');
         $table->unsignedInteger('created_at');
-        $table->index(['queue', 'reserved', 'reserved_at']);
+        $table->index(['queue', 'reserved_at']);
     });
 
     Schema::create('failed_jobs', function (Blueprint $table) {
