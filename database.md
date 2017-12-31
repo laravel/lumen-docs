@@ -24,7 +24,6 @@ Or, with facades enabled, you may access the database connection via the `DB` fa
 
     $results = DB::select("SELECT * FROM users");
 
-
 #### Basic Queries
 
 To learn how to execute basic, raw SQL queries via the database component, you may consult the [full Laravel documentation](http://laravel.com/docs/database).

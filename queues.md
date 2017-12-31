@@ -41,7 +41,6 @@ In order to use the `database` queue driver, you will need database tables to ho
         $table->timestamp('failed_at')->useCurrent();
     });
 
-
 #### Other Queue Dependencies
 
 The following dependencies are needed for the listed queue drivers:
