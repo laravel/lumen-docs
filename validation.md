@@ -32,6 +32,10 @@ Unlike Laravel, Lumen provides access to the `validate` method from within Route
 
 Of course, you are free to manually create validator instances using the `Validator::make` facade method just as you would in Laravel.
 
+#### The `exists` And `unique` Rules
+
+If you would like to use the `exists` or `unique` validation rules, you should uncomment the `$app->withEloquent()` method call in your `bootstrap/app.php` file.
+
 #### The `$errors` View Variable
 
 Lumen does not support sessions out of the box, so the `$errors` view variable that is available in every view in Laravel is not available in Lumen. Should validation fail, the `$this->validate` helper will throw `Illuminate\Validation\ValidationException` with embedded JSON response that includes all relevant error messages. If you are not building a stateless API that solely sends JSON responses, you should use the full Laravel framework.
