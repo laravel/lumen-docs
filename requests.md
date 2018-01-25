@@ -135,9 +135,21 @@ When working on forms with array inputs, you may use "dot" notation to access th
 
 #### Determining If An Input Value Is Present
 
-To determine if a value is present on the request, you may use the `has` method. The `has` method returns `true` if the value is present **and** is not an empty string:
+You should use the `has` method to determine if a value is present on the request. The `has` method returns `true` if the value is present on the request:
 
     if ($request->has('name')) {
+        //
+    }
+
+When given an array, the `has` method will determine if all of the specified values are present:
+
+    if ($request->has(['name', 'email'])) {
+        //
+    }
+
+If you would like to determine if a value is present on the request and is not empty, you may use the `filled` method:
+
+    if ($request->filled('name')) {
         //
     }
 
