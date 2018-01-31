@@ -35,9 +35,13 @@ First, download the Lumen installer using Composer:
 
 Make sure to place the `~/.composer/vendor/bin` directory in your PATH so the `lumen` executable can be located by your system.
 
-Once installed, the `lumen new` command will create a fresh Lumen installation in the directory you specify. For instance, `lumen new blog` will create a directory named `blog` containing a fresh Lumen installation with all of Lumen's dependencies already installed. This method of installation is much faster than installing via Composer:
+Once installed, the `lumen new` command will create a fresh Lumen installation in the directory you specify. For instance, `lumen new blog` will create a directory named `blog` containing a fresh Lumen installation:
 
     lumen new blog
+
+After this you have to run `composer update` in the new created directory to download and update all of its dependencies:
+
+    composer update
 
 #### Via Composer Create-Project
 
