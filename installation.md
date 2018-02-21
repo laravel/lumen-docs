@@ -39,6 +39,15 @@ Once installed, the `lumen new` command will create a fresh Lumen installation i
 
     lumen new blog
 
+##### On Windows
+In order to have the `lumen` command available in windows `CMD` or `GIT Bash` you will need to:
+1. Add `C:\Users\<user>\AppData\Roaming\Composer\vendor\laravel\lumen-installer` to your `PATH`
+2. Navigate to the folder above and create a `lumen.bat` file
+3. Paste this code in:
+```
+php.exe "%~dp0lumen" %*
+```
+
 #### Via Composer Create-Project
 
 You may also install Lumen by issuing the Composer `create-project` command in your terminal:
