@@ -60,3 +60,27 @@ All of the configuration options for the Lumen framework are stored in the `.env
 
 The next thing you should do after installing Lumen is set your application key to a random string. Typically, this string should be 32 characters long. The key can be set in the `.env` environment file. If you have not renamed the `.env.example` file to `.env`, you should do that now. **If the application key is not set, your user encrypted data will not be secure!**
 
+#### Pretty URLs
+
+**Apache**
+
+The framework ships with a `public/.htaccess` file that is used to allow URLs without `index.php`. If you use Apache to serve your Lumen application, be sure to enable the `mod_rewrite` module.
+
+If the `.htaccess` file that ships with Lumen does not work with your Apache installation, try this one:
+
+	Options +FollowSymLinks
+	RewriteEngine On
+
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^ index.php [L]
+
+**Nginx**
+
+On Nginx, the following directive in your site configuration will allow "pretty" URLs:
+
+	location / {
+		try_files $uri $uri/ /index.php?$query_string;
+	}
+
+Of course, when using [Homestead](http://laravel.com/docs/homestead), pretty URLs will be configured automatically.
