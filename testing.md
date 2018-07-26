@@ -40,7 +40,7 @@ To create a test case, simply create a new test file in the `tests` directory. T
 		}
 	}
 
-> **Note:** If you define your own `setUp` method within a test class, be sure to call `parent::setUp`.
+> **Note:** If you define your own `setUp` method within a test class, be sure to call `parent::setUp()`.
 
 <a name="application-testing"></a>
 ## Application Testing
