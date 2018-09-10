@@ -1,4 +1,4 @@
-'# Upgrade Guide
+# Upgrade Guide
 
 - [Upgrading To 5.7.0 From 5.6](#upgrade-5.7.0)
 - [Upgrading To 5.6.0 From 5.5](#upgrade-5.6.0)
