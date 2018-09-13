@@ -61,7 +61,7 @@ Or, you may use the `withHeaders` method to specify an array of headers to be ad
 <a name="other-response-types"></a>
 ## Other Response Types
 
-The `response` helper may be used to conveniently generate other types of response instances. When the `response` helper is called without arguments, an implementation of the `Illuminate\Contracts\Routing\ResponseFactory` contract is returned. This contract provides several helpful methods for generating responses.
+The `response` helper may be used to conveniently generate other types of response instances. When the `response` helper is called without arguments, an implementation of the `Laravel\Lumen\Http\ResponseFactory` class is returned. This class provides several helpful methods for generating responses.
 
 <a name="json-responses"></a>
 #### JSON Responses
