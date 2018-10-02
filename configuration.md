@@ -20,8 +20,8 @@ You may easily access your configuration values using the global `config` helper
 To set configuration values at runtime, pass an array to the `config` helper:
 
     config(['app.locale' => 'en']);
-    
-Before a config file can be used you'll need to load it into the application. This can be done in your `bootstrap/app.php` file.
+
+Before a configuration file can be used, you should load it into the application using the `configure` method. This may be done within your `bootstrap/app.php` file:
 
     $app->configure('app');
 
