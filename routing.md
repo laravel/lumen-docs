@@ -121,7 +121,7 @@ To learn more about route groups, we'll walk through several common use-cases fo
 To assign middleware to all routes within a group, you may use the `middleware` key in the group attribute array. Middleware will be executed in the order you define this array:
 
     $router->group(['middleware' => 'auth'], function () use ($router) {
-        $router->get('/', function ()    {
+        $router->get('/', function () {
             // Uses Auth Middleware
         });
 
