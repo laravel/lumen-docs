@@ -42,7 +42,7 @@ In order to use the `database` queue driver, you will need database tables to ho
 
 #### Redis
 
-In order to use the `Redis` queue driver, you will need to install the `illuminate/redis (5.5.*)` package via Composer. Then, you should register the `Illuminate\Redis\RedisServiceProvider` in your `bootstrap/app.php` file.
+In order to use the `Redis` queue driver, you will need to install the `illuminate/redis` package via Composer. Then, you should register the `Illuminate\Redis\RedisServiceProvider` in your `bootstrap/app.php` file.
 
 #### Other Queue Dependencies
 
