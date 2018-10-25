@@ -18,6 +18,7 @@
     - [Encryption](/docs/{{version}}/encryption)
     - [Errors & Logging](/docs/{{version}}/errors)
     - [Events](/docs/{{version}}/events)
+    - [Mail](/docs/{{version}}/mail)
     - [Queues](/docs/{{version}}/queues)
     - [Service Container](/docs/{{version}}/container)
     - [Service Providers](/docs/{{version}}/providers)
