@@ -6,17 +6,17 @@ Lumen provides a clean, simple API over the popular [SwiftMailer](https://swiftm
 
 ### Configuration
 
-Before using Laravel mail drivers in Lumen, you will need to install the `illuminate/mail` package via Composer. Then, you should register the `Illuminate\Mail\MailServiceProvider` in your `bootstrap/app.php` file:
+Before using Laravel's mail drivers in Lumen, you will need to install the `illuminate/mail` package via Composer. Then, you should register the `Illuminate\Mail\MailServiceProvider` in your `bootstrap/app.php` file:
 
     $app->register(Illuminate\Mail\MailServiceProvider::class);
-Then, you need to configure mail options by copying the entire `mail.php` file from the [full Laravel framework](https://github.com/laravel/laravel/blob/master/config/mail.php) to the `config` directory in the root of your project and adjust the necessary configuration options as needed. If the `config` directory does not exist, then you should create it.
 
-After that, you should let Lumen take this file in account by adding:
+Next, configure your mail options by copying the `mail.php` configuration file from the [full Laravel framework](https://github.com/laravel/laravel/blob/master/config/mail.php) to the `config` directory in the root of your project. Of course, you are free to adjust the configuration options as needed. If your Lumen application does not contain a `config` directory, you should create it.
+
+After creating the configuration file, you should register it within your `bootstrap/app.php` file:
 
     $app->configure('mail');
-into your `bootstrap/app.php` file.
 
-The following configuration options will also be available in the `.env` file:
+The following configuration options should also be available to your Lumen application's `.env` file:
 
     MAIL_DRIVER=smtp
     MAIL_HOST=smtp.mailtrap.io
@@ -29,4 +29,4 @@ The following configuration options will also be available in the `.env` file:
 
 ## Usage
 
-The Lumen mail drivers utilize the exact same code as the full Laravel mail drivers. Beyond configuration, there are no differences between using the mail in Lumen and using the mail in Laravel; therefore, please consult the [full Laravel documentation](https://laravel.com/docs/mail) for usage examples.
+The Lumen mail drivers utilize the same code as the Laravel mail drivers. Beyond configuration, there are no differences between sending mail in Lumen and sending mail in Laravel; therefore, please consult the [full Laravel documentation](https://laravel.com/docs/mail) for usage examples.
