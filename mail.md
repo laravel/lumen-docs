@@ -16,6 +16,12 @@ After creating the configuration file, you should register it within your `boots
 
     $app->configure('mail');
 
+And you should register the container aliases:
+
+    $app->alias('mailer', Illuminate\Mail\Mailer::class);
+    $app->alias('mailer', Illuminate\Contracts\Mail\Mailer::class);
+    $app->alias('mailer', Illuminate\Contracts\Mail\MailQueue::class);
+
 The following configuration options should also be available to your Lumen application's `.env` file:
 
     MAIL_DRIVER=smtp
