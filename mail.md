@@ -12,12 +12,9 @@ Before using Laravel's mail drivers in Lumen, you will need to install the `illu
 
 Next, configure your mail options by copying the `mail.php` configuration file from the [full Laravel framework](https://github.com/laravel/laravel/blob/master/config/mail.php) to the `config` directory in the root of your project. Of course, you are free to adjust the configuration options as needed. If your Lumen application does not contain a `config` directory, you should create it.
 
-After creating the configuration file, you should register it within your `bootstrap/app.php` file:
+After creating the configuration file, you should register the mailer and its aliases within your `bootstrap/app.php` file:
 
     $app->configure('mail');
-
-And you should register the container aliases:
-
     $app->alias('mailer', Illuminate\Mail\Mailer::class);
     $app->alias('mailer', Illuminate\Contracts\Mail\Mailer::class);
     $app->alias('mailer', Illuminate\Contracts\Mail\MailQueue::class);
