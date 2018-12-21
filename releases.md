@@ -15,6 +15,11 @@
 
 Lumen 5.7 upgrades the framework's underlying Laravel components to the `5.7` series.
 
+<a name="5.6.0"></a>
+## Lumen 5.6.0
+
+Lumen 5.6 upgrades the framework's underlying Laravel components to the `5.6` series.
+
 <a name="5.5.0"></a>
 ## Lumen 5.5.0
 
