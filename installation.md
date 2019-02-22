@@ -20,6 +20,7 @@ However, if you are not using Homestead, you will need to make sure your server 
 - OpenSSL PHP Extension
 - PDO PHP Extension
 - Mbstring PHP Extension
+- Zip PHP Extension
 </div>
 
 <a name="installing-lumen"></a>
