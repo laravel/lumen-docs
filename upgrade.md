@@ -1,11 +1,21 @@
 # Upgrade Guide
 
+- [Upgrading To 5.8.0 From 5.7](#upgrade-5.8.0)
 - [Upgrading To 5.7.0 From 5.6](#upgrade-5.7.0)
 - [Upgrading To 5.6.0 From 5.5](#upgrade-5.6.0)
 - [Upgrading To 5.5.0 From 5.4](#upgrade-5.5.0)
 - [Upgrading To 5.4.0 From 5.3](#upgrade-5.4.0)
 - [Upgrading To 5.3.0 From 5.2](#upgrade-5.3.0)
 - [Upgrading To 5.2.0 From 5.1](#upgrade-5.2.0)
+
+<a name="upgrade-5.8.0"></a>
+## Upgrading To 5.8.0 From 5.7
+
+Lumen 5.8 serves as a maintenance release to upgrade the underlying Laravel packages to the 5.8 release series. Before upgrading your application to Lumen 5.8, you should review the Laravel 5.8 [upgrade guide](https://laravel.com/docs/5.8/upgrade#upgrade-5.8.0) and make any applicable changes to your application according to which Laravel components you are using.
+
+Once you have made the necessary adjustments to your application, you may upgrade your Lumen framework dependency in your `composer.json` file and run the `composer update` command:
+
+    "laravel/lumen-framework": "5.8.*"
 
 <a name="upgrade-5.7.0"></a>
 ## Upgrading To 5.7.0 From 5.6
