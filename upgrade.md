@@ -22,7 +22,7 @@ Once you have made the necessary adjustments to your application, you may upgrad
 Lumen 5.8 makes use of the newest implementation of the `vlucas/phpdotenv` library. You'll need to change the code which loads the environment variables in your `bootstrap/app.php` file at the top to the following:
 
 	(new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
-    	dirname(__DIR__)
+		dirname(__DIR__)
 	))->bootstrap();
 
 Additionally, you'll need to update your dependency in your `composer.json` to the new version:
