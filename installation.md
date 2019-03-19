@@ -4,6 +4,7 @@
     - [Server Requirements](#server-requirements)
     - [Installing Lumen](#installing-lumen)
     - [Configuration](#configuration)
+- [Compatibility](#compatibility)
 
 <a name="installation"></a>
 ## Installation
@@ -60,3 +61,7 @@ All of the configuration options for the Lumen framework are stored in the `.env
 
 The next thing you should do after installing Lumen is set your application key to a random string. Typically, this string should be 32 characters long. The key can be set in the `.env` environment file. If you have not renamed the `.env.example` file to `.env`, you should do that now. **If the application key is not set, your user encrypted data will not be secure!**
 
+<a name="compatibility"></a>
+## Compatibility
+
+Due to Lumen's nature of being a total separate framework than Laravel, we don't offer or strive to compatibility with any of the currently available libraries that Laravel offers like Cashier, Passport, Scout, etc. If you need any of these libraries for your app we recommend you make use of [the Laravel framework](https://laravel.com).
