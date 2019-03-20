@@ -64,4 +64,4 @@ The next thing you should do after installing Lumen is set your application key 
 <a name="compatibility"></a>
 ## Compatibility
 
-Due to Lumen's nature of being a total separate framework than Laravel, we don't offer or strive to compatibility with any of the currently available libraries that Laravel offers like Cashier, Passport, Scout, etc. If you need any of these libraries for your app we recommend you make use of [the Laravel framework](https://laravel.com).
+Since Lumen is a totally separate framework from Laravel, it does not intentionally offer compatibility with any additional Laravel libraries like Cashier, Passport, Scout, etc. If your application requires the functionality provided by these libraries, please use [the Laravel framework](https://laravel.com).
