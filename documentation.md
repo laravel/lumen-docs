@@ -24,3 +24,4 @@
     - [Service Providers](/docs/{{version}}/providers)
     - [Testing](/docs/{{version}}/testing)
     - [Validation](/docs/{{version}}/validation)
+    - [Views](/docs/{{version}}/views)
