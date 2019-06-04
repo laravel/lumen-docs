@@ -15,7 +15,8 @@
 ## Lumen 5.8.0
 
 Lumen 5.8 upgrades the framework's underlying Laravel components to the `5.8` series.
-
+New ability:
+Lumen allows you to serve HTML content using the View facade and Blade templating engine.
 <a name="5.7.0"></a>
 ## Lumen 5.7.0
 
