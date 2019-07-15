@@ -119,6 +119,10 @@ Once the middleware has been defined in the HTTP kernel, you may use the `middle
         //
     }]);
 
+Or without closure notation, using the `uses` key to specify controller actions as a string:
+
+    $router->get('admin/profile', ['middleware' => 'auth', 'uses' => 'AdminController@showProfile']);
+
 Use an array to assign multiple middleware to the route:
 
     $router->get('/', ['middleware' => ['first', 'second'], function () {
