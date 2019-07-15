@@ -204,4 +204,4 @@ To move the uploaded file to a new location, you should use the `move` method. T
 
 #### Other File Methods
 
-There are a variety of other methods available on `UploadedFile` instances. Check out the [API documentation for the class](http://api.symfony.com/3.0/Symfony/Component/HttpFoundation/File/UploadedFile.html) for more information regarding these methods.
+There are a variety of other methods available on `UploadedFile` instances. Check out the [API documentation for the class](https://github.com/symfony/symfony/blob/4.2/src/Symfony/Component/HttpFoundation/File/UploadedFile.php) for more information regarding these methods.
