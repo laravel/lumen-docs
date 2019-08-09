@@ -150,7 +150,7 @@ Another common use-case for route groups is assigning the same PHP namespace to 
 The `prefix` group attribute may be used to prefix each route in the group with a given URI. For example, you may want to prefix all route URIs within the group with `admin`:
 
     $router->group(['prefix' => 'admin'], function () use ($router) {
-        $router->get('users', function ()    {
+        $router->get('users', function () {
             // Matches The "/admin/users" URL
         });
     });
@@ -158,7 +158,7 @@ The `prefix` group attribute may be used to prefix each route in the group with 
 You may also use the `prefix` parameter to specify common parameters for your grouped routes:
 
     $router->group(['prefix' => 'accounts/{accountId}'], function () use ($router) {
-        $router->get('detail', function ($accountId)    {
+        $router->get('detail', function ($accountId) {
             // Matches The "/accounts/{accountId}/detail" URL
         });
     });
