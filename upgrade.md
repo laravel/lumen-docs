@@ -1,5 +1,6 @@
 # Upgrade Guide
 
+- [Upgrading To 6.0.0 From 5.8](#upgrade-5.8.0)
 - [Upgrading To 5.8.0 From 5.7](#upgrade-5.8.0)
 - [Upgrading To 5.7.0 From 5.6](#upgrade-5.7.0)
 - [Upgrading To 5.6.0 From 5.5](#upgrade-5.6.0)
@@ -7,6 +8,15 @@
 - [Upgrading To 5.4.0 From 5.3](#upgrade-5.4.0)
 - [Upgrading To 5.3.0 From 5.2](#upgrade-5.3.0)
 - [Upgrading To 5.2.0 From 5.1](#upgrade-5.2.0)
+
+<a name="upgrade-6.0.0"></a>
+## Upgrading To 6.0.0 From 5.8
+
+Lumen 6.0 serves as a maintenance release to upgrade the underlying Laravel packages to the 6.0 release series. Before upgrading your application to Lumen 6.0, you should review the Laravel 6.0 [upgrade guide](https://laravel.com/docs/6.0/upgrade#upgrade-6.0) and make any applicable changes to your application according to which Laravel components you are using.
+
+Once you have made the necessary adjustments to your application, you may upgrade your Lumen framework dependency in your `composer.json` file and run the `composer update` command:
+
+    "laravel/lumen-framework": "^6.0"
 
 <a name="upgrade-5.8.0"></a>
 ## Upgrading To 5.8.0 From 5.7
