@@ -6,7 +6,7 @@
 <a name="configuration"></a>
 ## Configuration
 
-Before using Lumens's encrypter, you should set the `APP_KEY` option of your `.env` file to a 32 character, random string. If this value is not properly set, all values encrypted by Lumen will be insecure.
+Before using Lumen's encrypter, you should set the `APP_KEY` option of your `.env` file to a 32 character, random string. If this value is not properly set, all values encrypted by Lumen will be insecure.
 
 <a name="basic-usage"></a>
 ## Basic Usage
