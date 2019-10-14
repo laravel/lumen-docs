@@ -7,7 +7,7 @@
 <a name="configuration"></a>
 ## Configuration
 
-Lumen makes connecting with databases and running queries extremely simple. Currently Lumen supports four database systems: MySQL, Postgres, SQLite, and SQL Server.
+Lumen makes connecting with databases and running queries extremely simple. Currently Lumen supports four database systems: MySQL, PostgreSQL, SQLite, and SQL Server.
 
 You may use the `DB_*` configuration options in your `.env` configuration file to configure your database settings, such as the driver, host, username, and password.
 
