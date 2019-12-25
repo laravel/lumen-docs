@@ -39,3 +39,27 @@ If you would like to use the `exists` or `unique` validation rules, you should u
 #### The `$errors` View Variable
 
 Lumen does not support sessions out of the box, so the `$errors` view variable that is available in every view in Laravel is not available in Lumen. Should validation fail, the `$this->validate` helper will throw `Illuminate\Validation\ValidationException` with embedded JSON response that includes all relevant error messages. If you are not building a stateless API that solely sends JSON responses, you should use the full Laravel framework.
+
+## Add custom data
+
+By default the `validate` method returns only the information from the `\Illuminate\Support\MessageBag`. If you wish to include your own data, for instance a `status` field to indicate that the request has failed. You can use the `buildResponseUsing` method to add a `Closure` in which you can change the response to the client.
+
+	use Illuminate\Http\Request;
+
+	$router->post('/user', function (Request $request) {
+	    $this::buildResponseUsing(function(Request $request, array $errors) {
+	        $returnData = [
+	            'status' => 'failed',
+	            'data' => $errors
+            ];
+            return response()->json($returnData);
+	    });
+	    
+		$this->validate($request, [
+			'name' => 'required',
+			'email' => 'required|email|unique:users'
+		]);
+
+		// Store User...
+	});
+
