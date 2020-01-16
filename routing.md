@@ -10,6 +10,7 @@
     - [Middleware](#route-group-middleware)
     - [Namespaces](#route-group-namespaces)
     - [Route Prefixes](#route-group-prefixes)
+- [OPTIONS method](#options-method)
 
 <a name="basic-routing"></a>
 ## Basic Routing
@@ -161,4 +162,13 @@ You may also use the `prefix` parameter to specify common parameters for your gr
         $router->get('detail', function ($accountId) {
             // Matches The "/accounts/{accountId}/detail" URL
         });
+    });
+
+<a name="options-method"></a>
+## OPTIONS method
+
+Browsers following the Cross-Origin Resource Sharing (CORS) standard to access your JSON API will do a preflight request using the OPTIONS method. To properly respond, add `options()` here, and use [middleware](/docs/{{version}}/middleware#introduction) to attach CORS headers.
+
+    $router->options('/{any:.*}', function () {
+        return response(['status' => 'success']);
     });
