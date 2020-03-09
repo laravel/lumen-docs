@@ -1,5 +1,6 @@
 # Upgrade Guide
 
+- [Upgrading To 7.0.0 From 6.x](#upgrade-6.x)
 - [Upgrading To 6.0.0 From 5.8](#upgrade-6.0.0)
 - [Upgrading To 5.8.0 From 5.7](#upgrade-5.8.0)
 - [Upgrading To 5.7.0 From 5.6](#upgrade-5.7.0)
@@ -8,6 +9,26 @@
 - [Upgrading To 5.4.0 From 5.3](#upgrade-5.4.0)
 - [Upgrading To 5.3.0 From 5.2](#upgrade-5.3.0)
 - [Upgrading To 5.2.0 From 5.1](#upgrade-5.2.0)
+
+<a name="upgrade-6.x"></a>
+## Upgrading To 7.0.0 From 6.x
+
+Lumen 7.0 serves as a maintenance release to upgrade the underlying Laravel packages to the 7.x release series. Before upgrading your application to Lumen 7.0, you should review the Laravel 7.0 [upgrade guide](https://laravel.com/docs/7.x/upgrade) and make any applicable changes to your application according to which Laravel components you are using.
+
+Once you have made the necessary adjustments to your application, you may upgrade your Lumen framework dependency in your `composer.json` file and run the `composer update` command:
+
+    "laravel/lumen-framework": "^7.0"
+
+### Symfony 5 Related Upgrades
+
+Lumen 7 utilizes the 5.x series of the Symfony components. Some minor changes to your application are required to accommodate this upgrade.
+
+First, the `report` and `render` methods of your application's `App\Exceptions\Handler` class should accept instances of the `Throwable` interface instead of `Exception` instances:
+
+    use Throwable;
+
+    public function report(Throwable $exception);
+    public function render($request, Throwable $exception);
 
 <a name="upgrade-6.0.0"></a>
 ## Upgrading To 6.0.0 From 5.8
