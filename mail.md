@@ -21,7 +21,7 @@ After creating the configuration file, you should register the mailer and its al
 
 The following configuration options should also be available to your Lumen application's `.env` file:
 
-    MAIL_DRIVER=smtp
+    MAIL_MAILER=smtp
     MAIL_HOST=smtp.mailtrap.io
     MAIL_PORT=2525
     MAIL_USERNAME=
