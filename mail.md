@@ -15,6 +15,10 @@ Next, configure your mail options by copying the `mail.php` configuration file f
 After creating the configuration file, you should register the mailer and its aliases within your `bootstrap/app.php` file:
 
     $app->configure('mail');
+    
+    $app->alias('mail.manager', Illuminate\Mail\MailManager::class);
+    $app->alias('mail.manager', Illuminate\Contracts\Mail\Factory::class);
+    
     $app->alias('mailer', Illuminate\Mail\Mailer::class);
     $app->alias('mailer', Illuminate\Contracts\Mail\Mailer::class);
     $app->alias('mailer', Illuminate\Contracts\Mail\MailQueue::class);
