@@ -19,6 +19,13 @@ Once you have made the necessary adjustments to your application, you may upgrad
 
     "laravel/lumen-framework": "^7.0"
 
+### Timezone Setting
+
+The timezone setting has been moved from the `lumen-framework` package to the `bootstrap/app.php` file.  
+If you're currently using the `APP_TIMEZONE` environment variable you should add the following to your `bootstrap/app.php` file:
+
+    date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
+
 ### Symfony 5 Related Upgrades
 
 Lumen 7 utilizes the 5.x series of the Symfony components. Some minor changes to your application are required to accommodate this upgrade.
