@@ -7,7 +7,7 @@ The Lumen queue service provides a unified API across a variety of different que
 
 Like many other parts of the framework, Lumen's queued jobs function are almost identically to Laravel's queued jobs. So, to learn more about queuing jobs in Lumen, please review the [full Laravel queue documentation](https://laravel.com/docs/queues).
 
-> {note} Closure jobs aren't supported in Lumen.
+> {note} Closure jobs are not supported by Lumen.
 
 <a name="configuration"></a>
 ### Configuration
