@@ -28,23 +28,11 @@ However, if you are not using Homestead, you will need to make sure your server 
 
 Lumen utilizes [Composer](http://getcomposer.org) to manage its dependencies. So, before using Lumen, make sure you have Composer installed on your machine.
 
-#### Via Lumen Installer
-
-First, download the Lumen installer using Composer:
-
-    composer global require "laravel/lumen-installer"
-
-Make sure to place the `~/.composer/vendor/bin` directory in your PATH so the `lumen` executable can be located by your system.
-
-Once installed, the `lumen new` command will create a fresh Lumen installation in the directory you specify. For instance, `lumen new blog` will create a directory named `blog` containing a fresh Lumen installation with all of Lumen's dependencies already installed. This method of installation is much faster than installing via Composer:
-
-    lumen new blog
-
-#### Via Composer Create-Project
-
-You may also install Lumen by issuing the Composer `create-project` command in your terminal:
+Install Lumen by issuing the Composer `create-project` command in your terminal:
 
     composer create-project --prefer-dist laravel/lumen blog
+    
+Make sure to place the `~/.composer/vendor/bin` directory in your PATH so the `lumen` executable can be located by your system.
 
 ### Serving Your Application
 
