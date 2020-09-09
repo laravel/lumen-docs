@@ -31,8 +31,6 @@ Lumen utilizes [Composer](http://getcomposer.org) to manage its dependencies. So
 Install Lumen by issuing the Composer `create-project` command in your terminal:
 
     composer create-project --prefer-dist laravel/lumen blog
-    
-Make sure to place the `~/.composer/vendor/bin` directory in your PATH so the `lumen` executable can be located by your system.
 
 ### Serving Your Application
 
