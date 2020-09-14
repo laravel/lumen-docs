@@ -1,6 +1,7 @@
 # Upgrade Guide
 
-- [Upgrading To 7.0.0 From 6.x](#upgrade-6.x)
+- [Upgrading To 8.0.0 From 7.x](#upgrade-8.x)
+- [Upgrading To 7.0.0 From 6.x](#upgrade-7.x)
 - [Upgrading To 6.0.0 From 5.8](#upgrade-6.0.0)
 - [Upgrading To 5.8.0 From 5.7](#upgrade-5.8.0)
 - [Upgrading To 5.7.0 From 5.6](#upgrade-5.7.0)
@@ -10,7 +11,16 @@
 - [Upgrading To 5.3.0 From 5.2](#upgrade-5.3.0)
 - [Upgrading To 5.2.0 From 5.1](#upgrade-5.2.0)
 
-<a name="upgrade-6.x"></a>
+<a name="upgrade-8.x"></a>
+## Upgrading To 8.0.0 From 7.x
+
+Lumen 8.0 serves as a maintenance release to upgrade the underlying Laravel packages to the 8.x release series. Before upgrading your application to Lumen 8.0, you should review the Laravel 8.0 [upgrade guide](https://laravel.com/docs/8.x/upgrade) and make any applicable changes to your application according to which Laravel components you are using.
+
+Once you have made the necessary adjustments to your application, you may upgrade your Lumen framework dependency in your `composer.json` file and run the `composer update` command:
+
+    "laravel/lumen-framework": "^8.0"
+
+<a name="upgrade-7.x"></a>
 ## Upgrading To 7.0.0 From 6.x
 
 Lumen 7.0 serves as a maintenance release to upgrade the underlying Laravel packages to the 7.x release series. Before upgrading your application to Lumen 7.0, you should review the Laravel 7.0 [upgrade guide](https://laravel.com/docs/7.x/upgrade) and make any applicable changes to your application according to which Laravel components you are using.
@@ -21,7 +31,7 @@ Once you have made the necessary adjustments to your application, you may upgrad
 
 ### Timezone Setting
 
-The timezone setting has been moved from the `lumen-framework` package to the `bootstrap/app.php` file.  
+The timezone setting has been moved from the `lumen-framework` package to the `bootstrap/app.php` file.
 If you're currently using the `APP_TIMEZONE` environment variable you should add the following to your `bootstrap/app.php` file:
 
     date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
