@@ -19,6 +19,16 @@ Lumen 8.0 serves as a maintenance release to upgrade the underlying Laravel pack
 Once you have made the necessary adjustments to your application, you may upgrade your Lumen framework dependency in your `composer.json` file and run the `composer update` command:
 
     "laravel/lumen-framework": "^8.0"
+    
+### Model Factories
+
+Laravel's [model factories](https://laravel.com/docs/database-testing#creating-factories) feature has been totally rewritten to support classes and is not compatible with Lumen 7.x style factories. However, to ease the upgrade process, a new `laravel/legacy-factories` package has been created to continue using your existing factories with Lumen 8.x. You may install this package via Composer:
+
+    composer require laravel/legacy-factories
+    
+After installing it you'll need to register the service provider in your `bootstrap/app.php` file:
+
+	$app->register(Illuminate\Database\Eloquent\LegacyFactoryServiceProvider::class);
 
 <a name="upgrade-7.x"></a>
 ## Upgrading To 7.0.0 From 6.x
