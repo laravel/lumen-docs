@@ -198,93 +198,115 @@ Another option is to wrap every test case in a database transaction. Again, Lume
 <a name="model-factories"></a>
 ### Model Factories
 
-When testing, it is common to need to insert a few records into your database before executing your test. Instead of manually specifying the value of each column when you create this test data, Lumen allows you to define a default set of attributes for each of your [Eloquent models](https://laravel.com/docs/eloquent) using "factories". To get started, take a look at the `database/factories/ModelFactory.php` file in your application. Out of the box, this file contains one factory definition:
+When testing, it is common to need to insert a few records into your database before executing your test. Instead of manually specifying the value of each column when you create this test data, Lumen allows you to define a default set of attributes for each of your [Eloquent models](https://laravel.com/docs/eloquent) using model factories. 
 
-	$factory->define('App\User', function ($faker) {
-	    return [
-	        'name' => $faker->name,
-	        'email' => $faker->email,
-	    ];
-	});
+To get started, take a look at the `database/factories/UserFactory.php` file in your application. Out of the box, this file contains the following factory definition:
 
-Within the Closure, which serves as the factory definition, you may return the default test values of all attributes on the model. The Closure will receive an instance of the [Faker](https://github.com/fzaninotto/Faker) PHP library, which allows you to conveniently generate various kinds of random data for testing.
+	<?php
+    
+    namespace Database\Factories;
+    
+    use App\Models\User;
+    use Illuminate\Database\Eloquent\Factories\Factory;
+    
+    class UserFactory extends Factory
+    {
+        /**
+         * The name of the factory's corresponding model.
+         *
+         * @var string
+         */
+        protected $model = User::class;
+    
+        /**
+         * Define the model's default state.
+         *
+         * @return array
+         */
+        public function definition()
+        {
+            return [
+                'name' => $this->faker->name,
+                'email' => $this->faker->unique()->safeEmail,
+            ];
+        }
+    }
 
-Of course, you are free to add your own additional factories to the `ModelFactory.php` file.
+As you can see, in their most basic form, factories are classes that extend Lumen's base factory class and define a `model` property and `definition` method. The `definition` method returns the default set of attribute values that should be applied when creating a model using the factory.
 
-#### Multiple Factory Types
+Via the `faker` property, factories have access to the [Faker](https://github.com/fzaninotto/Faker) PHP library, which allows you to conveniently generate various kinds of random data for testing.
 
-Sometimes you may wish to have multiple factories for the same Eloquent model class. For example, perhaps you would like to have a factory for "Administrator" users in addition to normal users. You may define these factories using the `defineAs` method:
+#### Factory States
 
-	$factory->defineAs('App\User', 'admin', function ($faker) {
-	    return [
-	        'name' => $faker->name,
-	        'email' => $faker->email,
-	        'admin' => true,
-	    ];
-	});
+State manipulation methods allow you to define discrete modifications that can be applied to your model factories in any combination. For example, your `User` model might have a `suspended` state that modifies one of its default attribute values. You may define your state transformations using the base factory's `state` method. You may name your state method anything you like. After all, it's just a typical PHP method:
 
-Instead of duplicating all of the attributes from your base user factory, you may use the `raw` method to retrieve the base attributes. Once you have the attributes, simply supplement them with any additional values you require:
+    /**
+     * Indicate that the user is suspended.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function suspended()
+    {
+        return $this->state([
+            'account_status' => 'suspended',
+        ]);
+    }
 
-	$factory->defineAs('App\User', 'admin', function ($faker) use ($factory) {
-		$user = $factory->raw('App\User');
+If your state transformation requires access to the other attributes defined by the factory, you may pass a callback to the `state` method. The callback will receive the array of raw attributes defined for the factory:
 
-		return array_merge($user, ['admin' => true]);
-	});
+    /**
+     * Indicate that the user is suspended.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function suspended()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'account_status' => 'suspended',
+            ];
+        });
+    }
+
+#### Factory Callbacks
+
+Factory callbacks are registered using the `afterMaking` and `afterCreating` methods and allow you to perform additional tasks after making or creating a model. You should register these callbacks by defining a `configure` method on the factory class. This method will automatically be called by Laravel when the factory is instantiated:
+
+    namespace Database\Factories;
+
+    use App\Models\User;
+    use Illuminate\Database\Eloquent\Factories\Factory;
+    use Illuminate\Support\Str;
+
+    class UserFactory extends Factory
+    {
+        /**
+         * The name of the factory's corresponding model.
+         *
+         * @var string
+         */
+        protected $model = User::class;
+
+        /**
+         * Configure the model factory.
+         *
+         * @return $this
+         */
+        public function configure()
+        {
+            return $this->afterMaking(function (User $user) {
+                //
+            })->afterCreating(function (User $user) {
+                //
+            });
+        }
+
+        // ...
+    }
 
 #### Using Factories In Tests
 
-Once you have defined your factories, you may use them in your tests or database seed files to generate model instances using the global `factory` function. So, let's take a look at a few examples of creating models. First, we'll use the `make` method, which creates models but does not save them to the database:
-
-    public function testDatabase()
-    {
-    	$user = factory('App\User')->make();
-
-    	// Use model in tests...
-    }
-
-If you would like to override some of the default values of your models, you may pass an array of values to the `make` method. Only the specified values will be replaced while the rest of the values remain set to their default values as specified by the factory:
-
-    $user = factory('App\User')->make([
-    	'name' => 'Abigail',
-   	]);
-
-You may also create a Collection of many models or create models of a given type:
-
-	// Create three App\User instances...
-	$users = factory('App\User', 3)->make();
-
-	// Create an App\User "admin" instance...
-	$user = factory('App\User', 'admin')->make();
-
-	// Create three App\User "admin" instances...
-	$users = factory('App\User', 'admin', 3)->make();
-
-#### Persisting Factory Models
-
-The `create` method not only creates the model instances, but also saves them to the database using Eloquent's `save` method:
-
-    public function testDatabase()
-    {
-    	$user = factory('App\User')->create();
-
-    	// Use model in tests...
-    }
-
-Again, you may override attributes on the model by passing an array to the `create` method:
-
-    $user = factory('App\User')->create([
-    	'name' => 'Abigail',
-   	]);
-
-#### Adding Relations To Models
-
-You may even persist multiple models to the database. In this example, we'll even attach a relation to the created models. When using the `create` method to create multiple models, an Eloquent [collection instance](http://laravel.com/docs/eloquent-collections) is returned, allowing you to use any of the convenient functions provided by the collection, such as `each`:
-
-    $users = factory('App\User', 3)
-               ->create()
-               ->each(function($u) {
-					$u->posts()->save(factory('App\Post')->make());
-				});
+The Lumen model factories based on the same code as the Laravel model factories. Therefore, please consult the [full Laravel documentation](https://laravel.com/docs/8.x/database-testing#using-factories) for usage examples.
 
 <a name="mocking"></a>
 ## Mocking
