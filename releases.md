@@ -1,5 +1,6 @@
 # Release Notes
 
+- [8.0.0](#8.0.0)
 - [7.0.0](#7.0.0)
 - [6.0.0](#6.0.0)
 - [5.8.0](#5.8.0)
@@ -12,6 +13,11 @@
 - [5.1.0](#5.1.0)
 - [5.0.4](#5.0.4)
 - [5.0 (Based On Laravel 5.0.x)](#5.0)
+
+<a name="8.0.0"></a>
+## Lumen 8.0.0
+
+Lumen 8.0 upgrades the framework's underlying Laravel components to the `8.x` series.
 
 <a name="7.0.0"></a>
 ## Lumen 7.0.0
