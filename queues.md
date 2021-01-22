@@ -61,7 +61,7 @@ However, there are a few minor differences that we will discuss now. First, let'
 
 #### Generators
 
-Lumen does not include generators for automatically creating new Job classes. Instead, you should copy the `ExampleJob` class that is included with the framework. This class provides the basic structure that is shared by every Job class. The base `Job` that is used by the `ExampleJob` already includes the needed `InteractsWithQueue`, `Queueable`, and `SerializesModels` traits:
+Lumen does not include generators for automatically creating new Job classes. Instead, you should copy the `ExampleJob` class that is included with the framework. This class provides the basic structure that is shared by every Job class. The base `Job` class that is used by the `ExampleJob` class already includes the needed `InteractsWithQueue`, `Queueable` and `SerializesModels` traits:
 
     <?php
 
