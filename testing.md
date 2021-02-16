@@ -135,7 +135,7 @@ key as lumen sets the errors at the root of the response by default:
     {
     	$response = $this->call('POST', '/user', ['name' => null]);
 
-        $response->assertJsonValidationErrors('name', null);
+	$response->assertJsonValidationErrors('name', null);
     }
 
 <a name="working-with-databases"></a>
