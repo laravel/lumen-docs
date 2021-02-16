@@ -128,6 +128,16 @@ If you are making `POST`, `PUT`, or `PATCH` requests you may pass an array of in
 
    	$response = $this->call('POST', '/user', ['name' => 'Taylor']);
 
+If you wish to use `assertJsonValidationErrors` then you will need to pass null as the response
+key as lumen sets the errors at the root of the response by default:
+
+    public function testApplication()
+    {
+    	$response = $this->call('POST', '/user', ['name' => null]);
+
+        $response->assertJsonValidationErrors('name', null);
+    }
+
 <a name="working-with-databases"></a>
 ## Working With Databases
 
