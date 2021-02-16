@@ -128,14 +128,15 @@ If you are making `POST`, `PUT`, or `PATCH` requests you may pass an array of in
 
    	$response = $this->call('POST', '/user', ['name' => 'Taylor']);
 
-If you wish to use `assertJsonValidationErrors` then you will need to pass null as the response
-key as lumen sets the errors at the root of the response by default:
+#### JSON Validation Errors
+
+If you are using the `assertJsonValidationErrors` method, you should pass `null` as the response key that contains the response's error message. Unlike Laravel, Lumen returns errors at the root of the returned JSON object:
 
     public function testApplication()
     {
     	$response = $this->call('POST', '/user', ['name' => null]);
 
-    	$response->assertJsonValidationErrors('name', null);
+    	$response->assertJsonValidationErrors('name', $responseKey = null);
     }
 
 <a name="working-with-databases"></a>
