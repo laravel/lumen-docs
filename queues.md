@@ -16,6 +16,10 @@ The queue configuration options are in the `.env` file.
 
 If you would like to thoroughly customize the queue configuration, then you must copy the entire `vendor/laravel/lumen-framework/config/queue.php` file to the `config` directory in the root of your project and adjust the necessary configuration options as needed. If the `config` directory does not exist, then you should create it.
 
+After creating the configuration file, ensure that the configuration file is loaded via your `bootstrap/app.php` file:
+
+    $app->configure('queue');
+
 ### Driver Prerequisites
 
 #### Database
