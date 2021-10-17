@@ -24,7 +24,8 @@ After creating the configuration file, ensure that the configuration file is loa
 
 #### Database
 
-In order to use the `database` queue driver, you will need database tables to hold the jobs and failures:
+In order to use the `database` queue driver, you will need database tables to hold the jobs and failures. Run `php artisan queue:table` to generate
+migration for `jobs` table and `php artisan queue:failed-table` to generate `failed-jobs` table respectively.
 
     Schema::create('jobs', function (Blueprint $table) {
         $table->bigIncrements('id');
