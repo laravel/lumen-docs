@@ -1,5 +1,6 @@
 # Upgrade Guide
 
+- [Upgrading To 9.0.0 From 8.x](#upgrade-9.x)
 - [Upgrading To 8.0.0 From 7.x](#upgrade-8.x)
 - [Upgrading To 7.0.0 From 6.x](#upgrade-7.x)
 - [Upgrading To 6.0.0 From 5.8](#upgrade-6.0.0)
@@ -10,6 +11,15 @@
 - [Upgrading To 5.4.0 From 5.3](#upgrade-5.4.0)
 - [Upgrading To 5.3.0 From 5.2](#upgrade-5.3.0)
 - [Upgrading To 5.2.0 From 5.1](#upgrade-5.2.0)
+
+<a name="upgrade-9.x"></a>
+## Upgrading To 9.0.0 From 8.x
+
+Lumen 9.0 serves as a maintenance release to upgrade the underlying Laravel packages to the 9.x release series. Before upgrading your application to Lumen 9.0, you should review the Laravel 9.0 [upgrade guide](https://laravel.com/docs/9.x/upgrade) and make any applicable changes to your application according to which Laravel components you are using.
+
+Once you have made the necessary adjustments to your application, you may upgrade your Lumen framework dependency in your `composer.json` file and run the `composer update` command:
+
+    "laravel/lumen-framework": "^9.0"
 
 <a name="upgrade-8.x"></a>
 ## Upgrading To 8.0.0 From 7.x

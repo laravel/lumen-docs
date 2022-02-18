@@ -317,7 +317,7 @@ Factory callbacks are registered using the `afterMaking` and `afterCreating` met
 
 #### Using Factories In Tests
 
-The Lumen model factories based on the same code as the Laravel model factories. Therefore, please consult the [full Laravel documentation](https://laravel.com/docs/8.x/database-testing#using-factories) for usage examples.
+The Lumen model factories based on the same code as the Laravel model factories. Therefore, please consult the [full Laravel documentation](https://laravel.com/docs/database-testing#using-factories) for usage examples.
 
 <a name="mocking"></a>
 ## Mocking
