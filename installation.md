@@ -45,7 +45,9 @@ All of the configuration options for the Lumen framework are stored in the `.env
 
 #### Application Key
 
-The next thing you should do after installing Lumen is set your application key to a random string. Typically, this string should be 32 characters long. The key can be set in the `.env` environment file. If you have not renamed the `.env.example` file to `.env`, you should do that now. **If the application key is not set, your user encrypted data will not be secure!**
+The next thing you should do after installing Lumen is set your application key to a random string. Typically, this string should be 32 characters long. The key can be set in the `.env` environment file. If you have not renamed the `.env.example` file to `.env`, you should do that now. **If the application key is not set, your user encrypted data will not be secure!** To generate key, use:
+
+    php -r "echo bin2hex(random_bytes(32));"
 
 <a name="compatibility"></a>
 ## Compatibility
