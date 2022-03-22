@@ -1,7 +1,7 @@
 # Release Notes
 
 - [Support Policy](#support-policy)
-- [Versioning Scheme](#versioning)
+- [Versioning Scheme](#versioning-scheme)
 - [Releases](#releases)
 
 <a name="support-policy"></a>
