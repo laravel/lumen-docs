@@ -7,7 +7,7 @@
 <a name="support-policy"></a>
 ## Support Policy
 
-Lumen only receives bug fixes on the latest version. For LTS support, we recommend [Laravel](https://laravel.com).
+Lumen only receives bug fixes on the latest version. For all new projects, we recommend using the full [Laravel framework](https://laravel.com).
 
 <a name="versioning-scheme"></a>
 ## Versioning Scheme
