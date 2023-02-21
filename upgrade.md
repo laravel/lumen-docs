@@ -1,5 +1,6 @@
 # Upgrade Guide
 
+- [Upgrading To 10.0.0 From 8.x](#upgrade-10.x)
 - [Upgrading To 9.0.0 From 8.x](#upgrade-9.x)
 - [Upgrading To 8.0.0 From 7.x](#upgrade-8.x)
 - [Upgrading To 7.0.0 From 6.x](#upgrade-7.x)
@@ -11,6 +12,15 @@
 - [Upgrading To 5.4.0 From 5.3](#upgrade-5.4.0)
 - [Upgrading To 5.3.0 From 5.2](#upgrade-5.3.0)
 - [Upgrading To 5.2.0 From 5.1](#upgrade-5.2.0)
+
+<a name="upgrade-10.x"></a>
+## Upgrading To 10.0.0 From 9.x
+
+Lumen 10.0 serves as a maintenance release to upgrade the underlying Laravel packages to the 10.x release series. Before upgrading your application to Lumen 10.0, you should review the Laravel 10.0 [upgrade guide](https://laravel.com/docs/10.x/upgrade) and make any applicable changes to your application according to which Laravel components you are using.
+
+Once you have made the necessary adjustments to your application, you may upgrade your Lumen framework dependency in your `composer.json` file and run the `composer update` command:
+
+    "laravel/lumen-framework": "^10.0"
 
 <a name="upgrade-9.x"></a>
 ## Upgrading To 9.0.0 From 8.x
