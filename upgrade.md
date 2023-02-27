@@ -1,6 +1,6 @@
 # Upgrade Guide
 
-- [Upgrading To 10.0.0 From 8.x](#upgrade-10.x)
+- [Upgrading To 10.0.0 From 9.x](#upgrade-10.x)
 - [Upgrading To 9.0.0 From 8.x](#upgrade-9.x)
 - [Upgrading To 8.0.0 From 7.x](#upgrade-8.x)
 - [Upgrading To 7.0.0 From 6.x](#upgrade-7.x)
