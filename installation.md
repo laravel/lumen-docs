@@ -16,7 +16,7 @@
 The Lumen framework has a few system requirements. You will need to make sure your server meets the following requirements:
 
 <div class="content-list" markdown="1">
-- PHP >= 8.0
+- PHP >= 8.2
 - OpenSSL PHP Extension
 - PDO PHP Extension
 - Mbstring PHP Extension
