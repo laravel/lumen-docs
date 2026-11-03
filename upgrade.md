@@ -14,6 +14,9 @@
 - [Upgrading To 5.3.0 From 5.2](#upgrade-5.3.0)
 - [Upgrading To 5.2.0 From 5.1](#upgrade-5.2.0)
 
+> [!NOTE]
+> Since we now recommend always beginning new projects with [Laravel](https://laravel.com), instead of upgrading you may want to migrate your Lumen application to a Laravel application. To automate the conversion, you may use [Shift](https://laravelshift.com). Shift is a community-maintained service that automates Laravel upgrades.
+
 <a name="upgrade-11.x"></a>
 ## Upgrading To 11.0.0 From 10.x
 
